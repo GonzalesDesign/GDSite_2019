@@ -1,0 +1,59 @@
+/*-- Compound Color Schemes or Split Complementary --*/
+$rlgColorPrimary: #347B98;
+$rlgColorPrimaryMid: lighten($rlgColorPrimary, 10%); // rgb(84, 163, 194);
+$rlgColorPrimaryQtr: lighten($rlgColorPrimary, 20%); // rgb(121, 206, 240);
+// $rlgColorSecondary: #FE2712;
+$rlgColorSecondary: rgb(254, 68, 0); //#fe5900
+$rlgColorSecondaryMid: lighten($rlgColorSecondary, 15%);
+$rlgColorSecondaryDrk: darken($rlgColorSecondary, 5%);
+// $rlgColorSecondaryMid: darken($rlgColorSecondary, 20%);
+// $rlgColorSecondaryMid: rgb(113, 162, 182);
+$rlgColorTertiary: #92d11f; // #92d11f  #B2D732
+$rlgColorTertiaryMid: rgb(207, 232, 118);
+// $rlgColorDark: #092834;
+$rlgColorDark: #033346;
+$rlgColorDarkMid: lighten($rlgColorDark, 5%);
+$rlgColorLight: #F0F7D4;
+$rlgColorGreyDark:  rgb(78, 83, 85);
+$rlgColorGreyMid:  rgb(117, 127, 131);
+$rlgColorGreyLight:  rgb(176, 180, 182);
+
+/*-- Compound Color Schemes or Split Complementary --*/
+/* $rlgColorPrimary: rgb(178, 215, 50);
+$rlgColorPrimaryMid: rgb(204, 224, 129);
+$rlgColorSecondary: #347B98;
+$rlgColorSecondaryMid: rgb(113, 162, 182);
+$rlgColorTertiary: #FE2712;
+$rlgColorTertiaryMid: rgb(243, 137, 127);
+$rlgColorDark: #092834;
+$rlgColorDarkMid: #45798b;
+$rlgColorLight: #F0F7D4;
+$rlgColorGreyDark:  rgb(78, 83, 85);
+$rlgColorGreyMid:  rgb(117, 127, 131);
+$rlgColorGreyLight:  rgb(176, 180, 182); */
+
+/*---= Font families =---*/
+
+
+$rlg-primary-font: "Open Sans"; // Montserrat Open Sans
+$rlg-paragraph-font: "Merriweather";
+$rlg-header-font: "Oswald";
+$rlg-round-font: "Lato";
+$rlg-open-font: "Open Sans";
+$rlg-pt-font: "PT Sans";
+$rlg-robot-font: "Roboto";
+$rlg-pt-caption-font: "PT Sans Caption";
+$rlg-icons-font: "Material Icons";
+
+@mixin fontFamilyWeightSize ($fontFam, $fontWt, $fontSz){
+    font-family: $fontFam;
+    font-weight: $fontWt;
+    font-size: $fontSz;
+}
+
+// @include fontFamilyWeight ($rlg-primary-font, 600, 1em);
+
+$borderForTesting: 0px solid rgb(6, 161, 245);
+$redBorderForTesting: 0px solid rgb(245, 1, 1);
+$greyBorderForTesting: 0px solid rgb(91, 86, 91);
+

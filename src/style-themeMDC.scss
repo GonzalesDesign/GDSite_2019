@@ -1,0 +1,92 @@
+/******************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component: Masonry Modal MDC scss
+* Note: https://material.io/develop/web/
+        These are styles using mdc-web library
+        and has to be seperated from mat 2 library.
+******************************************************/
+
+
+/*----------------------------------------=
+=---=|     Import: MDC Library       |=---=
+=-----------------------------------------*/
+@import "~@angular-mdc/theme/material";
+// @import "@material/image-list/mdc-image-list";
+
+/*----------------------------------------=
+=---=|       Import: Shared Theme       |=---=
+=-----------------------------------------*/
+@import './style-themeShared.scss';
+
+
+/*---= Material Design Component: MDC =---*/
+
+/*-- Compound Color Schemes or Split Complementary --*/
+/* $rlgColorPrimary: rgb(178, 215, 50);
+$rlgColorPrimaryMid: rgb(204, 224, 129);
+$rlgColorSecondary: #347B98;
+$rlgColorSecondaryMid: rgb(113, 162, 182);
+$rlgColorTertiary: #FE2712;
+$rlgColorTertiaryMid: rgb(243, 137, 127);
+$rlgColorDark: #092834;
+$rlgColorDarkMid: #45798b;
+$rlgColorLight: #F0F7D4;
+$rlgColorGreyDark:  rgb(78, 83, 85);
+$rlgColorGreyMid:  rgb(117, 127, 131);
+$rlgColorGreyLight:  rgb(176, 180, 182); */
+
+/* $primaryColor: $rlgColorPrimary;
+$secondaryColor: $rlgColorSecondary;
+$warningColor: $material-color-red-600;
+$backgroundColor: $material-color-blue-50; */
+
+
+$mdc-theme-primary: $rlgColorPrimary;
+
+$text-dark-shadow: 1px 1px $rlgColorDark; // $material-color-grey-800;
+$text-mid-shadow: 1px 1px rgba($rlgColorDark, .5);
+$text-light-shadow: 1px 1px rgba($rlgColorDark, .25);
+$text-white-shadow: 1px 1px rgba(white, .15);
+
+/*---= Ripple effect background color =---*/
+.mdc-ripple-surface[_ngcontent-c1]::before,
+.mdc-ripple-surface[_ngcontent-c1]::after {
+    background-color: $rlgColorLight;
+}
+
+
+
+// /*---= Font families =---*/
+// $rlg-primary-font: "OpenSans";
+// $rlg-header-font: "Oswald";
+// $rlg-round-font: "Lato";
+// $rlg-open-font: "Open Sans";
+// $rlg-pt-font: "PT Sans";
+// $rlg-robot-font: "Roboto";
+// $rlg-pt-caption-font: "PT Sans Caption";
+
+
+/*---= Layout =---*/
+body {
+    // overflow:hidden;
+    // margin: 0;
+    background-color:  $rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
+    // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
+}
+html, body { height: 100%; }
+
+body { margin: 0; font-family: $rlg-pt-font, sans-serif; }
+
+p {
+    @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .9em);
+    line-height: 1.6;
+}
+
+
+
+// :root = @angular-mdc/theme/material-components-web/theme/_variables.scss
+

@@ -1,0 +1,143 @@
+<!-- /**********************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component: Gonzales Design Portfolio Component View Template
+* Note: Portfolio intro
+***********************************************************/ -->
+
+<div *ngIf="false;"
+  class="centerLine">
+</div>
+
+
+
+<!-- Loader component -->
+<app-loader-svg></app-loader-svg>
+
+<!-- <app-pop-up [childMessage]="parentMessage"></app-pop-up> -->
+
+<!-- INTRO MONDRIAN -->
+<div id="rlg-main-kontainer-id"
+    [style.border]="'0px solid yellowGreen'">
+
+        <!-- photo containers layout wrapper -->
+        <div id="rlg-kontainer-id"
+            [style.border]="'0px solid white'">
+
+            <!-- Title and sub-title -->
+            <div id="title-kontainer-id">
+              <h1 class="title">R.LLOYD GONZALES</h1>
+              <div id="sub-title-id" class="sub-title rlg-primary-color">UI DESIGNER • ANGULAR DEVELOPER</div>
+            </div>
+
+            <!--==== Observable test ====-->
+            <!-- <h2 class="snafu"></h2> -->
+                <!-- [style.x.vw]="50"`
+                [style.textAlign]="'center'"
+                [style.border]="'1px solid red'"> -->
+                <!-- [style.color]="'red'" -->
+                <!-- Err: {{errorMsg}} -->
+            <!-- </h2> -->
+
+            <!-- photo containers -->
+            <div *ngFor="let allData of aAllData; let i = index"
+              id="{{ allData.kontainerId }}"
+              class="photo-kontainer"
+              [style.width.px]="400"
+              [style.height.px]="400"
+              [style.opacity]=".1"
+              [style.x.vw]="50"
+              [style.top.px]="0"
+              [style.border]="'0px solid red'"
+              >
+              <!-- TEST  -->
+              <!-- {{ allData.kontainerId }} -->
+              <!-- <h4 [style.border]="'1px solid red'">foto: {{allData.id}}</h4> -->
+
+              <!-- [style.border]="'1px solid red'" -->
+
+              <!-- photos for the homepage -->
+              <div id="{{ allData.imageId }}" class="foto"
+                [style.backgroundImage]="'url('+ aAllData[i].imagePath + aAllData[i].images[0].value +')'"
+                [style.background-repeat]= "'no-repeat'"
+                [style.backgroundSize]= "'cover'"
+                >
+                <!-- {{ aAllData[2].variedProjects[i].varProjectTitle }} -->
+                <!-- {{aAllData[i].title}} -->
+                <!-- [style.backgroundPositionX]="-100"
+                [style.width.%]="100"
+                [style.height.%]="100"
+                  [style.display]= "'flex'"
+                [style.flex-direction]= "'column'"
+                      [style.width.px]="400"
+                      [style.height.px]="300"
+                      [style.left.px]="0"
+                      [style.opacity]=".5"
+                      [style.height.px]="500"
+                      [style.border]="'1px solid red'"
+                [style.backgroundPositionX.%]="50"
+                [style.backgroundSize]= "'cover'"
+                [style.border]="'1px solid grey'"
+                -->
+              </div>
+
+              <!-- Testing the secondary images from json -->
+              <!-- <div *ngFor="let popPhoto of popUpImages; let i = index"
+                    [style.backgroundImage]="'url('+ popPhoto +')'"
+                    [style.background-repeat]= "'no-repeat'"
+                    [style.height.px]="100"
+                    >
+              </div> -->
+
+              <!-- Show on small screen -->
+              <div class="photo-info-kontainer">
+                <!-- <div class="rlg-photo-headings rlg-photo__primary"> -->
+                <h2 class="rlg-photo-title ">{{ allData.title }}</h2>
+                <h3 class="rlg-photo-subtitle">{{ allData.subTitle }}</h3>
+                <!-- </div> -->
+                <div class="rlg-photo-body">
+                    {{ allData.description }}
+                </div>
+              </div>
+
+              <!-- End Show -->
+              <!-- [style.font-size.px]="isImportant ? '30' : '16'" -->
+              <!-- <div [style.display]="isSmallScreen ? 'visible' : 'none'"> -->
+
+              <div class="rlg-button-kontainer">
+                <button mdc-button [unelevated]="true"
+                        [icon]="true" class="rlg-button rlg-ink-color2"
+                        (click)="fOpenModal(
+                                            allData.id,
+                                            allData.imagePath,
+                                            allData.images,
+                                            allData.title,
+                                            allData.subTitle,
+                                            allData.description,
+                                            allData.orientation,
+                                            allData.variation,
+                                            allData.links,
+                                            allData.variedProjects
+                                            )">
+
+                        <!--
+                          allData.variedProjects.varBtnDisplay
+                          (click)="openSimple(allData.images[i], allData.photoTitle)"
+                          (click)="fOpenModal(allData.images[i])"
+                          (click)="fOpenModal(allData.imageUrl)"
+                        [style.zIndex]=2000
+                        > -->
+                  <mdc-icon>loupe</mdc-icon>
+                  {{ allData.title }}
+                </button>
+                <!-- {{ allData.variedProjects[0].varProjectTitle }}
+                {{ allData.variedProjects[0].varProjectFunction }} -->
+                <!-- aAllData[i].images[0].value -->
+              </div>
+          </div>
+
+        </div>
+    </div>

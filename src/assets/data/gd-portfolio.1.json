@@ -1,0 +1,281 @@
+
+[
+    {
+        "id": 0,
+        "kontainerId": "photo-kontainer-0",
+        "imageId": "image0",
+        "title": "JTNS",
+        "subTitle": "Jill Tucker Nursing Services",
+        "orientation": "portrait",
+        "variation": "single-project",
+        "links": [
+            {"linkName": "GitHub Repo"},
+            {"linkUrl": "https://github.com/GonzalesDesign/JillTuckerNursingServices"}
+        ],
+        "imagePath": "./../../assets/images/jtns/",
+        "images": [
+            { "value": "photo0a.jpg", "bgSize": "cover", "bgColor": "white" },
+            { "value": "photo1a.jpg", "bgSize": "cover", "bgColor": "white" },
+            { "value": "photo2a.jpg", "bgSize": "cover", "bgColor": "white" }
+        ],
+        "description": "JTNS website is a brochure type of site. Information for the services offered. The client designed the look and feel and asked me to build it. The client wanted to create multiple sites and required the ability to update the site for content. I built the site using HTML, CSS, and Javascript. The development code is written in ES2015, SCSS, Babel, Webpack and NodeJS. I wrote the template with ES2015 pulling content from JSON files which the client can update. I used Webpack and Babel to transpiled the ES6 codes to ES5."
+    },
+    {
+        "id": 1,
+        "kontainerId": "photo-kontainer-1",
+        "imageId": "image1",
+        "title": "OwnPhones",
+        "subTitle": "Wireless Earbuds",
+        "orientation": "landscape",
+        "variation": "single-project",
+        "links": [
+            {"linkName": "Animation Videos"},
+            {"linkUrl": "https://www.youtube.com/watch?list=PLPmFVYd1El2kz_5lqeUhyMV87vY51l3vu&time_continue=2&v=K7o1dBygyBg"}
+        ],
+        "imagePath": "./../../assets/images/ownphones/",
+        "images": [
+            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "#6c6c6c" },
+            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "#f8f6f2" },
+            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "#003c4c" },
+            { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "#313131" },
+            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#747474" },
+            { "value": "photo5.jpg", "bgSize": "contain", "bgColor": "white" }
+        ],
+        "description": "OwnPhones, custom wireless earbuds. A startup company based in Downtown, San Diego, CA. I was hired to develop and design the website and other promotional graphic elements and designed the company logo. We generated almost $1 million funding through the KickStarter partnership. Video animations are done using Cinema 4D software."
+    },
+    {
+        "id": 2,
+        "kontainerId": "photo-kontainer-2",
+        "imageId": "image2",
+        "title": "Miscellaneous",
+        "subTitle": "Other Various Projects",
+        "orientation": "portrait",
+        "variation": "multi-projects",
+        "variedProjects": [
+            {
+                "varId": "varied_0",
+                "image": "photo0.jpg",
+                "varProjectTitle": "Bacardi Project",
+                "varProjectSubTitle": "Spirit Company",
+                "varProjectFunction": "Design, Animation & Flash Coding",
+                "varProjectDescription": "Interactive Annual Report",
+                "varBtnDisplay": "none",
+                "varLinkName": "no-link",
+                "varUrl": "",
+                "varBGColor": "#243D3B",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_1",
+                "image": "photo1.jpg",
+                "varProjectTitle": "BCBSNJ Project",
+                "varProjectSubTitle": "Blue Cross Blue Shield of New Jersey",
+                "varProjectFunction": "Art Director, Coder, Flash Animator",
+                "varProjectDescription": "Website homepage re-designed.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "HorizonBlue",
+                "varUrl": "https://www.horizonblue.com",
+                "varBGColor": "#55667E",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_2",
+                "image": "photo2.jpg",
+                "varProjectTitle": "Clean Energy Project",
+                "varProjectSubTitle": "Health Insurance Company",
+                "varProjectFunction": "Design & Coding",
+                "varProjectDescription": "Website homepage re-designed.",
+                "varBtnDisplay": "none",
+                "varLinkName": "no-link",
+                "varUrl": "",
+                "varBGColor": "#F0F7C4",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_3",
+                "image": "photo3.jpg",
+                "varProjectTitle": "Grafica Group eCard Project",
+                "varProjectSubTitle": "Marketing Agency",
+                "varProjectFunction": "Design, Illustrations & Coding",
+                "varProjectDescription": "This was GraficaGroup holiday promotional piece for sending holiday eCard. It's a drawing app with built-in pre-made illustrations that can be layered, control opacity, size, color, focus control, font selector, filters, randomizer and other controls to create a more complex image. I also built a drawing tool that simulates multi-faceted snowflakes. Designed and coded in Flash/AS3.",
+                "varBtnDisplay": "none",
+                "varLinkName": "no-link",
+                "varUrl": "",
+                "varBGColor": "#7B0C08",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_4",
+                "image": "photo4.jpg",
+                "varProjectTitle": "Youth Dance Festival of New Jersey",
+                "varProjectSubTitle": "Uniting Young Dancers in Celebrating the Arts of Dance",
+                "varProjectFunction": "Design, Retouching & Coding",
+                "varProjectDescription": "Kozlov Dance International, based in the United States, is the host organization of the Annual Youth Dance Festival of New Jersey, which is held every October.  The Festival is designed to be an artistic and educational for dance students and teacher from around the country.  The Festival consists of a competition, workshop classes, and a winner’s showcase.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "YDF of NJ",
+                "varUrl": "http://www.kozlovdance.com/Kozlov_Dance_Studio/Youth_Dance_Festival_of_NJ.html",
+                "varBGColor": "#F8F3D1",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_5",
+                "image": "photo5.jpg",
+                "varProjectTitle": "PoolBuster Project",
+                "varProjectSubTitle": "Water Tech Pool Blaster Max Pool Cleaner",
+                "varProjectFunction": "Designer, Illustrator, Photo Editor, Desktop Publisher",
+                "varProjectDescription": "The client needed a promotional catalog for their new PoolBlaster Max before the actual product was produced. Working with the prototype and stock photos, I retouched and illustrated the product to get the catalog ready for print. Water Tech Pool Blaster MAX pool cleaner is the workhorse of the Pool Buster line.",
+                "varBtnDisplay": "none",
+                "varLinkName": "no-link",
+                "varUrl": "",
+                "varBGColor": "#1c9ccf",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_6",
+                "image": "photo6a.jpg",
+                "varProjectTitle": "Synchronoss Project",
+                "varProjectSubTitle": "Synchronizing connected devices accross the globe",
+                "varProjectFunction": "Art Director, Illustrator, Animator & Video Editor",
+                "varProjectDescription": "Video animation for NASDAQ IPO: SNCR. The client came to us at GraficaGroup and asked us to produce a video for their Initial Public Offering and we had a week to produce the video.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "synchronoss",
+                "varUrl": "https://synchronoss.com/what-we-do/",
+                "varBGColor": "#45B5D6",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_7",
+                "image": "photo7.jpg",
+                "varProjectTitle": "Dragon Egg",
+                "varProjectSubTitle": "Personal Projects",
+                "varProjectFunction": "Painter",
+                "varProjectDescription": "Painted Ostrich Egg.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "Facebook link",
+                "varUrl": "https://www.facebook.com/pg/RLloydGonzalesDesign/photos/?tab=album&album_id=2262374244016881",
+                "varBGColor": "#123456",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_8",
+                "image": "photo8.jpg",
+                "varProjectTitle": "Valentine Day",
+                "varProjectSubTitle": "Personal Projects",
+                "varProjectFunction": "Arts & Crafts",
+                "varProjectDescription": "Valentine Day projects with the boys. Cards for my kinder's classmates and teacher. And my 4th grader's teachers.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "Facebook link",
+                "varUrl": "https://www.facebook.com/pg/RLloydGonzalesDesign/photos/?tab=album&album_id=2262372190683753",
+                "varBGColor": "#7295bb",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_9",
+                "image": "photo9.jpg",
+                "varProjectTitle": "RLloydGonzales Project",
+                "varProjectSubTitle": "2019 Website Portfolio",
+                "varProjectFunction": "Designer & Coder",
+                "varProjectDescription": "My website done in Angular 6.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "My Github Repo",
+                "varUrl": "https://github.com/GonzalesDesign/JillTuckerNursingServices",
+                "varBGColor": "#157c95",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_10",
+                "image": "photo10a.jpg",
+                "varProjectTitle": "RLloydGonzales Project",
+                "varProjectSubTitle": "2016 Website Portfolio",
+                "varProjectFunction": "Designer & Coder",
+                "varProjectDescription": "My website done mostly in ES2015. I wanted to create a site based mostly of Javascript generating html codes.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "2016 Website",
+                "varUrl": "http://www.rlloydgonzales.com/2016/",
+                "varBGColor": "#157c95",
+                "varBGSize": "contain"
+            }
+        ],
+        "links": [
+            {"linkName": "Bacardi"},
+            {"linkUrl": "Interactive Annual Report"}
+        ],
+        "imagePath": "./../../assets/images/autre/",
+        "images": [
+            { "value": "photo0.jpg" }
+        ],
+        "description": "Miscellaneous projects from different companies and sectors. Responsibilities included the following; Art Director, UI Designer, Coder, 2D & 3D Animator, Video Editor, Photoshop Expert, Digital Illustrator, Painter. Built websites..."
+    },
+    {
+        "id": 3,
+        "kontainerId": "photo-kontainer-3",
+        "imageId": "image3",
+        "title": "Illustrations",
+        "subTitle": "Digital 3D Illustrations",
+        "orientation": "portrait",
+        "variation": "single-project",
+        "links": [
+            {"linkName": "Facebook"},
+            {"linkUrl": "https://www.facebook.com/PersonalFresh/"}
+        ],
+        "imagePath": "./../../assets/images/digillustrations/",
+        "images": [
+            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "#00dac6" },
+            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "#002e37" },
+            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "#060a09" },
+            { "value": "photo3.jpg", "bgSize": "cover", "bgColor": "#000609" },
+            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#510038" }
+        ],
+        "description": "The following 3D illlustrations are done using Cinema 4D and Pixologic ZBrush. Some of these illustrations was for my eStore for apparel tops and posters prints. Collection of my digital illustrations printed on t-shirts, hoodies and posters."
+    },
+    {
+        "id": 4,
+        "kontainerId": "photo-kontainer-4",
+        "imageId": "image4",
+        "title": "Filipinas",
+        "subTitle": "Kawali Restaurant Painting",
+        "orientation": "landscape",
+        "variation": "single-project",
+        "links": [
+            {"linkName": "Facebook Link"},
+            {"linkUrl": "https://www.facebook.com/pg/RLloydGonzalesDesign/photos/?tab=album&album_id=1552715854982727"}
+        ],
+        "imagePath": "./../../assets/images/filipinas/",
+        "images": [
+            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo1.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
+            { "value": "photo2.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
+            { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "#001f24" },
+            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#0d0d0d" },
+            { "value": "photo5.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo6.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo7.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo8.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo9.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo10.jpg", "bgSize": "contain", "bgColor": "#025d72" }
+        ],
+        "description": "Mural painting for Kawali Express, a Filipino Restaurant in Voorhees, NJ. The panel is divided into two, left represents the land and the right represents water. These are the two main sources of food supplies and economy in the Philippines, farming and fishing. The middle has the famous Balut egg, Philippine map and a clay pot cooking a local dish and the title Filipinas. Behind all that is the Mayon Volcano. 48“ x 96“ Mural, Acrylic on board."
+    },
+    {
+        "id": 5,
+        "kontainerId": "photo-kontainer-5",
+        "imageId": "image5",
+        "title": "Akon",
+        "subTitle": "Konvict Clothing",
+        "orientation": "landscape",
+        "variation": "single-project",
+        "links": [
+            {"linkName": "Flash Animation"},
+            {"linkUrl": "http://www.rlloydgonzales.com/autreSites/Akon/"}
+        ],
+        "imagePath": "./../../assets/images/akon/",
+        "images": [
+            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "black" }
+        ],
+        "description": "Designed and built this interactive animated intro for Akon's Konvict eStore. Graphics are done in Photoshop imported them to Flash and animation is done using ActionScript3."
+    }
+]

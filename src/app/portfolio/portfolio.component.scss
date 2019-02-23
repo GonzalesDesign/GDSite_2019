@@ -1,0 +1,220 @@
+/******************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component: Portfolio SCSS
+* Note: Component scoped styling.
+******************************************************/
+
+/*----------------------------------------=
+=---=|    Import: General styling    |=---=
+=-----------------------------------------*/
+@import './../../styles.scss';
+
+
+/*--- Development classes ---*/
+.centerLine {
+    display: flex;
+    align-self: center;
+    margin: auto;
+    width: 0px;
+    height: 10px;
+    border: 1px solid salmon;
+}
+
+// .popUpDialog {
+//     z-index: 99000 !important;
+// }
+
+$dev-border: 0px solid rgba(87, 85, 87, 0.5);
+
+/*--- Site classes ---*/
+
+
+#rlg-main-kontainer-id {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        // width: 100%;
+        height: 100vh;
+        // top: 50px;
+        // display: flex;
+        // flex-direction: column;
+        // align-content: center; // align vertically
+        // justify-content: center; // align horizontally
+        border: $dev-border;
+
+        #rlg-kontainer-id {
+            // display: flex;
+            // flex-direction: row;
+            // align-content: center; // align vertically
+            // justify-content: center; // align horizontally
+            border: $dev-border;
+
+            #title-kontainer-id {
+                z-index: 101;
+                opacity: 0.25;
+                // font-family: "OpenSans";
+                font-family: "Oswald";
+                margin: 0;
+                width: 400px;
+                border: $dev-border;
+
+                // .title, .sub-title {
+                //     // text-shadow: $text-dark-shadow;
+                //     // text-shadow: $text-light-shadow;
+                // }
+
+                .title {
+                    // font-family: "Roboto";
+                    // font-family: "OpenSans";
+                    // font-family: "Oswald";
+                    // font-size: 1.8em;
+                    letter-spacing: 1px;
+                    // text-align: right;
+                    margin-top: 0px;
+                    // width: 400px;
+                    margin-bottom: -6px;
+                    color: $rlgColorTertiary; // $rlgColorSecondaryMid rlgColorTertiaryMid rlgColorDarkMid rlgColorPrimary rlgColorPrimaryMid
+                    // text-shadow: $text-light-shadow;
+                    border: $dev-border;
+                }
+                .sub-title {
+                    @include fontFamilyWeightSize ($rlg-primary-font, 500, .9em);
+                    // font-size: 1em;
+                    width: 400px;
+                    // width: max-content;
+                    color: $rlgColorLight; // $rlgColorLight; $rlgColorTertiary; $rlgColorSecondary; $rlgColorDark;
+                    text-shadow: $text-light-shadow;
+                    border: $dev-border;
+                }
+
+            }
+            .snafu {
+                color: $rlgColorSecondaryMid;
+            }
+
+            .photo-kontainer {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                // left: 0;
+                // width: 450px;
+                // height: 100%;
+                // opacity: 0;
+                padding: 8px;
+                background-color: $rlgColorLight;
+                overflow: hidden;
+                box-shadow: 0 4px 2px -2px rgba(0,0,0,.35);
+                margin-bottom: 25px;
+                border: $dev-border;
+
+                .foto {
+                    overflow: hidden;
+                    height: 100%;
+                    width: 100%;
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility:    hidden;
+                    -ms-backface-visibility:     hidden;
+                    border: $dev-border;
+                }
+
+                .photo-info-kontainer {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                    // height: 100%;
+                    overflow: hidden;
+                    border: $dev-border;
+                    // background-color: $rlgColorTertiary;
+
+                    .rlg-photo-title {
+                        @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.4em);
+                        // font-family: $rlg-pt-caption-font;
+                        // font-weight: 400;
+                        // font-size: 1.4em;
+                        margin: 0;
+                        color: $rlgColorPrimary;
+                        border: $dev-border;
+                        // text-shadow: $text-dark-shadow;
+                    }
+                    .rlg-photo-subtitle {
+                        @include fontFamilyWeightSize ($rlg-primary-font, 400, .85em);
+                        // font-family: $rlg-pt-font;
+                        // font-weight: 400;
+                        // font-size: 1em;
+                        // font-size: 16px;
+                        // font-style: normal;
+                        // font-weight: 200;
+                        // line-height: 1.44444;
+                        margin-top: -.2em;
+                        margin-bottom: .5em;
+                        color: $rlgColorGreyMid;
+                        border: $dev-border;
+                    }
+                    .rlg-photo-body {
+                        @include fontFamilyWeightSize ($rlg-primary-font, 400, .85em);
+                        // font-family: $rlg-pt-font;
+                        // font-weight: 400;
+                        // font-size: 1em;
+                        // font-size: 18px;
+                        // font-style: normal;
+                        // font-weight: 400;
+                        line-height: 1.44444;
+                        // font-size: 1em;
+                        color: rgba($rlgColorDark, .5);
+                        border: $dev-border;
+                    }
+                }
+
+                .rlg-button-kontainer {  // background rectangle container
+                    display: flex;
+                    // align-content: center; //vertical alignment
+                    align-items: center; //content vertical alignment
+                    justify-content: center;
+                    // position: relative;
+                    // background-color: rgba(10, 10, 10, 0.947);
+                    // border: 1px solid yellowgreen;
+                    // height: 50px;
+                    border: $dev-border;
+
+                    .mdc-button {
+                        background-color: $rlgColorPrimaryMid;
+                        box-shadow: 0 4px 2px -2px rgba(0,0,0,.25);
+                        // border: 3px solid yellowgreen;
+                    }
+
+                    .rlg-button {
+                        // align-self: end;
+                        // display: flex;
+                        // align-content: center; //vertical alignment
+                        // align-items: center;
+                        justify-content: center; //horizontal alignment
+                        // font-size: 16px;
+                        // padding: .25em;
+                        text-shadow: $text-dark-shadow;
+                        top: -10px;
+                        // width: 50%;
+                        // height: 12%;
+                        position: relative;
+                        overflow: hidden;
+                        // padding: 10px;
+                        // text-align: center;
+                        // border: $dev-border;
+                        // border-radius: 0px 0px 10px 10px;
+                        border: 1px solid rgba(247, 248, 249, 0.25);
+                        text-transform: uppercase;
+                    }
+                    .rlg-button:hover{
+                        background-color: rgb(177, 51, 5) !important;
+                        // color:rgb(255, 255, 255);
+                      }
+                }
+            }
+
+        }
+
+    }

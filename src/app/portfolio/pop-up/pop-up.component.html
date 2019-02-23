@@ -1,0 +1,432 @@
+<!-- Loader component -->
+<!-- <app-loader-svg></app-loader-svg> -->
+
+<div class="pop-up-title-kontainer"
+    [style.border]="'0px solid purple'"
+    >
+    <div class="pop-up-title-button">
+        {{ titolo }}
+        <br>
+        <span class="subTitle"
+            [style.fontSize.em]="'.7'">
+            {{subTitle}}
+        </span>
+    </div>
+
+    <!-- <button class="pop-up-title-button">
+            {{ titolo }}
+    </button> -->
+</div>
+    <!-- <button class="pop-up-title-button"
+            mdc-button [unelevated]="true"
+            [icon]="true"
+            [style.backgroundColor]="'red'">
+        <mdc-icon>loupe</mdc-icon>
+        {{ titolo }}
+    </button> -->
+    <!-- {{ allData.variedProjects[0].varProjectTitle }}
+    {{ allData.variedProjects[0].varProjectFunction }} -->
+    <!-- aAllData[i].images[0].value -->
+
+
+<!-- <div id="modal-kontainer-id #modalKontainerChild" class="modal-kontainer"> -->
+<div  id="modalKontainerId"
+    class="modalKontainer">
+
+    <!-- <div #modKontTest class="modKontTestClass">Modal Kontainer Test for ViewChild</div> -->
+    <!-- #modalKontainerChild
+    [style.height.px]= 'modalKontainerHeight' -->
+    <!--
+              [style.maxWidth]='modalKontainerWidth'
+              [style.display]="'flex'"
+              [style.position]="'absolute'"
+              [style.width.vw]='50'
+              [style.height.vh]='fotoHeight' -->
+
+    <div class="rlg-pop-titleX"
+        [style.width.px]= 'modalKontainerInteriorWidth'
+        [style.border]="'0px solid purple'"
+        >
+        <!-- <span>{{titolo}}</span>
+        <br>
+        <span class="subTitle"
+            [style.fontSize.em]="'.7'">
+            {{subTitle}}
+        </span> -->
+
+        <div class="horizRuler">
+            <!-- [style.height.px]= "'10'"
+            [style.backgroundColor]= "'grey'"
+            [style.width.vh]= "'90'" -->
+        </div>
+
+        <!-- [style.textTransform]="'uppercase'" -->
+        <!-- <br> -->
+        <!-- <div class="info-test">
+            Description: {{popDescription}}
+                <br>
+            modalKontainerWidth: {{modalKontainerWidth}} <br>
+            carouselMaskWidth: {{carouselMaskWidth}} || carouselFotoStripWidth: {{carouselFotoStripWidth}}<br>
+            fotoWidth: {{fotoWidth}}
+        </div> -->
+    </div>
+
+      <br>
+
+    <!-- Content container area -->
+    <div class="content-container"
+            [style.display]="'flex'"
+            [style.flexDirection]= 'flexDirection' >
+
+        <!-- <div *ngFor="let proj of variedProjects; let i = index">
+            <div class="multi-proj-title">proj: {{ proj.varProjectTitle }}</div>
+        </div> -->
+
+        <!-- {{ variedProjects }} -->
+        <!-- {{ varProjectTitle }} -->
+
+
+        <!-- Images container area-->
+        <ul class="carousel-kontainer"
+            [style.border]="'0px solid purple'">
+
+            <!-- [style.width.px]= 'carouselMaskWidth' -->
+            <!-- [style.width.px]= 'modalKontainerInteriorWidth' carouselMaskWidth -->
+            <!-- <div *ngFor="let varied of variedProjects; let i = index">
+                    varied: {{varied}}
+            </div> -->
+
+            <!--= Carousel slider buttons =-->
+
+            <!-- 'carouselMaskWidth' 'modalKontainerInteriorWidth'-->
+            <!--#carouselKontainerChild
+                id="carousel-kontainer-id"
+                [style.display]="'flex'"
+                [style.margin]="'0'"
+                [style.padding]="'0'"
+                [style.overflow]="'hidden'"
+                [style.border]="'0px solid red'"
+                [style.width]= 'carouselKontainerMaskWidth'
+                [style.width]= "'carouselKontainerWidth'" -->
+
+            <!-- Carousel Arrows -->
+            <div class="carouselArrows"
+                [style.display]="'flex'"
+                [style.flexDirection]="'row'"
+                [style.justifyContent]="'space-between'"
+                [style.width.px]= 'carouselMaskWidth'
+                [style.height.px]="'10'"
+                [style.top.%]="'50'"
+                [style.position]= "'absolute'"
+                [style.border]="'0px solid blue'"
+                [style.zIndex]="'100'"
+                >
+
+                <!-- Left Arrow -->
+                <div class="left-arrow-container"
+                    [style.display]="'flex'"
+                    [style.position]= "'relative'"
+                    [style.height]="'fit-content'"
+                    [style.border]="'0px solid cyan'"
+                    >
+                    <!-- Arrow -->
+                    <mdc-icon class="left-arrow"
+                        [style.color]="'rgba(255, 255, 255, 1)'"
+                        [style.fontSize.em]="'3'"
+                        [style.textShadow]="'1px 1px 2px #00000080'"
+                        [style.zIndex]="'110'"
+                        [style.cursor]="'pointer'"
+                        (click)="fSlideRight()"
+                        (mouseover)="hideTextLabelLeft=false"
+                        (mouseleave)="hideTextLabelLeft=true"
+                        >
+                        keyboard_arrow_left
+                    </mdc-icon>
+
+                    <!-- Arrow Background -->
+                    <span class="left-arrow-background"
+                        [style.position]= "'absolute'"
+                        [style.width.em]="'3'"
+                        [style.height.em]="'3'"
+                        [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
+                        [ngStyle]="{opacity: hideTextLabelLeft==false  ? '1' : '0' }"
+                        >
+                    </span>
+                </div>
+                <!-- Right Arrow -->
+                <div class="right-arrow-container"
+                    [style.display]="'flex'"
+                    [style.position]= "'relative'"
+                    [style.height]="'fit-content'"
+                    [style.border]="'0px solid cyan'"
+                    >
+                    <!-- Arrow -->
+                    <mdc-icon class="right-arrow"
+                        [style.color]="'rgba(255, 255, 255, 1)'"
+                        [style.fontSize.em]="'3'"
+                        [style.textShadow]="'1px 1px 2px #00000080'"
+                        [style.zIndex]="'110'"
+                        [style.cursor]="'pointer'"
+                        (click)="fSlideLeft()"
+                        (mouseover)="hideTextLabelRight=false"
+                        (mouseleave)="hideTextLabelRight=true"
+                        >
+                        keyboard_arrow_right
+                    </mdc-icon>
+
+                    <!-- Arrow Background -->
+                    <span class="right-arrow-background"
+                        [style.position]= "'absolute'"
+                        [style.width.em]="'3'"
+                        [style.height.em]="'3'"
+                        [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
+                        [ngStyle]="{opacity: hideTextLabelRight==false  ? '1' : '0' }"
+                        >
+                    </span>
+                </div>
+
+            </div>
+
+            <li class="image-kontainer"
+                [style.backgroundColor]="'rgba(0, 0, 0, 0)'">
+                <!-- *ngFor="let foto of imageToLoad; let i = index"
+                [style.listStyle]="'none'"
+                [style.width.px]= 'fotoWidth'
+                >
+                foto: {{ foto.value }}
+                varied: {{ varied }} -->
+
+                <!-- btn -->
+
+                    <!--**** Varied projects infos inside the carousel ***-->
+                    <div *ngIf="displayElement; else elseBlock" class="multi-projects"
+                        [style.border]="'0px solid yellowGreen'"
+                        [style.display]="'flex'">
+
+                        <div *ngFor="let varied of aVariedProj; let i = index">
+                            <div class="multi-proj-title">{{ varied.varProjectTitle }}</div>
+                            <div class="multi-proj-sub-title">{{ varied.varProjectSubTitle }}</div>
+                            <div class="multi-proj-function">Responsibilities: {{ varied.varProjectFunction }}</div>
+                            <div class="multi-proj-description">{{ varied.varProjectDescription }}</div>
+                            <div class="multi-proj-link" id={{varied.varId}}
+                                [style.display]='aButtonDisplay[i]'
+                                [style.border]="'0px solid red'"
+                                [style.cursor]="'pointer'"
+                                (click)="fOpenXLinks(varied.varUrl)">
+                                <mdc-icon class="varLinkName-icon">link</mdc-icon>
+                                <span class="varLinkName-label mdc-button__labelX">{{ varied.varLinkName }}</span>
+                            </div>
+
+                            <div class="multi-proj-image"
+                                [style.backgroundImage]="'url(' + popImagePath + varied.image + ')'"
+                                [style.background-repeat]="'no-repeat'"
+                                [style.backgroundSize]='varied.varBGSize'
+                                [style.width.px]= 'fotoWidth'
+                                [style.maxHeight.%]= '100'
+                                [style.marginTop.px]= '40'
+                                [style.backgroundColor]='varied.varBGColor'
+                                [style.backgroundPositionX.%]="50"
+                                [style.border]="'0px solid grey'"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--**** Single project images inside the carousel ***-->
+                    <ng-template #elseBlock>
+                        <div  class="bg-imageX"
+                                *ngFor="let foto of imageToLoad; let i = index"
+                                [style.backgroundImage]="'url(' + popImagePath + foto.value + ')'"
+                                [style.background-repeat]="'no-repeat'"
+                                [style.backgroundSize]='foto.bgSize'
+                                [style.width.px]= 'fotoWidth'
+                                [style.height.vh]='fotoHeight'
+                                [style.backgroundColor]='foto.bgColor'
+                                [style.backgroundPositionX.%]="50"
+                                [style.border]="'0px solid grey'"
+                                >
+                        </div>
+                    </ng-template>
+            </li>
+        </ul>
+
+        <br>
+
+        <!-- Text and buttons area -->
+        <div class="text-area"
+            [style.width.px]= 'carouselMaskWidth'
+            [style.border]="'0px solid grey'">
+            <!-- [style.width.px]= 'carouselMaskWidth'
+                modalKontainerInteriorWidth-->
+            <div class="inner"
+                [style.width.px]= 'carouselMaskWidth'
+                [style.border]="'0px solid red'">
+                <div class="about"
+                    [style.paddingLeft.px]="'20'"
+                    [style.paddingRight.px]="'20'"
+                    [style.textTransform]="'uppercase'">
+                    Project Description:
+                </div>
+
+                <p class="multiColumnDescription"
+                    [style.columnCount]= 'descriptionColumnCount'
+                    [style.columnGap.px]= "'50'"
+                    [style.paddingLeft.px]="'20'"
+                    [style.paddingRight.px]="'20'"
+                    [style.border]="'0px solid grey'"
+                    >
+                    <!-- [style.width.px]= 'modalKontainerInteriorWidth' 'carouselMaskWidth' -->
+                    {{popDescription}}
+                </p>
+
+                <!-- <button mdc-button class="additionalInfoBtn"
+                        [unelevated]="true"
+                        [icon]="true"
+                        (click)="fOpenMeTest()">
+                    <mdc-icon>link</mdc-icon>
+                    {{ testProjectDetail }}
+                </button> -->
+                <div [style.paddingLeft.px]="'20'">
+                    <button mdc-fab extended class="mdcFabExtended"
+                        (click)="fOpenXLinks(linx1.linkUrl)">
+                        <!-- fOpenXLinks (change parameter) -->
+                        <mdc-icon class="linkName-icon">link</mdc-icon>
+                        <span class="linkName-label">{{ linx.linkName }}</span>
+                        <!-- <a href="{{linx1.linkUrl}}" target="_blank">{{ linx.linkName }}</a> -->
+                    </button>
+                </div>
+
+
+                <!-- <br>
+
+                <p><a href="{{linx1.linkUrl}}" target="_blank">{{ linx.linkName }}</a>
+                    {{ linx1.linkUrl }}
+                </p> -->
+
+                <br>
+
+                <div [style.paddingLeft.px]="'20'">
+                    <button mdc-fab mini class="mdcFabMini"
+                        (click)="fClose()">
+                        <mdc-icon>close</mdc-icon>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--= Carousel slider buttons =-->
+    <div *ngIf="false;">
+        <div  id="arrow-buttons-kontainer-id" class="arrow-buttons-kontainer"
+                [style.display]= 'flex'
+                [style.top.vh]= '50'
+                [style.width.px]= 'carouselMaskWidth'
+                [style.border]="'1px solid red'"
+                [style.position]= "'relative'"
+                >
+                <!-- [style.top.px]= 'arrowButtonsKontainerYPos'
+                    [style.top.vh]= '50'
+                [style.position]= "'absolute'"-->
+            <!--
+            arrowButtonsKontainerYPos
+            [style.top.vh]= '(- fotoHeight /2)'
+            [style.top.vh]= '- fotoHeight /2'
+            [style.width.px]= 'modalMaxWidth'
+            [style.display]= 'flex'
+            [style.height.vh]= '80'
+            [style.padding]= '0'
+            [style.margin]= '0'
+            [style.alignItems]= 'center'
+            [style.justifyContent]= 'center'
+            [style.top.px]= '0'
+            [style.left.vw]= '10'
+            [style.position]= "'absolute'"
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                [style.width.px]= 'carouselKontainerMaskWidth'
+                [style.width.px]= 'carouselKontainerWidth'
+                [style.height.vh]='fotoHeight'
+                [style.position]="'absolute'"
+            -->
+
+            <div id="left-button-kontainer-id" class="left-button-kontainer">
+                <!-- https://trimox.github.io/angular-mdc-web/#/angular-mdc-web/icon-button-demo/examples -->
+                <button mdc-icon-button
+                        class="rlg-arrowIcon
+                        rlg-left-arrow
+                        rlg-font-dark-shadow
+                        rlg-primary-mid-color"
+                        (click)="fSlideRight()"
+                        (mouseover)="hideTextLabelLeft=false"
+                        (mouseleave)="hideTextLabelLeft=true">
+                        <!-- icon="keyboard_arrow_left" -->
+                        <mdc-icon>keyboard_arrow_left</mdc-icon>
+                </button>
+                <span class="left-button-text
+                            rlg-primary-font
+                            rlg-font-mid-shadow"
+                            [ngStyle]="{opacity: hideTextLabelLeft==false  ? '1' : '0' }">
+                            PREVIOUS
+                </span>
+                <!-- <button mdcIconButton>
+                    <mdc-icon>favorite</mdc-icon>
+                </button>
+
+                <button mdcIconButton class="demo-icon-button-primary">
+                    <mdc-icon mdcIconOn>favorite</mdc-icon>
+                    <mdc-icon>favorite_border</mdc-icon>
+                </button> -->
+
+            </div>
+
+            <div id="right-button-kontainer-id"
+                class="right-button-kontainer"
+
+                [style.display]="'flex'"
+                [style.flexDirection]="'row'"
+                [style.justifyContent]="'space-between'"
+
+                [style.left.px]= 'rightArrowButtonsKontainerXPos'
+                [style.width.px]='btnKontainerWidth'
+                [style.height.px]="'auto'"
+                [style.border]="'1px solid yellowGreen'"
+                >
+                <button mdcIconButton class="rlg-arrowIcon
+                                            rlg-right-arrowX
+                                            rlg-font-dark-shadow
+                                            rlg-primary-mid-color"
+                                            (click)="fSlideLeft()"
+                                            (mouseover)="hideTextLabelRight=false"
+                                            (mouseleave)="hideTextLabelRight=true">
+                                            <mdc-icon>keyboard_arrow_right</mdc-icon>
+
+                </button>
+
+                <span class="right-button-text
+                            rlg-primary-font
+                            rlg-font-mid-shadow"
+                            [ngStyle]="{opacity: hideTextLabelRight==false  ? '1' : '0' }">
+                            NEXT
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- </div> -->
+
+
+</div>

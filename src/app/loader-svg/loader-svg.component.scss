@@ -1,0 +1,50 @@
+
+
+/*----------------------------------------=
+=---=|    Import: General styling    |=---=
+=-----------------------------------------*/
+@import './../../styles.scss';
+
+$borderForTesting: 0px solid rgb(243, 42, 243);
+$loaderColor: $rlgColorPrimaryMid;
+
+.loading-kontainer {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        margin: auto;
+        width: 100vw;
+        height: 50vh;
+        border: $borderForTesting;
+
+          #svgArches {
+                align-self: center;
+                position: absolute;
+                width: 80%;
+                height: 50%;
+                overflow: visible;
+
+                .st0 { stroke: rgba($loaderColor, 1); }
+                .st1 { stroke: rgba($loaderColor, .75); }
+                .st2 { stroke: rgba($loaderColor, 1); }
+                .st3 { stroke: rgba($loaderColor, .75); }
+                .st4 { stroke: rgba($loaderColor, .4); }
+                .st5 { stroke: rgba($loaderColor, .75); }
+          }
+
+        .loading {
+          align-self: center;
+          position: absolute;
+          font-size: 1em;
+          text-align: center;
+          color: $loaderColor;
+          border: $borderForTesting;
+
+        }
+
+        /* #svgArch-id {
+          border: 1px solid $secondaryColor;
+        } */
+
+}
+
