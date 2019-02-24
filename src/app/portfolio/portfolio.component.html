@@ -19,6 +19,8 @@
 
 <!-- <app-pop-up [childMessage]="parentMessage"></app-pop-up> -->
 
+<!-- {{ dialogResult }} -->
+
 <!-- INTRO MONDRIAN -->
 <div id="rlg-main-kontainer-id"
     [style.border]="'0px solid yellowGreen'">
@@ -33,14 +35,14 @@
               <div id="sub-title-id" class="sub-title rlg-primary-color">UI DESIGNER • ANGULAR DEVELOPER</div>
             </div>
 
-            <!--==== Observable test ====-->
-            <!-- <h2 class="snafu"></h2> -->
-                <!-- [style.x.vw]="50"`
+            <!--==== Observable error test ====-->
+            <!-- <h2 class="snafu"
+                [style.x.vw]="50"
                 [style.textAlign]="'center'"
-                [style.border]="'1px solid red'"> -->
-                <!-- [style.color]="'red'" -->
-                <!-- Err: {{errorMsg}} -->
-            <!-- </h2> -->
+                [style.color]="'red'"
+                [style.border]="'1px solid red'">
+                Err: {{errorMsg}}
+            </h2> -->
 
             <!-- photo containers -->
             <div *ngFor="let allData of aAllData; let i = index"

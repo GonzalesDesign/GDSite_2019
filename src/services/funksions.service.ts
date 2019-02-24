@@ -12,15 +12,12 @@
 ***********************************************************/
 
 
-import { Injectable, OnInit } from '@angular/core';
-// import { modelGroupProvider } from '../../node_modules/@angular/forms/src/directives/ng_model_group';
-// import { Carousel3DataService } from './../services/carousel3-data.service';
+import { Injectable } from '@angular/core';
 import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
 
 @Injectable({
   providedIn: 'root'
 })
-// export class FunksionsService implements OnInit {
 
   export class FunksionsService {
 
@@ -33,24 +30,19 @@ import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
 
   /*-----=| STATIC FUNCTIONS |=-----*/
 
-  /*- For text alignment.
-      options: center, left, right, justify ----*/
 
-      /*---| adding the word public before the found match
-      \s(f[A-Z](.*)({*))  // regex search
-      public $1          // replace: add public before match
-      */
+  /*---| For text alignment:
+      options = [center, left, right, justify] |----*/
 
-    public fTextAlign(e, align) {
-        const x = document.querySelector(e), s = x.style;
-        s.textAlign = align;
-      }
+  public fTextAlign(e, align) {
+    const x = document.querySelector(e), s = x.style;
+    s.textAlign = align;
+  }
 
   /*- For displaying an element.
       options: none, inline, block or inline-block ----*/
  public fDisplay(e, disp) {
-    // console.log(e);
-    // console.log(disp);
+    // console.log(e, disp);
     const x = document.querySelector(e), s = x.style;
     s.display = disp;
   }
@@ -59,21 +51,13 @@ import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
     const elems = document.querySelectorAll(e); // as HTMLCollectionOf<HTMLElement>;
     for (let i = 0; i < elems.length; i++) {
         elems[i].style.display = disp;
-        // elems[i].style.opacity = 0;
-        // this.fTMxToAlfa(elems[i], 5, 1, Power2.easeOut);
-        // this.fTMxFrAlpha(elems[i], 1, alfa, Power2.easeOut);
     }
-    // this.fTMxFrAlpha(elems, 1, alfa, Power2.easeOut);
   }
  public fVisibilityAll(e, vis) {
     const elems = document.querySelectorAll(e); // as HTMLCollectionOf<HTMLElement>;
     for (let i = 0; i < elems.length; i++) {
         elems[i].style.visibility = vis;
-        // elems[i].style.opacity = 0;
-        // this.fTMxToAlfa(elems[i], 5, 1, Power2.easeOut);
-        // this.fTMxFrAlpha(elems[i], 1, alfa, Power2.easeOut);
     }
-    // this.fTMxFrAlpha(elems, 1, alfa, Power2.easeOut);
   }
 
  public fRemoveLoader(e, disp, tym) {
@@ -84,35 +68,22 @@ import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
         x.parentNode.removeChild(x);
       }, tym * 1000 );
     }
-    // const elem = document.getElementById(id);
-    // return elem.parentNode.removeChild(elem);
-    // function(x){
-    //   x.parentNode.removeChild(x);
-    // })(document.getElementById(id)
 }
 
   /*- Setting an element visibility.
       options: visible, hidden ----*/
  public fElementVisibility(e, vis) {
-    // console.log('fElementVisibility: e ', e);
-    // console.log('fElementVisibility: vis ', vis);
-    // console.log(vis);
     const x = document.querySelector(e),
     s = x.style;
     s.visibility = vis;
   }
  public fIdVisibility(e, vis) {
-    console.log('fIdVisibility: e ', e);
-    console.log('fIdVisibility: vis ', vis);
-    // console.log(vis);
     const x = document.getElementById(e),
     s = x.style;
     s.visibility = vis;
   }
 
  public fElementOpacity(e, alfa) {
-    // console.log(e);
-    // console.log(vis);
     const x = document.querySelector(e),
     s = x.style;
     s.opacity = alfa;
@@ -142,40 +113,30 @@ import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
     const x = document.querySelector(e), s = x.style;
     // s.left = xPos + 'px';
     s.translateX = xPos + 'px';
-    console.log('e | fElementXPosition : ', e, ' | ', xPos);
+    console.log('fElementXPosition');
   }
+
   // public fElementXPositionId(e, xPos) {
   //   const x = document.getElementById(e), s = x.style;
   //   // s.left = xPos + 'px';
   //   s.translateX = xPos + 'px';
   //   console.log('e | fElementXPositionId : ', e, ' | ', xPos);
   // }
+
   /*- Setting an element vertical position. ----*/
  public fElementYPosition(e, yPos) {
     const x = document.querySelector(e), s = x.style;
     s.top = yPos + 'vh';
-    // s.translateY = yPos + 'px';
-    // console.log('e | fElementXPosition : ', e, ' | ', yPos);
+    console.log('fElementYPosition');
   }
-
-  /*- If image is in landscape mode, cover the whole frame, else, follow media queries ---*/
-  /* public fDisplayVerticalHorizontal(orientation, imgsNum2Display) {
-
-    if (orientation === 'portrait') {
-      imgsNum2Display = imgsNum2Display;
-    } else if (orientation === 'landscape') {
-      imgsNum2Display = 1;
-    }
-  } */
 
   /*- Checking images orientation ----*/
  public fImgOrientation(d, val) {
     d.forEach(eachObj => {
       val = eachObj.orientation; // defined in json. abstract it!
-      console.log('val: ', eachObj.id, ' ', val);
+      console.log('fImgOrientation');
     });
   }
-
 
   /*-----=| ANIMATED FUNCTIONS |=-----*/
 
@@ -225,17 +186,8 @@ import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
     // console.log('el: ', el);
     TweenMax.to(Cont, animTym, {val: NewVal, roundProps: 'val', onUpdate: function() {
       document.querySelector(el).innerHTML = Cont.val + '%';
-    // el.innerHTML = 'Cont.val';
     }});
   }
-
-
-
-
-  /*public fTLMx2(el, ...restArgs) {
-
-  } */
-
 
 }
 

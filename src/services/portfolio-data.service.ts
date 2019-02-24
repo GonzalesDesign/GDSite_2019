@@ -45,29 +45,35 @@ export class PortfolioDataService {
 
   // public orientation = this.orientation;
 
-
   private _url = '../../assets/data/gd-portfolio.1.json';
 
   constructor(private _httpClient: HttpClient) { }
 
   public portfolioData (): Observable<PortfolioDataInterface[]> {
-   /*  console.log('screenWidth : ', this.screenWidth);
-    console.log('screenWidth x: ', this.screenWidth * .80);
-    console.log('screenWidth /: ', this.screenWidth / 100);
-    console.log('modalMaxWidth: ', this.modalMaxWidth); */
     return this._httpClient
-        .get<PortfolioDataInterface[]>(this._url)
-        .pipe(
-          catchError(this.fErroHandler)
-        );
-
+    .get<PortfolioDataInterface[]>(this._url)
+    .pipe(
+      catchError(this.fHandleError)
+    );
   }
 
-  // catchError(this.fErroHandler);
-  public fErroHandler() {
+  public fErrorHandler() {
     // error => {
       return throwError('Something went wrong!');
     // }
+  }
+
+  public fHandleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 
   // public fModalWidth(e) {

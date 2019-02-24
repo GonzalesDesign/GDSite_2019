@@ -35,7 +35,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   public loading = '.loading';
   public loadingKontainer = '.loading-kontainer';
   /*---= Timer =----*/
-  public timeout = 500;
+  public timeout = 5000;
   public tym1 = .5;
   public tym2 = .5;
   public tym3 = .5;
@@ -53,6 +53,8 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   /*-= Error variables =----*/
   public errorMsg;
+
+  public dialogResult: string;
 
 
   constructor(private _portfolioDataService: PortfolioDataService,
@@ -74,22 +76,16 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       /*--= Populating arrays =--*/
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
-        // this.photoKontainer.push('#' + element.kontainerId);
-        // this.photoKontainer[this.photoKontainer.length] = '#fotoKontainer' + element.id; // push
-        this.photoKontainer[this.photoKontainer.length] = '#' + element.kontainerId; // push: value has to correspond with the html ids
-        this.fotoId[this.fotoId.length] = '#' + element.imageId; // push: value has to correspond with the html ids
-        // console.log('element: ', element);
-        // console.log('this.fotoId: ', this.fotoId);
-        // console.log('this.photoKontainer[i]: ', this.photoKontainer[i], this.photoKontainer.length);
-        // this.aLinks[this.aLinks.length] = element.links; // push
-        // console.log('this.aLinks: ', this.aLinks);
-        // console.log('element.title: ', data[2].title);
-        // console.log('element.variedProjects: ', data[i].variedProjects);
+        this.photoKontainer[this.photoKontainer.length] = '#' + element.kontainerId; // push
+        this.fotoId[this.fotoId.length] = '#' + element.imageId; // push
       }
-    },
-      error => this.errorMsg = error); // ????????? Work on this error
+    });
+      // ,
+      // error => this.errorMsg = this._portfolioDataService.fErrorHandler()); // ????????? Work on this error);
       // console.log('Error!');
+
       this._funksions.fDisplay(this.mainKontainerId, 'none');
+
       /*--= Triggering resizeMe on enter =--*/
       setTimeout(() => {
         this.resizeMe();
@@ -353,70 +349,16 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
           // escapeToClose: this.isEscapeToClose,
           // clickOutsideToClose: this.isClickOutsideToClose,
     });
-    // this.imageName = img;
-    // console.log('xId: ', xId);
-    // console.log('pathImg: ', pathImg);
-    // console.log('orientation: ', orientation);
-    // console.log('links: ', links[0]);
-    // console.log('img: ', img);
-    // console.log('dialogRef: ', dialogRef);
-
-    /*---| Opening the pop-up modal with Single Project or Multiple Projects |---*/
-    if (variation === 'single-project') {
-      console.log ('variation 1: ', variation); // single-project
-
-    } else {
-
-      console.log('variedProjects: ', variedProjects.length);
-      for (let i = 0; i < variedProjects.length; i++) {
-        // this.aVariedProj[this.aVariedProj.length] = this.xData.variedProjects[i]; // push
-        // this.varProjectTitle = this.aVariedProj[i].varProjectTitle;
-        console.log ('variedProjects.varBtnDisplay: ', variedProjects[i].varBtnDisplay);
-      }
-    }
-
-    // console.log('modalWidthVW: ', this.modalWidthVW);
-    // console.log('maxWidth: ', PopUpComponent.maxWidth);
-    // console.log('******---= Open: ', title, ' =---*****');
-    // console.log('description: ', description);
-    // console.log('variation: ', variation);
-    // if (variation === 'single-project') {
-    //   console.log ('variation: ', variation); // single-project
-    //   this._funksions.sharedElement = 'String from Portfolio Component';
-    //   // console.log('modKontTest: ', this.modKontTest.nativeElement);
-    //   // this._funksions.fElementVisibility(this.multiProjectsId, 'hidden');
-    //   // this._funksions.fElementVisibility(this.multiProjTitle, 'hidden');
-    //   // this._funksions.fElementVisibility(this.multiProjTitleId, 'hidden');
-    //   // this.varProjectTitle = 'x'; // this.xData.linx[0];
-    //   // this.aVariedProj = [];
-
-    // } else {
-
-    //   console.log ('variation: ', variation); // multi-projects
-    //   // for (let i = 0; i < this.xData.variedProjects.length; i++) {
-    //   //   this.aVariedProj[this.aVariedProj.length] = this.xData.variedProjects[i]; // push
-    //   //   this.varProjectTitle = this.aVariedProj[i].varProjectTitle;
-    //   //   console.log ('this.varProjectTitle: ', this.varProjectTitle);
-    //   // }
-    //   // // this._funksions.fElementVisibility(this.multiProjTitle, 'visible');
-    //   // // this.varProjectTitle = this.xData.variedProjects.varProjectTitle;
-    //   // // this._funksions.fElementVisibility(this.multiProjTitle, 'visible');
-    //   // this._funksions.fElementVisibility(this.mdcFabExtended, 'hidden');
-    // }
-
-
-
-
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Closed : ${title} modal. ••••••`);
       // this._carousel.commonCounter = 0;
       // console.log(`Common Counter Value : ${this._carousel.commonCounter}.`);
-      // result =  title;
-      // this.dialogResult = result;
+      result =  title;
+      this.dialogResult = result; // `Closed : ${title} modal. ••••••`; // result;
       // reset pop-up datas
     });
 
-  } // end fOpenModal()
+  }
 
 }
