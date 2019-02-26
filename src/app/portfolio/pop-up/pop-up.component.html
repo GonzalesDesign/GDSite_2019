@@ -1,10 +1,9 @@
-<!-- Loader component -->
-<!-- <app-loader-svg></app-loader-svg> -->
+
 
 <div class="pop-up-title-kontainer"
     [style.border]="'0px solid purple'"
     >
-    <div class="pop-up-title-button">
+    <div class="pop-up-title">
         {{ titolo }}
         <br>
         <span class="subTitle"
@@ -13,62 +12,20 @@
         </span>
     </div>
 
-    <!-- <button class="pop-up-title-button">
-            {{ titolo }}
-    </button> -->
 </div>
-    <!-- <button class="pop-up-title-button"
-            mdc-button [unelevated]="true"
-            [icon]="true"
-            [style.backgroundColor]="'red'">
-        <mdc-icon>loupe</mdc-icon>
-        {{ titolo }}
-    </button> -->
-    <!-- {{ allData.variedProjects[0].varProjectTitle }}
-    {{ allData.variedProjects[0].varProjectFunction }} -->
-    <!-- aAllData[i].images[0].value -->
-
-
-<!-- <div id="modal-kontainer-id #modalKontainerChild" class="modal-kontainer"> -->
 <div  id="modalKontainerId"
-    class="modalKontainer">
-
-    <!-- <div #modKontTest class="modKontTestClass">Modal Kontainer Test for ViewChild</div> -->
-    <!-- #modalKontainerChild
-    [style.height.px]= 'modalKontainerHeight' -->
-    <!--
-              [style.maxWidth]='modalKontainerWidth'
-              [style.display]="'flex'"
-              [style.position]="'absolute'"
-              [style.width.vw]='50'
-              [style.height.vh]='fotoHeight' -->
+    class="modalKontainer"
+    >
 
     <div class="rlg-pop-titleX"
         [style.width.px]= 'modalKontainerInteriorWidth'
-        [style.border]="'0px solid purple'"
-        >
-        <!-- <span>{{titolo}}</span>
-        <br>
-        <span class="subTitle"
-            [style.fontSize.em]="'.7'">
-            {{subTitle}}
-        </span> -->
+        [style.border]="'0px solid purple'">
 
         <div class="horizRuler">
             <!-- [style.height.px]= "'10'"
             [style.backgroundColor]= "'grey'"
             [style.width.vh]= "'90'" -->
         </div>
-
-        <!-- [style.textTransform]="'uppercase'" -->
-        <!-- <br> -->
-        <!-- <div class="info-test">
-            Description: {{popDescription}}
-                <br>
-            modalKontainerWidth: {{modalKontainerWidth}} <br>
-            carouselMaskWidth: {{carouselMaskWidth}} || carouselFotoStripWidth: {{carouselFotoStripWidth}}<br>
-            fotoWidth: {{fotoWidth}}
-        </div> -->
     </div>
 
       <br>
@@ -76,38 +33,11 @@
     <!-- Content container area -->
     <div class="content-container"
             [style.display]="'flex'"
-            [style.flexDirection]= 'flexDirection' >
-
-        <!-- <div *ngFor="let proj of variedProjects; let i = index">
-            <div class="multi-proj-title">proj: {{ proj.varProjectTitle }}</div>
-        </div> -->
-
-        <!-- {{ variedProjects }} -->
-        <!-- {{ varProjectTitle }} -->
-
+            [style.flexDirection]= 'flexDirection'>
 
         <!-- Images container area-->
         <ul class="carousel-kontainer"
             [style.border]="'0px solid purple'">
-
-            <!-- [style.width.px]= 'carouselMaskWidth' -->
-            <!-- [style.width.px]= 'modalKontainerInteriorWidth' carouselMaskWidth -->
-            <!-- <div *ngFor="let varied of variedProjects; let i = index">
-                    varied: {{varied}}
-            </div> -->
-
-            <!--= Carousel slider buttons =-->
-
-            <!-- 'carouselMaskWidth' 'modalKontainerInteriorWidth'-->
-            <!--#carouselKontainerChild
-                id="carousel-kontainer-id"
-                [style.display]="'flex'"
-                [style.margin]="'0'"
-                [style.padding]="'0'"
-                [style.overflow]="'hidden'"
-                [style.border]="'0px solid red'"
-                [style.width]= 'carouselKontainerMaskWidth'
-                [style.width]= "'carouselKontainerWidth'" -->
 
             <!-- Carousel Arrows -->
             <div class="carouselArrows"
@@ -130,18 +60,18 @@
                     [style.border]="'0px solid cyan'"
                     >
                     <!-- Arrow Icon-->
-                    <mdc-icon class="left-arrow"
+                    <mat-icon class="left-arrow"
                         [style.color]="'rgba(255, 255, 255, 1)'"
                         [style.fontSize.em]="'3'"
                         [style.textShadow]="'1px 1px 2px #00000080'"
                         [style.zIndex]="'110'"
                         [style.cursor]="'pointer'"
                         (click)="fSlideRight()"
-                        (mouseover)="hideTextLabelLeft=false"
-                        (mouseleave)="hideTextLabelLeft=true"
+                        (mouseover)="hideBackgroundLeft=false"
+                        (mouseleave)="hideBackgroundLeft=true"
                         >
                         keyboard_arrow_left
-                    </mdc-icon>
+                    </mat-icon>
 
                     <!-- Arrow Background -->
                     <span class="left-arrow-background"
@@ -149,7 +79,7 @@
                         [style.width.em]="'3'"
                         [style.height.em]="'3'"
                         [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
-                        [ngStyle]="{opacity: hideTextLabelLeft==false  ? '1' : '0' }"
+                        [ngStyle]="{'opacity': hideBackgroundLeft===false  ? '1' : '0' }"
                         >
                     </span>
                 </div>
@@ -159,20 +89,21 @@
                     [style.position]= "'relative'"
                     [style.height]="'fit-content'"
                     [style.border]="'0px solid cyan'"
+                    [style.left.em]="'-1.85'"
                     >
                     <!-- Arrow Icon-->
-                    <mdc-icon class="right-arrow"
+                    <mat-icon class="right-arrow"
                         [style.color]="'rgba(255, 255, 255, 1)'"
                         [style.fontSize.em]="'3'"
                         [style.textShadow]="'1px 1px 2px #00000080'"
                         [style.zIndex]="'110'"
                         [style.cursor]="'pointer'"
                         (click)="fSlideLeft()"
-                        (mouseover)="hideTextLabelRight=false"
-                        (mouseleave)="hideTextLabelRight=true"
+                        (mouseover)="hideBackgroundRight=false"
+                        (mouseleave)="hideBackgroundRight=true"
                         >
                         keyboard_arrow_right
-                    </mdc-icon>
+                    </mat-icon>
 
                     <!-- Arrow Background -->
                     <span class="right-arrow-background"
@@ -180,7 +111,7 @@
                         [style.width.em]="'3'"
                         [style.height.em]="'3'"
                         [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
-                        [ngStyle]="{opacity: hideTextLabelRight==false  ? '1' : '0' }"
+                        [ngStyle]="{'opacity': hideBackgroundRight===false  ? '1' : '0' }"
                         >
                     </span>
                 </div>
@@ -189,64 +120,68 @@
 
             <li class="image-kontainer"
                 [style.backgroundColor]="'rgba(0, 0, 0, 0)'">
-                <!-- *ngFor="let foto of imageToLoad; let i = index"
-                [style.listStyle]="'none'"
-                [style.width.px]= 'fotoWidth'
-                >
-                foto: {{ foto.value }}
-                varied: {{ varied }} -->
 
-                <!-- btn -->
+                <!--**** Varied projects infos inside the carousel ***-->
+                <div *ngIf="displayElement; else elseBlock" class="multi-projects"
+                    [style.border]="'0px solid yellowGreen'"
+                    [style.display]="'flex'">
 
-                    <!--**** Varied projects infos inside the carousel ***-->
-                    <div *ngIf="displayElement; else elseBlock" class="multi-projects"
-                        [style.border]="'0px solid yellowGreen'"
-                        [style.display]="'flex'">
+                    <div *ngFor="let varied of aVariedProj; let i = index">
+                        <div class="multi-proj-title">{{ varied.varProjectTitle }}</div>
+                        <div class="multi-proj-sub-title">{{ varied.varProjectSubTitle }}</div>
+                        <div class="multi-proj-function">Responsibilities: {{ varied.varProjectFunction }}</div>
+                        <div class="multi-proj-description">{{ varied.varProjectDescription }}</div>
+                        <div class="multi-proj-link" id={{varied.varId}}
+                            [style.display]='aButtonDisplay[i]'
+                            [style.border]="'0px solid red'"
+                            [style.cursor]="'pointer'"
+                            (mouseover)="changeBackgroundColor=false"
+                            (mouseleave)="changeBackgroundColor=true"
+                            [ngStyle]="{'background-color': changeBackgroundColor===false  ? '#fe4400' : '#92d11f' }"
+                            (click)="fOpenXLinks(varied.varUrl)"
+                            >
+                            <!-- <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div> -->
+                            <!-- <some-element [ngStyle]="{'font-style': styleExp}">...</some-element> -->
+                            <mat-icon class="varLinkName-icon"
+                            >link</mat-icon>
+                            <span class="varLinkName-label">
+                                {{ varied.varLinkName }}
+                            </span>
+                        </div>
 
-                        <div *ngFor="let varied of aVariedProj; let i = index">
-                            <div class="multi-proj-title">{{ varied.varProjectTitle }}</div>
-                            <div class="multi-proj-sub-title">{{ varied.varProjectSubTitle }}</div>
-                            <div class="multi-proj-function">Responsibilities: {{ varied.varProjectFunction }}</div>
-                            <div class="multi-proj-description">{{ varied.varProjectDescription }}</div>
-                            <div class="multi-proj-link" id={{varied.varId}}
-                                [style.display]='aButtonDisplay[i]'
-                                [style.border]="'0px solid red'"
-                                [style.cursor]="'pointer'"
-                                (click)="fOpenXLinks(varied.varUrl)">
-                                <mdc-icon class="varLinkName-icon">link</mdc-icon>
-                                <span class="varLinkName-label mdc-button__labelX">{{ varied.varLinkName }}</span>
-                            </div>
-
-                            <div class="multi-proj-image"
-                                [style.backgroundImage]="'url(' + popImagePath + varied.image + ')'"
-                                [style.background-repeat]="'no-repeat'"
-                                [style.backgroundSize]='varied.varBGSize'
-                                [style.width.px]= 'fotoWidth'
-                                [style.maxHeight.%]= '100'
-                                [style.marginTop.px]= '40'
-                                [style.backgroundColor]='varied.varBGColor'
-                                [style.backgroundPositionX.%]="50"
-                                [style.border]="'0px solid grey'"
-                                >
-                            </div>
+                        <div class="multi-proj-image"
+                            [style.backgroundImage]="'url(' + popImagePath + varied.image + ')'"
+                            [style.background-repeat]="'no-repeat'"
+                            [style.backgroundSize]='varied.varBGSize'
+                            [style.width.px]= 'fotoWidth'
+                            [style.maxHeight.%]= '100'
+                            [style.marginTop.px]= '40'
+                            [style.backgroundColor]='varied.varBGColor'
+                            [style.backgroundPositionX.%]="50"
+                            [style.backgroundPositionY.%]="10"
+                            [style.border]="'0px solid grey'"
+                            >
                         </div>
                     </div>
+                </div>
 
-                    <!--**** Single project images inside the carousel ***-->
-                    <ng-template #elseBlock>
-                        <div  class="bg-imageX"
-                                *ngFor="let foto of imageToLoad; let i = index"
-                                [style.backgroundImage]="'url(' + popImagePath + foto.value + ')'"
-                                [style.background-repeat]="'no-repeat'"
-                                [style.backgroundSize]='foto.bgSize'
-                                [style.width.px]= 'fotoWidth'
-                                [style.height.vh]='fotoHeight'
-                                [style.backgroundColor]='foto.bgColor'
-                                [style.backgroundPositionX.%]="50"
-                                [style.border]="'0px solid grey'"
-                                >
-                        </div>
-                    </ng-template>
+                <!--**** Single project images inside the carousel ***-->
+                <ng-template #elseBlock>
+                    <div  class="bg-imageX"
+                            *ngFor="let foto of imageToLoad; let i = index"
+                            [style.backgroundImage]="'url(' + popImagePath + foto.value + ')'"
+                            [style.background-repeat]="'no-repeat'"
+                            [style.backgroundSize]='foto.bgSize'
+                            [style.width.px]= 'fotoWidth'
+                            [style.height.vh]='fotoHeight'
+                            [style.backgroundColor]='foto.bgColor'
+                            [style.backgroundPositionX.%]="50"
+                            [style.backgroundPositionY.%]="50"
+                            [style.border]="'0px solid grey'"
+                            >
+                    </div>
+                </ng-template>
+
             </li>
         </ul>
 
@@ -255,12 +190,12 @@
         <!-- Text and buttons area -->
         <div class="text-area"
             [style.width.px]= 'carouselMaskWidth'
-            [style.border]="'0px solid grey'">
-            <!-- [style.width.px]= 'carouselMaskWidth'
-                modalKontainerInteriorWidth-->
+            [style.border]="'0px solid grey'"
+            >
             <div class="inner"
                 [style.width.px]= 'carouselMaskWidth'
-                [style.border]="'0px solid red'">
+                [style.border]="'0px solid red'"
+                >
                 <div class="about"
                     [style.paddingLeft.px]="'20'"
                     [style.paddingRight.px]="'20'"
@@ -275,40 +210,53 @@
                     [style.paddingRight.px]="'20'"
                     [style.border]="'0px solid grey'"
                     >
-                    <!-- [style.width.px]= 'modalKontainerInteriorWidth' 'carouselMaskWidth' -->
-                    {{popDescription}}
+                    {{ popDescription }}
                 </p>
 
-                <!-- <button mdc-button class="additionalInfoBtn"
-                        [unelevated]="true"
-                        [icon]="true"
-                        (click)="fOpenMeTest()">
-                    <mdc-icon>link</mdc-icon>
-                    {{ testProjectDetail }}
-                </button> -->
                 <div [style.paddingLeft.px]="'20'">
-                    <button mdc-fab extended class="mdcFabExtended"
-                        (click)="fOpenXLinks(linx1.linkUrl)">
-                        <!-- fOpenXLinks (change parameter) -->
-                        <mdc-icon class="linkName-icon">link</mdc-icon>
-                        <span class="linkName-label">{{ linx.linkName }}</span>
-                        <!-- <a href="{{linx1.linkUrl}}" target="_blank">{{ linx.linkName }}</a> -->
+                    <button mat-fab extended class="matFabExtended"
+                        (mouseover)="changeBGColor=false"
+                        (mouseleave)="changeBGColor=true"
+                        [ngStyle]="{'background-color': changeBGColor===false  ? '#fe4400' : '#92d11f' }"
+                        (click)="fOpenXLinks(linx1.linkUrl)"
+                        >
+                        <div class="buttonLabel"
+                            [style.display]="'flex'"
+                            [style.margin]="'-3px 25px 0px 20px'"
+                            [style.border]="'0px solid orange'"
+                            >
+                            <mat-icon class="linkName-icon"
+                                [style.border]="'0px solid blue'"
+                                [style.marginTop.px]="'-1'"
+                                >
+                                link
+                            </mat-icon>
+                            <span class="linkName-label"
+                                [style.color]="'white'"
+                                [style.marginTop.px]="'-1'"
+                                [style.border]="'0px solid purple'"
+                                >
+                                {{ linx.linkName }}
+                            </span>
+                        </div>
+
                     </button>
+
                 </div>
-
-
-                <!-- <br>
-
-                <p><a href="{{linx1.linkUrl}}" target="_blank">{{ linx.linkName }}</a>
-                    {{ linx1.linkUrl }}
-                </p> -->
 
                 <br>
 
                 <div [style.paddingLeft.px]="'20'">
-                    <button mdc-fab mini class="mdcFabMini"
+                    <button mat-fab mini class="matFabMini"
+                        (mouseover)="changeCloseBGColor=false"
+                        (mouseleave)="changeCloseBGColor=true"
+                        [ngStyle]="{'background-color': changeCloseBGColor===false  ? '#fe4400' : '#b0b4b6' }"
                         (click)="fClose()">
-                        <mdc-icon>close</mdc-icon>
+                        <mat-icon class="closeIcon"
+                            [style.color]="'white'"
+                            >
+                            close
+                        </mat-icon>
                     </button>
                 </div>
 
@@ -317,116 +265,5 @@
         </div>
 
     </div>
-
-    <!--= Carousel slider buttons =-->
-    <div *ngIf="false;">
-        <div  id="arrow-buttons-kontainer-id" class="arrow-buttons-kontainer"
-                [style.display]= 'flex'
-                [style.top.vh]= '50'
-                [style.width.px]= 'carouselMaskWidth'
-                [style.border]="'1px solid red'"
-                [style.position]= "'relative'"
-                >
-                <!-- [style.top.px]= 'arrowButtonsKontainerYPos'
-                    [style.top.vh]= '50'
-                [style.position]= "'absolute'"-->
-            <!--
-            arrowButtonsKontainerYPos
-            [style.top.vh]= '(- fotoHeight /2)'
-            [style.top.vh]= '- fotoHeight /2'
-            [style.width.px]= 'modalMaxWidth'
-            [style.display]= 'flex'
-            [style.height.vh]= '80'
-            [style.padding]= '0'
-            [style.margin]= '0'
-            [style.alignItems]= 'center'
-            [style.justifyContent]= 'center'
-            [style.top.px]= '0'
-            [style.left.vw]= '10'
-            [style.position]= "'absolute'"
-                height: 100%;
-                padding: 0;
-                margin: 0;
-                display: -webkit-box;
-                display: -moz-box;
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                [style.width.px]= 'carouselKontainerMaskWidth'
-                [style.width.px]= 'carouselKontainerWidth'
-                [style.height.vh]='fotoHeight'
-                [style.position]="'absolute'"
-            -->
-
-            <div id="left-button-kontainer-id" class="left-button-kontainer">
-                <!-- https://trimox.github.io/angular-mdc-web/#/angular-mdc-web/icon-button-demo/examples -->
-                <button mdc-icon-button
-                        class="rlg-arrowIcon
-                        rlg-left-arrow
-                        rlg-font-dark-shadow
-                        rlg-primary-mid-color"
-                        (click)="fSlideRight()"
-                        (mouseover)="hideTextLabelLeft=false"
-                        (mouseleave)="hideTextLabelLeft=true">
-                        <!-- icon="keyboard_arrow_left" -->
-                        <mdc-icon>keyboard_arrow_left</mdc-icon>
-                </button>
-                <span class="left-button-text
-                            rlg-primary-font
-                            rlg-font-mid-shadow"
-                            [ngStyle]="{opacity: hideTextLabelLeft==false  ? '1' : '0' }">
-                            PREVIOUS
-                </span>
-                <!-- <button mdcIconButton>
-                    <mdc-icon>favorite</mdc-icon>
-                </button>
-
-                <button mdcIconButton class="demo-icon-button-primary">
-                    <mdc-icon mdcIconOn>favorite</mdc-icon>
-                    <mdc-icon>favorite_border</mdc-icon>
-                </button> -->
-
-            </div>
-
-            <div id="right-button-kontainer-id"
-                class="right-button-kontainer"
-
-                [style.display]="'flex'"
-                [style.flexDirection]="'row'"
-                [style.justifyContent]="'space-between'"
-
-                [style.left.px]= 'rightArrowButtonsKontainerXPos'
-                [style.width.px]='btnKontainerWidth'
-                [style.height.px]="'auto'"
-                [style.border]="'1px solid yellowGreen'"
-                >
-                <button mdcIconButton class="rlg-arrowIcon
-                                            rlg-right-arrowX
-                                            rlg-font-dark-shadow
-                                            rlg-primary-mid-color"
-                                            (click)="fSlideLeft()"
-                                            (mouseover)="hideTextLabelRight=false"
-                                            (mouseleave)="hideTextLabelRight=true">
-                                            <mdc-icon>keyboard_arrow_right</mdc-icon>
-
-                </button>
-
-                <span class="right-button-text
-                            rlg-primary-font
-                            rlg-font-mid-shadow"
-                            [ngStyle]="{opacity: hideTextLabelRight==false  ? '1' : '0' }">
-                            NEXT
-                </span>
-            </div>
-
-        </div>
-    </div>
-
-
-
-    <!-- </div> -->
-
 
 </div>

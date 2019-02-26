@@ -1,4 +1,16 @@
+/***********************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component Name: Portfolio
+* Version: 090418
+* Note: Main page layout and animation. Calls to open modal.
+***********************************************************/
+
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { throwError } from 'rxjs';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { FunksionsService } from '../../services/funksions.service';
 import { MondrianAnimService } from '../../services/mondrian-anim.service';
@@ -35,7 +47,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   public loading = '.loading';
   public loadingKontainer = '.loading-kontainer';
   /*---= Timer =----*/
-  public timeout = 5000;
+  public timeout = 2000;
   public tym1 = .5;
   public tym2 = .5;
   public tym3 = .5;
@@ -76,13 +88,30 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       /*--= Populating arrays =--*/
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
+
         this.photoKontainer[this.photoKontainer.length] = '#' + element.kontainerId; // push
+        console.log('this.photoKontainer: ', this.photoKontainer);
+
         this.fotoId[this.fotoId.length] = '#' + element.imageId; // push
+        console.log('this.fotoId: ', this.fotoId);
+
       }
-    });
-      // ,
+    },
       // error => this.errorMsg = this._portfolioDataService.fErrorHandler()); // ????????? Work on this error);
-      // console.log('Error!');
+      // error => this.errorMsg = this._portfolioDataService.fHandleError);
+      // error => this.errorMsg = this._portfolioDataService.fHandleError);
+      // this.errorMsg = this._portfolioDataService.fHandleError);
+      // error => this.errorMsg = this._portfolioDataService.fHandleError);
+      error => this.errorMsg = this.fError());
+      // console.log('Error: ', this.errorMsg);
+
+      // error => {
+      //   this.errors = error;
+      // },
+      // () => {
+      //   // 'onCompleted' callback.
+      //   // No errors, route to new page here
+      // }
 
       this._funksions.fDisplay(this.mainKontainerId, 'none');
 
@@ -90,8 +119,24 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.resizeMe();
       }, 100);
-
   }
+
+  public fError() {
+    return 'SOMETHING WENT WRONG! ';
+  }
+
+  // public fHandleError(error) {
+  //   let errorMessage = '';
+  //   if (error.error instanceof ErrorEvent) {
+  //     // client-side error
+  //     errorMessage = `Error: ${error.error.message}`;
+  //   } else {
+  //     // server-side error
+  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //   }
+  //   window.alert(errorMessage);
+  //   return throwError(errorMessage);
+  // }
 
   ngAfterViewInit() {
     setTimeout(() => {

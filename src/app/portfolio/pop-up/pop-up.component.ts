@@ -1,3 +1,14 @@
+/***********************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component Name: Pop-Up
+* Version: 090418
+* Note: Modal page open from portfolio component.
+***********************************************************/
+
 
 import { Component, OnInit, ViewChild, ViewChildren,
          AfterViewInit, AfterViewChecked, Inject, ElementRef,
@@ -22,6 +33,9 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   // @Input() childMessage: string;
 
   public bShow = false;
+
+  // Keycode for ESCAPE
+  const ESCAPE = 27;
 
   /*---= PopUp params properties =---*/
   public aProjects = [];
@@ -108,13 +122,18 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   // public multiProjTitle = '.multi-proj-title';
   // public multiProjTitleId = '#multiProjTitleId';
 
-  public mdcFabExtended = '.mdcFabExtended';
+  public matFabExtended = '.matFabExtended';
 
   // public stringFrPortfolio: string;
 
   public displayElement: boolean;
   // public noLink: boolean;
   // public showBtn: boolean;
+
+  public hideBackgroundLeft: boolean;
+  public hideBackgroundRight: boolean;
+  public changeBGColor: boolean;
+  public changeCloseBGColor: boolean;
 
   public flexDirection: string;
   public columnNum: number;
@@ -176,8 +195,8 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
       this.displayElement = true; /*---|boolean trigger multi projects|---*/
       this.photosLength = this.variedProjects.length; // number of images to load on multi projects
-      // this._funksions.fElementVisibility(this.mdcFabExtended, 'hidden');
-      this._funksions.fDisplay(this.mdcFabExtended, 'none');
+      // this._funksions.fElementVisibility(this.matFabExtended, 'hidden');
+      this._funksions.fDisplay(this.matFabExtended, 'none');
     }
   }
 
@@ -301,6 +320,14 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   onResize(event) {
     this.fResizeMe();
   }
+
+  // Listen on keydown events on a document level
+@HostListener('document:keydown', ['$event']) private handleKeydown(event: KeyboardEvent) {
+  if (event.keyCode === this.ESCAPE) {
+    this.dialogRef.close();
+  }
+}
+
 
   public fResizeMe() {
     // console.log('|-----= fResizeMe() =-----|');

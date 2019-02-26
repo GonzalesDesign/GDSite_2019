@@ -1,16 +1,34 @@
-/*-- Compound Color Schemes or Split Complementary --*/
+/******************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Component: StyleThemeShared scss
+* Note: https://material.angular.io/
+        Material Components designed for Angular only!
+        Site theme css. Imported in style-themeMAT.scss
+*******************************************************/
+
+
+
+/*---=| Compound Color Schemes or Split Complementary |=---*/
+
+/*--= PRIMARY =--*/
 $rlgColorPrimary: #347B98;
 $rlgColorPrimaryMid: lighten($rlgColorPrimary, 10%); // rgb(84, 163, 194);
 $rlgColorPrimaryQtr: lighten($rlgColorPrimary, 20%); // rgb(121, 206, 240);
-// $rlgColorSecondary: #FE2712;
+
+/*--= SECONDARY =--*/
 $rlgColorSecondary: rgb(254, 68, 0); //#fe5900
 $rlgColorSecondaryMid: lighten($rlgColorSecondary, 15%);
 $rlgColorSecondaryDrk: darken($rlgColorSecondary, 5%);
-// $rlgColorSecondaryMid: darken($rlgColorSecondary, 20%);
-// $rlgColorSecondaryMid: rgb(113, 162, 182);
+
+/*--= TERTIARY =--*/
 $rlgColorTertiary: #92d11f; // #92d11f  #B2D732
 $rlgColorTertiaryMid: rgb(207, 232, 118);
-// $rlgColorDark: #092834;
+
+/*--= shades of greys =--*/
 $rlgColorDark: #033346;
 $rlgColorDarkMid: lighten($rlgColorDark, 5%);
 $rlgColorLight: #F0F7D4;
@@ -32,9 +50,14 @@ $rlgColorGreyDark:  rgb(78, 83, 85);
 $rlgColorGreyMid:  rgb(117, 127, 131);
 $rlgColorGreyLight:  rgb(176, 180, 182); */
 
-/*---= Font families =---*/
+/*--= texts shadow variables =--*/
+$text-dark-shadow: 1px 1px $rlgColorDark; // $material-color-grey-800;
+$text-mid-shadow: 1px 1px rgba($rlgColorDark, .5);
+$text-light-shadow: 1px 1px rgba($rlgColorDark, .25);
+$text-white-shadow: 1px 1px rgba(white, .15);
+$text-shadow: 1px 1px 2px rgba($rlgColorDark,.25);
 
-
+/*---=| Font families |=---*/
 $rlg-primary-font: "Open Sans"; // Montserrat Open Sans
 $rlg-paragraph-font: "Merriweather";
 $rlg-header-font: "Oswald";
@@ -45,15 +68,35 @@ $rlg-robot-font: "Roboto";
 $rlg-pt-caption-font: "PT Sans Caption";
 $rlg-icons-font: "Material Icons";
 
+
+/*---=| Font Mixin |=---*/
 @mixin fontFamilyWeightSize ($fontFam, $fontWt, $fontSz){
     font-family: $fontFam;
     font-weight: $fontWt;
     font-size: $fontSz;
+    // to use: @include fontFamilyWeight ($rlg-primary-font, 600, 1em);
 }
 
-// @include fontFamilyWeight ($rlg-primary-font, 600, 1em);
-
+/*---=| Borders for testing variables |=---*/
 $borderForTesting: 0px solid rgb(6, 161, 245);
 $redBorderForTesting: 0px solid rgb(245, 1, 1);
 $greyBorderForTesting: 0px solid rgb(91, 86, 91);
+
+/*---=| HTML Layout |=---*/
+body {
+    // overflow:hidden;
+    // margin: 0;
+    background-color:  $rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
+    // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
+    margin: 0; font-family: $rlg-pt-font, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+p {
+    @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .9em);
+    line-height: 1.6;
+}
 

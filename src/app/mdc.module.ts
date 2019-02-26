@@ -4,10 +4,10 @@
 * Contact: rolandolloyd@gmail.com
 * Copyright © 2019 GonzalesDesign
 * Platform: Angular 6
-* Module Name: MDC Module
+* Module Name: MaterialDesignComponents Module:
+               https://material.angular.io/
 * Note: Import to App Module
 ******************************************************/
-
 
 import { NgModule } from '@angular/core';
 

@@ -36,13 +36,13 @@
             </div>
 
             <!--==== Observable error test ====-->
-            <!-- <h2 class="snafu"
+            <h3 class="snafu"
                 [style.x.vw]="50"
                 [style.textAlign]="'center'"
-                [style.color]="'red'"
-                [style.border]="'1px solid red'">
-                Err: {{errorMsg}}
-            </h2> -->
+                [style.color]="'white'"
+                [style.border]="'0px solid red'">
+                {{errorMsg}}
+            </h3>
 
             <!-- photo containers -->
             <div *ngFor="let allData of aAllData; let i = index"
@@ -109,31 +109,43 @@
               <!-- [style.font-size.px]="isImportant ? '30' : '16'" -->
               <!-- <div [style.display]="isSmallScreen ? 'visible' : 'none'"> -->
 
-              <div class="rlg-button-kontainer">
-                <button mdc-button [unelevated]="true"
-                        [icon]="true" class="rlg-button rlg-ink-color2"
-                        (click)="fOpenModal(
-                                            allData.id,
-                                            allData.imagePath,
-                                            allData.images,
-                                            allData.title,
-                                            allData.subTitle,
-                                            allData.description,
-                                            allData.orientation,
-                                            allData.variation,
-                                            allData.links,
-                                            allData.variedProjects
-                                            )">
+              <!-- changed:
+                    mdc-button [unelevated]="true" [icon]="true" to mat-button
+                    mdc-icon mat-icon
+               -->
 
+              <div class="rlg-button-kontainer">
+                <button mat-button
+                        class="rlg-buttonXXX"
+                        (click)="fOpenModal(
+                                    allData.id,
+                                    allData.imagePath,
+                                    allData.images,
+                                    allData.title,
+                                    allData.subTitle,
+                                    allData.description,
+                                    allData.orientation,
+                                    allData.variation,
+                                    allData.links,
+                                    allData.variedProjects
+                                    )"
+                                    >
                         <!--
+                          (mouseover)="changeBGColor=false"
+                          (mouseleave)="changeBGColor=true"
+                          [ngStyle]="{'background-color': changeBGColor===false  ? '#fe4400' : '#92d11f' }"
                           allData.variedProjects.varBtnDisplay
                           (click)="openSimple(allData.images[i], allData.photoTitle)"
                           (click)="fOpenModal(allData.images[i])"
                           (click)="fOpenModal(allData.imageUrl)"
-                        [style.zIndex]=2000
+                          [style.zIndex]=2000
                         > -->
-                  <mdc-icon>loupe</mdc-icon>
-                  {{ allData.title }}
+                  <mat-icon class="buttonIcon">
+                    loupe
+                  </mat-icon>
+                  <span class="buttonLabel">
+                    {{ allData.title }}
+                  </span>
                 </button>
                 <!-- {{ allData.variedProjects[0].varProjectTitle }}
                 {{ allData.variedProjects[0].varProjectFunction }} -->

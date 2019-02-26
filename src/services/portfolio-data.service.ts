@@ -1,9 +1,20 @@
-
+/***********************************************************
+* Project: R.Lloyd Gonzales Portfolio Website
+* URL: RLGonzales.com
+* Contact: rolandolloyd@gmail.com
+* Copyright © 2019 GonzalesDesign
+* Platform: Angular 6
+* Service Name: PortfolioDataService
+* Version: 090418
+* Note: Entry point for bringing in the data from json
+        using observables.
+        Interface is also defined here.
+***********************************************************/
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 
 export interface PortfolioDataInterface {
@@ -53,9 +64,19 @@ export class PortfolioDataService {
     return this._httpClient
     .get<PortfolioDataInterface[]>(this._url)
     .pipe(
+    //   tap (
+    //     success => console.log('success')
+    //     // error => console.log('error')
+    //     // catchError(this.fHandleError)
+    //  )
       catchError(this.fHandleError)
     );
   }
+
+//   tap (
+//     success => console.log('success')
+//     error => console.log('error')
+//  )
 
   public fErrorHandler() {
     // error => {

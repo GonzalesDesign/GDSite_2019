@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 
 /*---= MAT & MDC Material Modules =---*/
 import { MatModule } from './mat.module';
-import { MDCModule } from './mdc.module';
+// import { MDCModule } from './mdc.module';
 
 /*---= Project Modules =---*/
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +28,7 @@ import { PopUpComponent } from './portfolio/pop-up/pop-up.component';
     HttpClientModule,
     AppRoutingModule,
     MatModule,
-    MDCModule
+    // MDCModule
   ],
   entryComponents: [
     // PopDialogComponent

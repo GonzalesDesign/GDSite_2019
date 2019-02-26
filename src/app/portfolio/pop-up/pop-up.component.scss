@@ -2,56 +2,31 @@
 /*=---=|    Import: General styling    |=---=*/
 @import './../../../styles.scss';
 
-
-/*---| Local Variables |---*/
-$next-previous-color: $rlgColorLight;
-$next-previous-background-color: $material-color-grey-500; // $mdc-theme-secondary;
-
-$text-shadow: 1px 1px 2px rgba(0,0,0,.25);
-
-
 /*---| Classes |---*/
 
 .pop-up-title-kontainer {
   display: flex;
-  /* flex-direction: column; */
   width: 100%;
   align-items: center;
-  /* align-content: center; */
   position: absolute;
   justify-content: center;
-  /* font-size: 12em; */
   top: 20px;
   left: 0px;
-  /* height: auto; */
   z-index: 500;
 }
 
-.pop-up-title-button {
-  // width: 50%;
-  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.5em);
+.pop-up-title {
+  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
   text-align: center;
   color: white;
   line-height: .8em;
   padding: 10px 40px 10px 40px;
   height: auto;
-  // background-color: rgba($rlgColorTertiary, 1);
   background-color: rgba($rlgColorPrimaryMid, 1);
   text-shadow: $text-shadow;
   border-radius: 26px;
   border: 2px solid white;
   box-shadow: $text-shadow;
-}
-
-.rlg-pop-title {
-  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.5em);
-  letter-spacing: -.02em;
-  color: rgba($rlgColorDark, .65);
-  text-align: center;
-  // margin-bottom: 30px;
-  border: $borderForTesting;
-  line-height: 1em;
-  // text-transform: uppercase;
 }
 
 .subTitle {
@@ -65,17 +40,6 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.25);
   background-color: rgba($rlgColorPrimary, .4);
 }
 
-.mat-dialog-container {
-  // height: 500px;
-  border-radius: 40px 0px 40px 0px;
-}
-
-// .modalKontainer {
-//   // overflow: hidden;
-//   border: $borderForTesting;
-// }
-
-
 .image-kontainer {
   display: flex;
   // flex-direction: column;
@@ -83,118 +47,83 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.25);
   // width: 70px;
 }
 
-  .multi-projects {
-    display: flex;
-    // display: none;
-    // visibility: hidden;
-  }
+.multi-projects {
+  display: flex;
+  // display: none;
+  // visibility: hidden;
+}
 
-  // .hideBtn {
-  //   display: none;
-  // }
+.multi-proj-image {
+  // height: 100%;
+  height: -webkit-fill-available;
+}
 
-  .multi-proj-image {
-    // height: 100%;
-    height: -webkit-fill-available;
-  }
+.multi-proj-title {
+  @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.1em);
+  position: relative;
+  color: rgba($rlgColorDark, .65);
+  border: $greyBorderForTesting;
+  line-height: 1;
+}
 
-  .xBtn[_ngcontent-c4] {
-    color: aquamarine;
-    border: 10px solid red;
-  }
+.multi-proj-sub-title {
+  @include fontFamilyWeightSize ($rlg-primary-font, 400, .8em);
+  color: rgba($rlgColorDark, .5);
+  margin: 4px 0px 0px 0px;
+  line-height: 1;
+}
 
-  .multi-proj-title {
-    // display: none;
-    @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.1em);
-    position: relative;
-    // margin: 0px 0px 0px 20px;
-    // overflow: hidden;
-    color: rgba($rlgColorDark, .65);
-    // visibility: hidden;
-    border: $greyBorderForTesting;
-    line-height: 1;
-  }
+.multi-proj-function {
+  @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
+  color: rgba($rlgColorDark, .5);
+  line-height: 1;
+  margin-top: 1em;
+}
 
-  .multi-proj-sub-title {
-    @include fontFamilyWeightSize ($rlg-primary-font, 400, .8em);
-    // position: absolute;
-    color: rgba($rlgColorDark, .5);
-    margin: 4px 0px 0px 0px;
-    line-height: 1;
-  }
+.multi-proj-description {
+  @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .8em);
+  color: rgba($rlgColorDark, .4);
+  margin: 20px 40px 0px 0px;
+  line-height: 1.4;
+  font-style: italic;
+}
 
-  .multi-proj-function {
-    @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
-    // position: absolute;
-    color: rgba($rlgColorDark, .5);
-    // margin: 4px 0px 0px 20px;
-    line-height: 1;
-    margin-top: 1em;
-  }
+.multi-proj-link {
+  @include fontFamilyWeightSize ($rlg-primary-font, 400, .8em);
+  width: fit-content;
+  // height: 100%;
+  color: white; //rgba($rlgColorSecondary, .75);
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  text-transform: uppercase;
+  background-color: rgba($rlgColorTertiary, 1);
+  text-shadow: $text-shadow;
+  border-radius: 20px;
+  box-shadow: $text-shadow;
+}
 
-  .multi-proj-description {
-    @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .8em);
-    // position: absolute;
-    color: rgba($rlgColorDark, .4);
-    margin: 20px 40px 0px 0px;
-    line-height: 1.4;
-    font-style: italic;
-  }
+.varLinkName-label {
+  margin-left: 6px;
+  // color: rgba($rlgColorSecondary, 1);
+}
 
-  .multiColumnDescription {
-    // column-count: 2;
-  }
+.varLinkName-icon {
+  // margin-left: 6px;
+  color: rgba($rlgColorTertiaryMid, 1);
+  margin-top: -1px;
+}
 
-  .multi-proj-link {
-    @include fontFamilyWeightSize ($rlg-primary-font, 400, .8em);
-    width: fit-content;
-    // height: 100%;
-    color: white; //rgba($rlgColorSecondary, .75);
-    margin-top: 20px;
-    padding: 10px 20px 10px 20px;
-    text-transform: uppercase;
-    background-color: rgba($rlgColorTertiary, 1);
-    text-shadow: $text-shadow;
-    border-radius: 20px;
-    box-shadow: $text-shadow;
-  }
+.linkName-label {
+  margin-left: 6px;
+  text-shadow: $text-shadow;
+  // color: rgba($rlgColorSecondary, 1);
+}
 
-  .varLinkName-label {
-    margin-left: 6px;
-    // color: rgba($rlgColorSecondary, 1);
-  }
-
-  .varLinkName-icon {
-    // margin-left: 6px;
-    color: rgba($rlgColorTertiaryMid, 1);
-    margin-top: -1px;
-  }
-
-  .linkName-label {
-    margin-left: 6px;
-    text-shadow: $text-shadow;
-    // color: rgba($rlgColorSecondary, 1);
-  }
-
-  .linkName-icon {
-    // margin-left: 6px;
-    text-shadow: $text-shadow;
-    color: rgba($rlgColorTertiaryMid, 1);
-    margin-top: -1px;
-  }
-// }
-
-/*----= Modal Title =----*/
-// .rlg-pop-title {
-//   @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.5em);
-//   letter-spacing: -.02em;
-//   color: rgba($rlgColorDark, .65);
-//   text-align: center;
-//   // margin-bottom: 30px;
-//   border: $borderForTesting;
-//   line-height: 1em;
-//   // text-transform: uppercase;
-// }
+.linkName-icon {
+  // margin-left: 6px;
+  text-shadow: $text-shadow;
+  color: rgba($rlgColorTertiaryMid, 1);
+}
 
 /*----= Content container =----*/
 .content-container {
@@ -208,14 +137,9 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.25);
 }
 
 .text-area {
-  // @include fontFamilyWeightSize ($rlg-primary-font, 600, .8em);
-  // font-family: $rlg-round-font;
-  // text-transform: none;
-  // font-size: .8em;
   color: rgba($rlgColorDark, .5);
   border: $borderForTesting;
   top: 300px;
-  // line-height: 1.6;
   background-color: aliceblue;
   padding: 20px 0px 0px 2px;
   border-radius: 0px 0px 40px 0px;
@@ -224,11 +148,9 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.25);
 .about {
   @include fontFamilyWeightSize ($rlg-primary-font, 400, 1em);
   color: rgba($rlgColorDark, .5);
-  // font-size: 1.2em;
 }
 
 /*----= Images container area =----*/
-// ul
 .carousel-kontainer {
   // width: 700px;
   display: flex;
@@ -238,184 +160,26 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.25);
   border: $borderForTesting;
 }
 
-/*----= Arrow buttons =----*/
-.arrow-buttons-kontainer {
-    // display: flex;
-    // flex-direction: row;
-    // align-items: center;
-    // justify-content: center;
-    // align-self: center;
-    // margin: 28px;
-    // padding-left: 28px;
-    // padding-right: 28px;
-    // position: absolute;
-    // left: 28px;
-    // width: ($image-kontainer-width * 3); //???
-    // height: 100px;
-    // padding: 20px;
-    // top: -($image-kontainer-height / 2);
-    // background-color: aquamarine;
-    border: $redBorderForTesting;
-    z-index: 100;
-
-    .left-button-kontainer {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      //   justify-content: flex-start;
-      position: absolute;
-      // left: 28px;
-      // margin-left: 28px;
-      width: 200px;
-      // height: 90px;
-      // background-color: $next-previous-background-color;
-      border: $borderForTesting;
-
-      .rlg-left-arrow {
-        // justify-content: flex-start;
-        position: absolute;
-        left: 25px;
-        border: $borderForTesting;
-      }
-
-      .left-button-text {
-        position: absolute;
-        color: $next-previous-color;
-        width: 100px;
-        height: 20px;
-        // top: 28px;
-        left: 80px;
-        text-align: left;
-        padding: 0.4em;
-        padding-left: 1em;
-        background-color: rgba($rlgColorTertiaryMid, .75);
-        border: $borderForTesting;
-      }
-    }
-
-    // .right-button-kontainer {
-    //   display: flex;
-    //   flex-direction: row;
-    //   align-items: center;
-    //   justify-content: flex-end;
-    //     // align-self: flex-end;
-    //   position: absolute;
-    //   // left: (($image-kontainer-width * 3) - 400);
-    // //   width: 200px;
-    //   // height: 90px;
-    //   // margin-right: 28px;
-    //   // background-color: $next-previous-background-color;
-    //   border: $borderForTesting;
-
-    //   .rlg-right-arrow {
-    //     // justify-content: flex-start;
-    //     position: absolute;
-    //     // margin-right: 25px;
-    //     left: 120px;
-    //     border: $borderForTesting;
-    //   }
-
-    //   .right-button-text {
-    //     position: absolute;
-    //     color: $next-previous-color;
-    //     width: 100px;
-    //     height: 20px;
-    //     // top: 30px;
-    //     left: -25px;
-    //     text-align: right;
-    //     // margin-right: 365px;
-    //     padding: 0.4em;
-    //     padding-right: 1em;
-    //     background-color: rgba($rlgColorTertiaryMid, .75);
-    //     border: $borderForTesting;
-    //   }
-    // }
-    .rlg-arrowIcon {
-      // $fontFamilyWeightSize: ($rlg-icons-font, 400, 8em);
-      //   align-self: flex-start;
-      //   position: absolute;
-      // font-size: 4em;
-      // width: 4em;
-      // height: 4em;
-      //   z-index: 100;
-      //   overflow: hidden;
-      // color: rgb(29, 29, 28); //$next-previous-color;
-      // text-shadow: $text-shadow;
-    //   border: 1px solid yellowgreen;
-    }
-
-    .material-icons {
-      font-size: 3em;
-      // font-weight: 100;
-      line-height: .3;
-      margin-left: -30px;
-      color: rgb(255, 255, 255); //$next-previous-color;
-      text-shadow: $text-shadow;
-    //   border: 1px solid yellowgreen;
-    }
-
-
-
-
-  }
-
-/*-- Background color for the arrow button's circular bg --*/
-/* .mdc-icon-button::before, .mdc-icon-button::after {
-  background-color: $rlgColorSecondary;
-} */
-
-.mdc-icon-button::before {
-  background-color: rgb(0, 255, 51);
-  width: 4em;
-  height: 4em;
-
-}
-
-.mdc-icon-button::after {
-    background-color: $rlgColorSecondary;
-}
-
-.mdcFabMini {
-  margin: 20px 0px 20px 0px;
-  // background-color: rgb(255, 162, 0);
-  background-color: rgba($rlgColorDark, .5);
-  text-shadow: $text-shadow;
-}
-
-mdc-fab {
-  background-color: rgb(255, 162, 0);
-}
-
-mdc-icon {
-  // background-color: rgb(87, 80, 80);
-}
-
-// .mdcLinkIcon {
-//   font-size: 30px;
-// }
-
-.additionalInfoBtn {
+mat-fab {
   background-color: $rlgColorTertiary;
 }
 
-.mdc-button-text {
-  color: $rlgColorPrimary;
+/*---| Buttons inside text-area |---*/
+.mat-fab.mat-accent {
+  background-color: $rlgColorTertiary;
+}
+.matFabMini.mat-fab.mat-accent {
+  background-color: $rlgColorGreyLight;
+  margin-bottom: 20px;
 }
 
-.mdc-button__label {
-  color: $rlgColorPrimary;
-}
-
-// mdc-fab-container-color($color)
-
-// .mdc-fab--extended[_ngcontent-c4] {
-.mdcFabExtended {
+.matFabExtended {
   @include fontFamilyWeightSize ($rlg-primary-font, 600, .8em);
   // font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   // font-size: 0.875rem;
-  line-height: 2.25rem;
+  // line-height: 2.25rem;
   // font-weight: 500;
   letter-spacing: 0.08928571em;
   text-decoration: none;
@@ -423,13 +187,8 @@ mdc-icon {
   // padding: 0 20px;
   width: auto;
   max-width: 100%;
-  margin-top: 10px;
+  // margin-top: 10px;
   height: 48px;
   border-radius: 24px;
   background-color: $rlgColorTertiary;
 }
-
-.mdc-fab[_ngcontent-c4] {
-    // background-color: var(--mdc-theme-secondary, #f09b09);
-}
-

@@ -13,7 +13,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { TweenMax, TimelineMax, Power2, Elastic } from 'gsap';
+import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
 
 @Injectable({
   providedIn: 'root'

@@ -14,9 +14,9 @@
         ],
         "imagePath": "./../../assets/images/jtns/",
         "images": [
-            { "value": "photo0a.jpg", "bgSize": "cover", "bgColor": "white" },
-            { "value": "photo1a.jpg", "bgSize": "cover", "bgColor": "white" },
-            { "value": "photo2a.jpg", "bgSize": "cover", "bgColor": "white" }
+            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "white" },
+            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "white" },
+            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "white" }
         ],
         "description": "JTNS website is a brochure type of site. Information for the services offered. The client designed the look and feel and asked me to build it. The client wanted to create multiple sites and required the ability to update the site for content. I built the site using HTML, CSS, and Javascript. The development code is written in ES2015, SCSS, Babel, Webpack and NodeJS. I wrote the template with ES2015 pulling content from JSON files which the client can update. I used Webpack and Babel to transpiled the ES6 codes to ES5."
     },
@@ -75,7 +75,7 @@
                 "varBtnDisplay": "flex",
                 "varLinkName": "HorizonBlue",
                 "varUrl": "https://www.horizonblue.com",
-                "varBGColor": "#55667E",
+                "varBGColor": "#57647d",
                 "varBGSize": "contain"
             },
             {
@@ -140,7 +140,7 @@
                 "varBtnDisplay": "flex",
                 "varLinkName": "synchronoss",
                 "varUrl": "https://synchronoss.com/what-we-do/",
-                "varBGColor": "#45B5D6",
+                "varBGColor": "#37372e",
                 "varBGSize": "contain"
             },
             {
@@ -192,7 +192,7 @@
                 "varBtnDisplay": "flex",
                 "varLinkName": "2016 Website",
                 "varUrl": "http://www.rlloydgonzales.com/2016/",
-                "varBGColor": "#157c95",
+                "varBGColor": "#23262e",
                 "varBGSize": "contain"
             }
         ],
