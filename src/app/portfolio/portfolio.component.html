@@ -15,15 +15,14 @@
 
 
 <!-- Loader component -->
-<app-loader-svg></app-loader-svg>
+<!-- <app-loader-svg></app-loader-svg> -->
 
 <!-- <app-pop-up [childMessage]="parentMessage"></app-pop-up> -->
 
 <!-- {{ dialogResult }} -->
 
 <!-- INTRO MONDRIAN -->
-<div id="rlg-main-kontainer-id"
-    [style.border]="'0px solid yellowGreen'">
+<div id="rlg-main-kontainer-id">
 
         <!-- photo containers layout wrapper -->
         <div id="rlg-kontainer-id"
@@ -100,6 +99,8 @@
                 <h2 class="rlg-photo-title ">{{ allData.title }}</h2>
                 <h3 class="rlg-photo-subtitle">{{ allData.subTitle }}</h3>
                 <!-- </div> -->
+
+                <!-- Add *ngIf="expression" -->
                 <div class="rlg-photo-body">
                     {{ allData.description }}
                 </div>
@@ -116,7 +117,7 @@
 
               <div class="rlg-button-kontainer">
                 <button mat-button
-                        class="rlg-buttonXXX"
+                        class="rlg-button"
                         (click)="fOpenModal(
                                     allData.id,
                                     allData.imagePath,

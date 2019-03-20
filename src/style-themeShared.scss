@@ -26,12 +26,15 @@ $rlgColorSecondaryDrk: darken($rlgColorSecondary, 5%);
 
 /*--= TERTIARY =--*/
 $rlgColorTertiary: #92d11f; // #92d11f  #B2D732
-$rlgColorTertiaryMid: rgb(207, 232, 118);
+$rlgColorTertiaryMid: lighten($rlgColorTertiary, 30%); //#cfe876;
+$rlgColorTertiaryQtr: lighten($rlgColorTertiary, 45%);
+
+/*--= QUATERNARY =--*/
+$rlgColorLight: $rlgColorTertiaryQtr; // rgb(207, 232, 118); //#F0F7D4;
 
 /*--= shades of greys =--*/
 $rlgColorDark: #033346;
 $rlgColorDarkMid: lighten($rlgColorDark, 5%);
-$rlgColorLight: #F0F7D4;
 $rlgColorGreyDark:  rgb(78, 83, 85);
 $rlgColorGreyMid:  rgb(117, 127, 131);
 $rlgColorGreyLight:  rgb(176, 180, 182);

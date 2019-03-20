@@ -6,7 +6,7 @@
 * Platform: Angular 6
 * Service Name: CarouselService
 * Version: 022119
-* Note: Function for sliding carousel.
+* Note: Service Class for Sliding Carousel
 ***********************************************************/
 
 import { Injectable } from '@angular/core';

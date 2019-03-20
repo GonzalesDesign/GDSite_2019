@@ -55,7 +55,7 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
 
             #title-kontainer-id {
                 z-index: 101;
-                opacity: 0.25;
+                // opacity: 0.25;
                 // font-family: "OpenSans";
                 font-family: "Oswald";
                 margin: 0;
@@ -255,37 +255,37 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
                     //     background-color: rgba(191, 254, 5, 0.81) !important;
                     // }
 
-                    .rlg-button {
-                        // align-self: end;
-                        // display: flex;
-                        // align-content: center; //vertical alignment
-                        // align-items: center;
-                        justify-content: center; //horizontal alignment
-                        // font-size: 16px;
-                        // padding: .25em;
-                        color: aliceblue;
-                        text-shadow: $text-dark-shadow;
-                        top: -10px;
-                        // width: 50%;
-                        // height: 12%;
-                        position: relative;
-                        overflow: hidden;
-                        // padding: 10px;
-                        // text-align: center;
-                        // border: $dev-border;
-                        // border-radius: 0px 0px 10px 10px;
-                        border: 1px solid rgba(247, 248, 249, 0.25);
-                        text-transform: uppercase;
+                    // .rlg-button {
+                    //     // align-self: end;
+                    //     // display: flex;
+                    //     // align-content: center; //vertical alignment
+                    //     // align-items: center;
+                    //     justify-content: center; //horizontal alignment
+                    //     // font-size: 16px;
+                    //     // padding: .25em;
+                    //     color: aliceblue;
+                    //     text-shadow: $text-dark-shadow;
+                    //     top: -10px;
+                    //     // width: 50%;
+                    //     // height: 12%;
+                    //     position: relative;
+                    //     overflow: hidden;
+                    //     // padding: 10px;
+                    //     // text-align: center;
+                    //     // border: $dev-border;
+                    //     // border-radius: 0px 0px 10px 10px;
+                    //     border: 1px solid rgba(247, 248, 249, 0.25);
+                    //     text-transform: uppercase;
 
-                        // .mat-button-focus-overlay {
-                        //     background-color: red;
-                        //     opacity: .5;
-                        // }
-                    }
-                    .rlg-button:hover{
-                        background-color: rgb(250, 68, 1) !important;
-                        // color:rgb(255, 255, 255);
-                      }
+                    //     // .mat-button-focus-overlay {
+                    //     //     background-color: red;
+                    //     //     opacity: .5;
+                    //     // }
+                    // }
+                    // .rlg-button:hover{
+                    //     background-color: rgb(250, 68, 1) !important;
+                    //     // color:rgb(255, 255, 255);
+                    //   }
                 }
             }
 

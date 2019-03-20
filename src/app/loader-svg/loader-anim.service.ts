@@ -102,10 +102,6 @@ export class LoaderAnimService {
       repeatDelay: 1,
       yoyo: true,
       ease: Elastic.easeInOut});
-
   }
-
-
-
 
 }

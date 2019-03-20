@@ -35,7 +35,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public bShow = false;
 
   // Keycode for ESCAPE
-  const ESCAPE = 27;
+  private ESCAPE = 27;
 
   /*---= PopUp params properties =---*/
   public aProjects = [];
@@ -59,7 +59,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public buttonDisplay; // = this.xData.variedProjects2[1].varBtnDisplay;
   public aButtonDisplay = [];
   // public aDisplayFlexNone = ['flex', 'flex', 'none', 'none', 'flex', 'none', 'none', 'flex', 'flex'];
-  public aDisplaySHowBtn = ['true', 'true', 'false', 'false', 'true', 'false', 'false', 'true', 'true'];
+  // public aDisplaySHowBtn = ['true', 'true', 'false', 'false', 'true', 'false', 'false', 'true', 'true'];
 
   public varProjectTitle; // = this.xData.variedProjects2[0].varProjectTitle;
   public linx = this.xData.linx[0];

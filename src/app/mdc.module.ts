@@ -5,7 +5,7 @@
 * Copyright © 2019 GonzalesDesign
 * Platform: Angular 6
 * Module Name: MaterialDesignComponents Module:
-               https://material.angular.io/
+               https://material.io/
 * Note: Import to App Module
 ******************************************************/
 

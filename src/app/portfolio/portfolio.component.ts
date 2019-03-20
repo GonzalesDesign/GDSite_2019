@@ -9,8 +9,8 @@
 * Note: Main page layout and animation. Calls to open modal.
 ***********************************************************/
 
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Component, OnInit, OnDestroy, AfterViewInit, HostListener } from '@angular/core';
+import { Subscription, throwError } from 'rxjs';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { FunksionsService } from '../../services/funksions.service';
 import { MondrianAnimService } from '../../services/mondrian-anim.service';
@@ -22,7 +22,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-export class PortfolioComponent implements OnInit, AfterViewInit {
+export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // @ViewChild('modKontTest') modKontTest;
 
@@ -62,6 +62,9 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   /*-= Varied Projects Variables =----*/
   // public aVariedProjects = [];
+  /*--===| rxjs: subscription |===--*/
+  public subsPortfolio: Subscription;
+
 
   /*-= Error variables =----*/
   public errorMsg;
@@ -76,7 +79,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     /*---=|••• OBSERVABLE •••|=---*/
-    this._portfolioDataService.portfolioData()
+    this.subsPortfolio = this._portfolioDataService.portfolioData()
     .subscribe(data => {
       this.aAllData = data; // populate aAllData array with all the data
       this._funksions.fDisplay(this.loadingKontainer, 'flex'); // show loader
@@ -90,10 +93,10 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
         const element = data[i];
 
         this.photoKontainer[this.photoKontainer.length] = '#' + element.kontainerId; // push
-        console.log('this.photoKontainer: ', this.photoKontainer);
+        // console.log('this.photoKontainer: ', this.photoKontainer);
 
         this.fotoId[this.fotoId.length] = '#' + element.imageId; // push
-        console.log('this.fotoId: ', this.fotoId);
+        // console.log('this.fotoId: ', this.fotoId);
 
       }
     },
@@ -119,6 +122,13 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         this.resizeMe();
       }, 100);
+  }
+
+  /*-==================================
+		Unsubscribe to avoid memory leaks
+	=====================================-*/
+  ngOnDestroy() {
+      this.subsPortfolio.unsubscribe();
   }
 
   public fError() {

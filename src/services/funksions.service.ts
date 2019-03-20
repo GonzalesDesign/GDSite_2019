@@ -60,16 +60,6 @@ import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
     }
   }
 
- public fRemoveLoader(e, disp, tym) {
-    const x = document.querySelector(e); // , s = x.style;
-    if (disp === 'none') {
-      this.fTMxToAlfa(x, tym, 0, Power2.easeOut);
-      setTimeout(() => {
-        x.parentNode.removeChild(x);
-      }, tym * 1000 );
-    }
-}
-
   /*- Setting an element visibility.
       options: visible, hidden ----*/
  public fElementVisibility(e, vis) {
@@ -179,7 +169,17 @@ import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
     .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
   }
 
- public fLoadTimer(el, tym) {
+  public fRemoveLoader(e, disp, tym) {
+    const x = document.querySelector(e); // , s = x.style;
+    if (disp === 'none') {
+      this.fTMxToAlfa(x, tym, 0, Power2.easeOut);
+      setTimeout(() => {
+        x.parentNode.removeChild(x);
+      }, tym * 1000 );
+    }
+  }
+
+  public fLoadTimer(el, tym) {
     const Cont = {val: 0};
     const NewVal = 100 ;
     const animTym = tym / 1000; // converting setTimeout x000 format to gsap
