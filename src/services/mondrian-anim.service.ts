@@ -59,6 +59,31 @@ export class MondrianAnimService {
       fontSize: sizeFont,
       opacity: alfa,
       ease: Power2.easeOut, delay: .5 });
+      // if (alfa === 0){
+      //   visibility: hidden;
+      // } else {
+      //   visibility: visible;
+      // }
+    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  }
+
+  // Move this to funksions service
+  public fTMXfontSize(elem, tym, sizeFont?: any) {
+    this.tMx
+    .to(elem, tym, {
+      fontFamily: 'Open Sans',
+      fontKerning: '1px',
+      letterSpacing: '1px',
+      fontSize: sizeFont,
+      // backgroundColor: 'red',
+      ease: Power2.easeOut, delay: .5 });
+    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  }
+  public fTMXVisibility(elem, tym, showHide) {
+    this.tMx
+    .to(elem, tym, {
+      visibility: showHide,
+      ease: Power2.easeOut, delay: .5 });
     // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
   }
 

@@ -12,21 +12,15 @@
   class="centerLine">
 </div>
 
-
-
 <!-- Loader component -->
 <!-- <app-loader-svg></app-loader-svg> -->
 
-<!-- <app-pop-up [childMessage]="parentMessage"></app-pop-up> -->
-
-<!-- {{ dialogResult }} -->
-
 <!-- INTRO MONDRIAN -->
 <div id="rlg-main-kontainer-id">
+<!-- <div  *ngIf="showMainKontainer" id="rlg-main-kontainer-id"> -->
 
         <!-- photo containers layout wrapper -->
-        <div id="rlg-kontainer-id"
-            [style.border]="'0px solid white'">
+        <div id="rlg-kontainer-id">
 
             <!-- Title and sub-title -->
             <div id="title-kontainer-id">
@@ -35,89 +29,36 @@
             </div>
 
             <!--==== Observable error test ====-->
-            <h3 class="snafu"
-                [style.x.vw]="50"
-                [style.textAlign]="'center'"
-                [style.color]="'white'"
-                [style.border]="'0px solid red'">
+            <h3 class="snafu">
                 {{errorMsg}}
             </h3>
 
             <!-- photo containers -->
             <div *ngFor="let allData of aAllData; let i = index"
               id="{{ allData.kontainerId }}"
-              class="photo-kontainer"
-              [style.width.px]="400"
-              [style.height.px]="400"
-              [style.opacity]=".1"
-              [style.x.vw]="50"
-              [style.top.px]="0"
-              [style.border]="'0px solid red'"
-              >
-              <!-- TEST  -->
-              <!-- {{ allData.kontainerId }} -->
-              <!-- <h4 [style.border]="'1px solid red'">foto: {{allData.id}}</h4> -->
-
-              <!-- [style.border]="'1px solid red'" -->
+              class="photo-kontainer">
 
               <!-- photos for the homepage -->
               <div id="{{ allData.imageId }}" class="foto"
-                [style.backgroundImage]="'url('+ aAllData[i].imagePath + aAllData[i].images[0].value +')'"
+                [style.backgroundImage]="'url('+ aAllData[i].imagePath + aAllData[i].coverImage +')'"
                 [style.background-repeat]= "'no-repeat'"
-                [style.backgroundSize]= "'cover'"
-                >
-                <!-- {{ aAllData[2].variedProjects[i].varProjectTitle }} -->
-                <!-- {{aAllData[i].title}} -->
-                <!-- [style.backgroundPositionX]="-100"
-                [style.width.%]="100"
-                [style.height.%]="100"
-                  [style.display]= "'flex'"
-                [style.flex-direction]= "'column'"
-                      [style.width.px]="400"
-                      [style.height.px]="300"
-                      [style.left.px]="0"
-                      [style.opacity]=".5"
-                      [style.height.px]="500"
-                      [style.border]="'1px solid red'"
-                [style.backgroundPositionX.%]="50"
-                [style.backgroundSize]= "'cover'"
-                [style.border]="'1px solid grey'"
-                -->
+                [style.backgroundSize]= "'cover'">
               </div>
 
-              <!-- Testing the secondary images from json -->
-              <!-- <div *ngFor="let popPhoto of popUpImages; let i = index"
-                    [style.backgroundImage]="'url('+ popPhoto +')'"
-                    [style.background-repeat]= "'no-repeat'"
-                    [style.height.px]="100"
-                    >
-              </div> -->
-
               <!-- Show on small screen -->
-              <div class="photo-info-kontainer">
-                <!-- <div class="rlg-photo-headings rlg-photo__primary"> -->
+              <div *ngIf="showPhotoInfo" class="photo-info-kontainer">
                 <h2 class="rlg-photo-title ">{{ allData.title }}</h2>
                 <h3 class="rlg-photo-subtitle">{{ allData.subTitle }}</h3>
-                <!-- </div> -->
-
-                <!-- Add *ngIf="expression" -->
                 <div class="rlg-photo-body">
                     {{ allData.description }}
+                    <br>
                 </div>
               </div>
 
-              <!-- End Show -->
-              <!-- [style.font-size.px]="isImportant ? '30' : '16'" -->
-              <!-- <div [style.display]="isSmallScreen ? 'visible' : 'none'"> -->
-
-              <!-- changed:
-                    mdc-button [unelevated]="true" [icon]="true" to mat-button
-                    mdc-icon mat-icon
-               -->
-
               <div class="rlg-button-kontainer">
-                <button mat-button
-                        class="rlg-button"
+              <!-- <div *ngIf="onShowModalButton()" class="rlg-button-kontainer"> -->
+              <!-- <div *ngIf="showOpenModalBtn" class="rlg-button-kontainer"> -->
+                <button mat-button class="rlg-button"
                         (click)="fOpenModal(
                                     allData.id,
                                     allData.imagePath,
@@ -131,27 +72,15 @@
                                     allData.variedProjects
                                     )"
                                     >
-                        <!--
-                          (mouseover)="changeBGColor=false"
-                          (mouseleave)="changeBGColor=true"
-                          [ngStyle]="{'background-color': changeBGColor===false  ? '#fe4400' : '#92d11f' }"
-                          allData.variedProjects.varBtnDisplay
-                          (click)="openSimple(allData.images[i], allData.photoTitle)"
-                          (click)="fOpenModal(allData.images[i])"
-                          (click)="fOpenModal(allData.imageUrl)"
-                          [style.zIndex]=2000
-                        > -->
                   <mat-icon class="buttonIcon">
                     loupe
                   </mat-icon>
-                  <span class="buttonLabel">
+                  <span class="buttonLabel" id="button-label-id">
                     {{ allData.title }}
                   </span>
                 </button>
-                <!-- {{ allData.variedProjects[0].varProjectTitle }}
-                {{ allData.variedProjects[0].varProjectFunction }} -->
-                <!-- aAllData[i].images[0].value -->
               </div>
+
           </div>
 
         </div>

@@ -1,35 +1,22 @@
 <!-- <app-loader-svg></app-loader-svg> -->
 
-<div class="pop-up-title-kontainer"
-    [style.border]="'0px solid purple'"
-    >
+<div class="pop-up-title-kontainer">
     <div class="pop-up-title">
         {{ titolo }}
         <br>
-        <span class="subTitle"
-            [style.fontSize.em]="'.7'">
+        <span class="subTitle">
             {{subTitle}}
         </span>
     </div>
 
 </div>
-<div  id="modalKontainerId"
-    class="modalKontainer"
-    >
+<div  id="modalKontainerId" class="modalKontainer">
 
     <div class="rlg-pop-titleX"
-        [style.width.px]= 'modalKontainerInteriorWidth'
-        [style.border]="'0px solid purple'">
-
-        <div class="horizRuler">
-            <!-- [style.height.px]= "'10'"
-            [style.backgroundColor]= "'grey'"
-            [style.width.vh]= "'90'" -->
-        </div>
+        [style.width.px]= 'modalKontainerInteriorWidth'>
+        <div class="horizRuler"></div>
     </div>
-
-      <br>
-
+    <br>
     <!-- Content container area -->
     <div class="content-container"
             [style.display]="'flex'"

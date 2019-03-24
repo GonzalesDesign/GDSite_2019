@@ -39,6 +39,13 @@ import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
     s.textAlign = align;
   }
 
+  public fStyleMe(e, styleValue) {
+    const x = document.querySelector(e), s = x.style;
+    // let t = s.fontSize;
+    s.fontSize = styleValue;
+    // s.backgroundColor = 'red';
+  }
+
   /*- For displaying an element.
       options: none, inline, block or inline-block ----*/
  public fDisplay(e, disp) {

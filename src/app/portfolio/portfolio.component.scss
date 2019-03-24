@@ -32,6 +32,13 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
 
 /*--- Site classes ---*/
 
+// .buttonLabel {
+//     display: flex;
+//       @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.2em);
+//       font-kerning: 1px;
+//       letter-spacing: 1px;
+//   }
+
 
 #rlg-main-kontainer-id {
         display: flex;
@@ -51,7 +58,7 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
             // flex-direction: row;
             // align-content: center; // align vertically
             // justify-content: center; // align horizontally
-            border: $dev-border;
+            // border: $dev-border;
 
             #title-kontainer-id {
                 z-index: 101;
@@ -93,7 +100,9 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
 
             }
             .snafu {
-                color: $rlgColorSecondaryMid;
+              text-align: center;
+              color: $rlgColorSecondaryMid;
+              border: 0px solid red;
             }
 
             .photo-kontainer {
@@ -101,13 +110,16 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
                 flex-direction: column;
                 position: absolute;
                 // left: 0;
-                // width: 450px;
-                // height: 100%;
-                // opacity: 0;
+                top: 0;
+                // [style.x.vw]="50"
+                width: 400px;
+                height: 400px;
+                opacity: 0;
                 padding: 8px;
                 background-color: $rlgColorLight;
                 overflow: hidden;
-                box-shadow: 0 4px 2px -2px rgba(0,0,0,.35);
+                // box-shadow: 0 4px 2px -2px rgba(0,0,0,.35);
+                box-shadow: 1px 2px 1px -1px rgba(0, 0, 0, .35);
                 margin-bottom: 25px;
                 border: $dev-border;
 
@@ -167,6 +179,13 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
                         // font-size: 1em;
                         color: rgba($rlgColorDark, .5);
                         border: $dev-border;
+
+                        // .bottomSpacer {
+                        //   height: 4em;
+                        //   width: auto;
+                        //   margin: 2em 0;
+                        //   border: 0px solid #000;
+                        // }
                     }
                 }
 
@@ -181,11 +200,12 @@ $dev-border: 0px solid rgba(87, 85, 87, 0.5);
                     // height: 50px;
                     border: $dev-border;
 
-                    .buttonLabel {
-                        @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.2em);
-                        font-kerning: 1px;
-                        letter-spacing: 1px;
-                    }
+                    // .buttonLabel {
+                    //   // display: flex;
+                    //     @include fontFamilyWeightSize ($rlg-primary-font, 400, 2em);
+                    //     font-kerning: 1px;
+                    //     letter-spacing: 1px;
+                    // }
                     .buttonIcon {
                         font-size: 20px;
                     }

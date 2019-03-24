@@ -6,6 +6,7 @@
         "imageId": "image0",
         "title": "JTNS",
         "subTitle": "Jill Tucker Nursing Services",
+        "coverImage": "coverJTNS.jpg",
         "orientation": "portrait",
         "variation": "single-project",
         "links": [
@@ -26,6 +27,7 @@
         "imageId": "image1",
         "title": "OwnPhones",
         "subTitle": "Wireless Earbuds",
+        "coverImage": "coverOwnPhones.jpg",
         "orientation": "landscape",
         "variation": "single-project",
         "links": [
@@ -49,6 +51,7 @@
         "imageId": "image2",
         "title": "Miscellaneous",
         "subTitle": "Other Various Projects",
+        "coverImage": "coverMiscellaneous.jpg",
         "orientation": "portrait",
         "variation": "multi-projects",
         "variedProjects": [
@@ -204,7 +207,7 @@
         "images": [
             { "value": "photo0.jpg" }
         ],
-        "description": "Miscellaneous projects from different companies and sectors. Responsibilities included the following; Art Director, UI Designer, Coder, 2D & 3D Animator, Video Editor, Photoshop Expert, Digital Illustrator, Painter. Built websites..."
+        "description": "Miscellaneous projects from different companies and sectors. Responsibilities included the following; Art Director, UI Designer, Coder, 2D & 3D Animator, Video Editor, Photoshop Expert, Digital Illustrator, Painter."
     },
     {
         "id": 3,
@@ -212,6 +215,7 @@
         "imageId": "image3",
         "title": "Illustrations",
         "subTitle": "Digital 3D Illustrations",
+        "coverImage": "coverIllustrations.jpg",
         "orientation": "portrait",
         "variation": "single-project",
         "links": [
@@ -234,6 +238,7 @@
         "imageId": "image4",
         "title": "Filipinas",
         "subTitle": "Kawali Restaurant Painting",
+        "coverImage": "coverFilipinas.jpg",
         "orientation": "landscape",
         "variation": "single-project",
         "links": [
@@ -262,6 +267,7 @@
         "imageId": "image5",
         "title": "Akon",
         "subTitle": "Konvict Clothing",
+        "coverImage": "coverAkon.jpg",
         "orientation": "landscape",
         "variation": "single-project",
         "links": [
