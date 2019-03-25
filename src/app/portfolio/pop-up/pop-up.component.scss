@@ -1,44 +1,52 @@
 
 /*=---=|    Import: General styling    |=---=*/
 @import './../../../styles.scss';
+@import './carousel.scss';
 
 /*---| Classes |---*/
 
 .pop-up-title-kontainer {
   display: flex;
-  width: 100%;
   align-items: center;
-  position: absolute;
   justify-content: center;
+  width: 100%;
+  position: absolute;
   top: 20px;
   left: 0px;
   z-index: 500;
-  border: $greyBorderForTesting;
+  border: 0px solid red;
+
+  .pop-up-title {
+    @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
+    text-align: center;
+    color: white;
+    line-height: .8em;
+    padding: 10px 40px 10px 40px;
+    height: auto;
+    background-color: rgba($rlgColorPrimaryMid, 1);
+    text-shadow: $text-shadow;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: $text-shadow;
+  }
+
+  .subTitle {
+    @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
+  }
 }
 
-.pop-up-title {
-  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
-  text-align: center;
-  color: white;
-  line-height: .8em;
-  padding: 10px 40px 10px 40px;
-  height: auto;
-  background-color: rgba($rlgColorPrimaryMid, 1);
-  text-shadow: $text-shadow;
-  border-radius: 26px;
-  border: 2px solid white;
-  box-shadow: $text-shadow;
-}
 
-.subTitle {
-  @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
-}
 
 .horizRuler {
   margin: -10px 0px 20px 0px;
   height: 4px;
   // width: 90vh;
   background-color: rgba($rlgColorPrimary, .4);
+}
+
+.modalKontainer {
+  // background-color: cyan;
+  border: 0px solid rgb(221, 0, 255);
 }
 
 .image-kontainer {
@@ -55,12 +63,23 @@
 }
 
 .multi-proj-image {
+  // [style.maxHeight.%]= '100'
+  // [style.marginTop.px]= '40'
   // height: 100%;
+  // border-radius: 20px 0px 0px 0px;
+  // [style.border]="'0px solid grey'";
+  // [style.backgroundPositionX.%]="50"
+  // [style.backgroundPositionY.%]="10"
   height: -webkit-fill-available;
+  max-height: 100%;
+  margin-top: 2em;
+  background-position-x: 50%;
+  background-position-y: 10%;
 }
 
 .multi-proj-title {
   @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.1em);
+  margin-top: 2em;
   position: relative;
   color: rgba($rlgColorDark, .65);
   border: $greyBorderForTesting;
@@ -152,14 +171,14 @@
 }
 
 /*----= Images container area =----*/
-.carousel-kontainer {
-  // width: 700px;
-  display: flex;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  border: $borderForTesting;
-}
+// .carousel-kontainer {
+//   // width: 700px;
+//   display: flex;
+//   overflow: hidden;
+//   margin: 0px;
+//   padding: 0px;
+//   border: $borderForTesting;
+// }
 
 mat-fab {
   background-color: $rlgColorTertiary;

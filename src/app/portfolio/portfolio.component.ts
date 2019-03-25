@@ -269,9 +269,6 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   cardCenter,       card4YPos,    zed,    cardWidth,     cardHeight4,     1);
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   cardCenter,       card5YPos,    120,    cardWidth,     cardHeight5,     1);
 
-
-
-
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(     elem,         tym,              w,                   h,      bgSize,          hPos,      vPos):---*/
     this._mondrianAnim.backgroundImageTransform(this.fotoId[0],   this.tym2,      fotoWidth,             '300px',     'cover',         '20%',     '10%');
@@ -280,9 +277,6 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.backgroundImageTransform(this.fotoId[3],   this.tym2,      fotoWidth,             '710px',     'cover',         '90%',       '5%');
     this._mondrianAnim.backgroundImageTransform(this.fotoId[4],   this.tym2,      fotoWidth,             '310px',     'cover',         '20%',      '10%');
     this._mondrianAnim.backgroundImageTransform(this.fotoId[5],   this.tym2,      fotoWidth,             '300px',     'cover',          '0%',       '0%');
-
-
-
 
   }
 
@@ -323,10 +317,6 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    460 + leftSpace,    585,    zed,    572,     292,     1);
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    740 + leftSpace,    310,    zed,    250,     290,     1);
 
-
-
-
-
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
     this._mondrianAnim.backgroundImageTransform(this.fotoId[0],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '0%',      '0%');
@@ -336,14 +326,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.backgroundImageTransform(this.fotoId[4],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',        '50%',      '0%');
     this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '20%',      '20%');
 
-
-
-
-
   }
 
   public iPadWide() {
-    console.log('iPadWide(innerwidth): ', window.innerWidth);
+    // console.log('iPadWide(innerwidth): ', window.innerWidth);
     const iPad1024 = this.iPad.width;
 
     const fotoWidth = '100%';
@@ -386,7 +372,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public iPadProVertical() {
-    console.log('iPadProVertical(innerwidth): ', window.innerWidth);
+    // console.log('iPadProVertical(innerwidth): ', window.innerWidth);
 
     const iPadPro1024 = this.iPadPro.height;
     const fotoWidth = '100%';
@@ -430,7 +416,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public iPhoneXWide() {
-    console.log('iPhoneXWide(innerwidth): ', window.innerWidth);
+    // console.log('iPhoneXWide(innerwidth): ', window.innerWidth);
 
     const fotoWidth = '100%';
     const fotoHeight = 120;
@@ -476,7 +462,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public iPhoneXscreen() {
-    console.log('iPhoneXscreen(innerwidth): ', window.innerWidth);
+    // console.log('iPhoneXscreen(innerwidth): ', window.innerWidth);
 
     const zed = 100;
     const fontSize = '18px';
@@ -594,56 +580,55 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   /*---- Media queries ----*/
-  public fResizeMeX() {
 
-    // this.scrnW = window.matchMedia('(max-width: 700px)');
-    // this.fMediaMatchResize(this.scrnW); // Call listener function at run time
-    // this.scrnW.addListener(this.fMediaMatchResize); // Attach listener function on state changes
+  // public fResizeMeX() {
 
-    const iPhoneXscreen: any = this.iPhoneXscreen;
+  //   // this.scrnW = window.matchMedia('(max-width: 700px)');
+  //   // this.fMediaMatchResize(this.scrnW); // Call listener function at run time
+  //   // this.scrnW.addListener(this.fMediaMatchResize); // Attach listener function on state changes
 
-    /*----- Get viewportSize working! ----*/
-    // this.innerWidth = viewportSize.getWidth(); // window.innerWidth;
-    this.innerWidth = window.innerWidth;
-    // console.log('this.innerWidth: ', this.innerWidth, ' --------=');
+  //   const iPhoneXscreen: any = this.iPhoneXscreen;
 
-    // if ( this.innerWidth >= this.largeScreen ) { // >1300
-    if ( this.innerWidth > 1300 ) { // >1300
-      this.largeScrnSliderAnim();
-      this.showPhotoInfo = false;
-      // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'none');
-      // this._funksions.fDisplayAll(this.rlgButton, 'flex');
-      // this.showOpenModalBtn = true;
+  //   /*----- Get viewportSize working! ----*/
+  //   // this.innerWidth = viewportSize.getWidth(); // window.innerWidth;
+  //   this.innerWidth = window.innerWidth;
+  //   // console.log('this.innerWidth: ', this.innerWidth, ' --------=');
 
-    } else if ( this.innerWidth <= 1300 && this.innerWidth > 1024 ) { // in between: <1300 & >1025
-      this.medScrnSliderAnim();
-      // this.iPadWide();
-      this.showPhotoInfo = false;
-      // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'none');
-      // this._funksions.fDisplayAll(this.rlgButton, 'flex');
-      // this.showOpenModalBtn = true;
+  //   // if ( this.innerWidth >= this.largeScreen ) { // >1300
+  //   if ( this.innerWidth > 1300 ) { // >1300
+  //     this.largeScrnSliderAnim();
+  //     this.showPhotoInfo = false;
+  //     // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'none');
+  //     // this._funksions.fDisplayAll(this.rlgButton, 'flex');
+  //     // this.showOpenModalBtn = true;
 
-    } else if ( this.innerWidth <= 1024 && this.innerWidth > 812 ) { // 1024: iPad
-      this.iPadWide();
-      this.showPhotoInfo = false;
-      // this.showOpenModalBtn = true;
+  //   } else if ( this.innerWidth <= 1300 && this.innerWidth > 1024 ) { // in between: <1300 & >1025
+  //     this.medScrnSliderAnim();
+  //     // this.iPadWide();
+  //     this.showPhotoInfo = false;
+  //     // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'none');
+  //     // this._funksions.fDisplayAll(this.rlgButton, 'flex');
+  //     // this.showOpenModalBtn = true;
 
-    } else if ( this.innerWidth <= 812  - 1 && this.innerWidth > 667 ) { // 812: iPhoneX 667: iPhone6
-      this.iPhoneXscreen();
-      this.showPhotoInfo = false;
-      // this.showOpenModalBtn = true;
+  //   } else if ( this.innerWidth <= 1024 && this.innerWidth > 812 ) { // 1024: iPad
+  //     this.iPadWide();
+  //     this.showPhotoInfo = false;
+  //     // this.showOpenModalBtn = true;
 
-    } else {
-      // this.smlScrnSliderAnim();
-      this.smallestScreen();
-      this.showPhotoInfo = true;
-      // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'flex');
-      // this._funksions.fDisplayAll(this.rlgButton, 'none');
-      // this.showOpenModalBtn = false;
-    }
+  //   } else if ( this.innerWidth <= 812  - 1 && this.innerWidth > 667 ) { // 812: iPhoneX 667: iPhone6
+  //     this.iPhoneXscreen();
+  //     this.showPhotoInfo = false;
+  //     // this.showOpenModalBtn = true;
 
-
-  }
+  //   } else {
+  //     // this.smlScrnSliderAnim();
+  //     this.smallestScreen();
+  //     this.showPhotoInfo = true;
+  //     // this._funksions.fDisplayAll(this.fotoInfoKontainer, 'flex');
+  //     // this._funksions.fDisplayAll(this.rlgButton, 'none');
+  //     // this.showOpenModalBtn = false;
+  //   }
+  // }
 
   /*---- Screen Resize ----*/
   @HostListener('window:resize', ['$event'])
@@ -690,7 +675,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Closed : ${title} modal. ••••••`);
+      // console.log(`Closed : ${title} modal. ••••••`);
       // this._carousel.commonCounter = 0;
       // console.log(`Common Counter Value : ${this._carousel.commonCounter}.`);
       result =  title;

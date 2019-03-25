@@ -1,7 +1,9 @@
 <!-- <app-loader-svg></app-loader-svg> -->
 
 <div class="pop-up-title-kontainer">
-    <div class="pop-up-title">
+    <!-- #targetTopPage  -->
+    <div class="pop-up-title"
+    [style.fontSize]='popUpTitleSize'>
         {{ titolo }}
         <br>
         <span class="subTitle">
@@ -10,99 +12,52 @@
     </div>
 
 </div>
+
 <div  id="modalKontainerId" class="modalKontainer">
 
-    <div class="rlg-pop-titleX"
+    <!-- <div class="rlg-pop-titleX"
         [style.width.px]= 'modalKontainerInteriorWidth'>
         <div class="horizRuler"></div>
     </div>
-    <br>
+    <br> -->
     <!-- Content container area -->
     <div class="content-container"
             [style.display]="'flex'"
             [style.flexDirection]= 'flexDirection'>
 
         <!-- Images container area-->
-        <ul class="carousel-kontainer"
-            [style.border]="'0px solid purple'">
-
-            <!-- Carousel Arrows -->
+        <ul class="carousel-kontainer">
+            <!-- Carousel Arrows =================-->
             <div class="carouselArrows"
-                [style.display]="'flex'"
-                [style.flexDirection]="'row'"
-                [style.justifyContent]="'space-between'"
-                [style.width.px]= 'carouselMaskWidth'
-                [style.height.px]="'10'"
-                [style.top.%]="'50'"
-                [style.position]= "'absolute'"
-                [style.border]="'0px solid blue'"
-                [style.zIndex]="'100'"
-                >
-
-                <!-- Left Arrow -->
-                <div class="left-arrow-container"
-                    [style.display]="'flex'"
-                    [style.position]= "'relative'"
-                    [style.height]="'fit-content'"
-                    [style.border]="'0px solid cyan'"
-                    >
+                [style.width.px]= 'carouselMaskWidth'>
+                <!-- Left Arrow Container-->
+                <div class="left-arrow-container">
                     <!-- Arrow Icon-->
                     <mat-icon class="left-arrow"
-                        [style.color]="'rgba(255, 255, 255, 1)'"
-                        [style.fontSize.em]="'3'"
-                        [style.textShadow]="'1px 1px 2px #00000080'"
-                        [style.zIndex]="'110'"
-                        [style.cursor]="'pointer'"
                         (click)="fSlideRight()"
                         (mouseover)="hideBackgroundLeft=false"
-                        (mouseleave)="hideBackgroundLeft=true"
-                        >
+                        (mouseleave)="hideBackgroundLeft=true">
                         keyboard_arrow_left
                     </mat-icon>
-
                     <!-- Arrow Background -->
                     <span class="left-arrow-background"
-                        [style.position]= "'absolute'"
-                        [style.width.em]="'3'"
-                        [style.height.em]="'3'"
-                        [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
-                        [ngStyle]="{'opacity': hideBackgroundLeft===false  ? '1' : '0' }"
-                        >
+                        [ngStyle]="{'opacity': hideBackgroundLeft===false  ? '1' : '0' }">
                     </span>
                 </div>
                 <!-- Right Arrow -->
-                <div class="right-arrow-container"
-                    [style.display]="'flex'"
-                    [style.position]= "'relative'"
-                    [style.height]="'fit-content'"
-                    [style.border]="'0px solid cyan'"
-                    [style.left.em]="'-1.85'"
-                    >
+                <div class="right-arrow-container">
                     <!-- Arrow Icon-->
                     <mat-icon class="right-arrow"
-                        [style.color]="'rgba(255, 255, 255, 1)'"
-                        [style.fontSize.em]="'3'"
-                        [style.textShadow]="'1px 1px 2px #00000080'"
-                        [style.zIndex]="'110'"
-                        [style.cursor]="'pointer'"
                         (click)="fSlideLeft()"
                         (mouseover)="hideBackgroundRight=false"
-                        (mouseleave)="hideBackgroundRight=true"
-                        >
+                        (mouseleave)="hideBackgroundRight=true">
                         keyboard_arrow_right
                     </mat-icon>
-
                     <!-- Arrow Background -->
                     <span class="right-arrow-background"
-                        [style.position]= "'absolute'"
-                        [style.width.em]="'3'"
-                        [style.height.em]="'3'"
-                        [style.backgroundColor]="'rgba(254, 68, 0, 1)'"
-                        [ngStyle]="{'opacity': hideBackgroundRight===false  ? '1' : '0' }"
-                        >
+                        [ngStyle]="{'opacity': hideBackgroundRight===false  ? '1' : '0' }">
                     </span>
                 </div>
-
             </div>
 
             <li class="image-kontainer"
@@ -125,12 +80,10 @@
                             (mouseover)="changeBackgroundColor=false"
                             (mouseleave)="changeBackgroundColor=true"
                             [ngStyle]="{'background-color': changeBackgroundColor===false  ? '#fe4400' : '#92d11f' }"
-                            (click)="fOpenXLinks(varied.varUrl)"
-                            >
+                            (click)="fOpenXLinks(varied.varUrl)">
                             <!-- <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div> -->
                             <!-- <some-element [ngStyle]="{'font-style': styleExp}">...</some-element> -->
-                            <mat-icon class="varLinkName-icon"
-                            >link</mat-icon>
+                            <mat-icon class="varLinkName-icon">link</mat-icon>
                             <span class="varLinkName-label">
                                 {{ varied.varLinkName }}
                             </span>
@@ -141,13 +94,7 @@
                             [style.background-repeat]="'no-repeat'"
                             [style.backgroundSize]='varied.varBGSize'
                             [style.width.px]= 'fotoWidth'
-                            [style.maxHeight.%]= '100'
-                            [style.marginTop.px]= '40'
-                            [style.backgroundColor]='varied.varBGColor'
-                            [style.backgroundPositionX.%]="50"
-                            [style.backgroundPositionY.%]="10"
-                            [style.border]="'0px solid grey'"
-                            >
+                            [style.backgroundColor]='varied.varBGColor'>
                         </div>
                     </div>
                 </div>
@@ -164,8 +111,7 @@
                             [style.backgroundColor]='foto.bgColor'
                             [style.backgroundPositionX.%]="50"
                             [style.backgroundPositionY.%]="50"
-                            [style.border]="'0px solid grey'"
-                            >
+                            [style.border]="'0px solid grey'">
                     </div>
                 </ng-template>
 
@@ -175,12 +121,10 @@
         <!-- Text and buttons area -->
         <div class="text-area"
             [style.width.px]= 'carouselMaskWidth'
-            [style.border]="'0px solid grey'"
-            >
+            [style.border]="'0px solid grey'">
             <div class="inner"
                 [style.width.px]= 'carouselMaskWidth'
-                [style.border]="'0px solid red'"
-                >
+                [style.border]="'0px solid red'">
                 <div class="about"
                     [style.paddingLeft.px]="'20'"
                     [style.paddingRight.px]="'20'"
@@ -193,8 +137,7 @@
                     [style.columnGap.px]= "'50'"
                     [style.paddingLeft.px]="'20'"
                     [style.paddingRight.px]="'20'"
-                    [style.border]="'0px solid grey'"
-                    >
+                    [style.border]="'0px solid grey'">
                     {{ popDescription }}
                 </p>
 
@@ -203,24 +146,20 @@
                         (mouseover)="changeBGColor=false"
                         (mouseleave)="changeBGColor=true"
                         [ngStyle]="{'background-color': changeBGColor===false  ? '#fe4400' : '#92d11f' }"
-                        (click)="fOpenXLinks(linx1.linkUrl)"
-                        >
+                        (click)="fOpenXLinks(linx1.linkUrl)">
                         <div class="buttonLabel"
                             [style.display]="'flex'"
                             [style.margin]="'-3px 25px 0px 20px'"
-                            [style.border]="'0px solid orange'"
-                            >
+                            [style.border]="'0px solid orange'">
                             <mat-icon class="linkName-icon"
                                 [style.border]="'0px solid blue'"
-                                [style.marginTop.px]="'-1'"
-                                >
+                                [style.marginTop.px]="'-1'">
                                 link
                             </mat-icon>
                             <span class="linkName-label"
                                 [style.color]="'white'"
                                 [style.marginTop.px]="'-1'"
-                                [style.border]="'0px solid purple'"
-                                >
+                                [style.border]="'0px solid purple'">
                                 {{ linx.linkName }}
                             </span>
                         </div>
@@ -238,8 +177,7 @@
                         [ngStyle]="{'background-color': changeCloseBGColor===false  ? '#fe4400' : '#b0b4b6' }"
                         (click)="fClose()">
                         <mat-icon class="closeIcon"
-                            [style.color]="'white'"
-                            >
+                            [style.color]="'white'">
                             close
                         </mat-icon>
                     </button>
