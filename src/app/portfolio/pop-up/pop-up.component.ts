@@ -4,7 +4,7 @@
  * Contact: rolandolloyd@gmail.com
  * Copyright © 2019 GonzalesDesign
  * Platform: Angular 6
- * Component Name: Pop-Up
+ * Component Name: modal
  * Version: 090418
  * Note: Modal page open from portfolio component.
  ***********************************************************/
@@ -19,29 +19,41 @@ import {
   Inject,
   ElementRef,
   HostListener,
-  Input
+  Input,
+  OnChanges
 } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FunksionsService } from './../../../services/funksions.service';
 import { CarouselService } from './../../../services/carousel.service';
-// import { MasonModalCarouselDataService } from './../../../services/mason-modal-carousel-data.service';
 import { PortfolioDataService } from './../../../services/portfolio-data.service';
 import { Elastic, Power2 } from 'gsap';
+import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.scss']
 })
-export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, OnChanges {
   // @ViewChild('childViewTest') childViewTest;
+  @ViewChild('imgKontainrRef') imageKontainerRef: ElementRef;
 
+  public imgKontainerTop: number;
   // @Input() childMessage: string;
 
   public bShow = false;
 
   // Keycode for ESCAPE
   private ESCAPE = 27;
+  /*---= PopUp Object =---*/
+  public objPopUp = {
+    projectData: this.xData,
+    popImagePath: this.xData.imgPath,
+  };
+
+  public showMainKontainer: boolean;
+
 
   /*---= PopUp params properties =---*/
   public aProjects = [];
@@ -62,29 +74,22 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public aVariedId = [];
   public aNoLink = [];
   public aVarLinkName = [];
-  public buttonDisplay; // = this.xData.variedProjects2[1].varBtnDisplay;
+  public buttonDisplay;
   public aButtonDisplay = [];
-  // public aDisplayFlexNone = ['flex', 'flex', 'none', 'none', 'flex', 'none', 'none', 'flex', 'flex'];
-  // public aDisplaySHowBtn = ['true', 'true', 'false', 'false', 'true', 'false', 'false', 'true', 'true'];
 
-  public varProjectTitle; // = this.xData.variedProjects2[0].varProjectTitle;
+  public varProjectTitle;
   public linx = this.xData.linx[0];
-  // public linx = this.xData.linx[0];
   public linx1 = this.xData.linx[1];
-  // public linx2 = this.xData.linx[1];
-
-  // public title = '.title';
 
   /*---= Modal properties =---*/
   public screenWidth: number; // = window.innerWidth;
   public screenHeight: number; // = window.innerHeight;
+  public modalKontainerId = ('modalKontainerId');
   // public modalKontainerId = '#modal-kontainer-id'; //
   // public modalKontainerId = document.getElementById('modalKontainerId');
-  public modalKontainerWidth: number; // any;
-  public modalKontainerHeight: number; // any;
-  // public modalMaxWidth: any; //  = this._portfolioDataService.modalMaxWidth; // width info from service
+  public modalKontainerWidth: number;
+  public modalKontainerHeight: number;
   public modalMaxHeight = this._portfolioDataService.modalHeightVH; // height info from service
-
   public modalKontainerInteriorWidth: number; // Modal container internal width. Declared in HTML.
 
   /*---= Carousel properties =---*/
@@ -98,11 +103,13 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   /*---= Images properties =---*/
   public imageKontainer = '.image-kontainer';
+  // public imageKontainerId = document.getElementById('#imageKontainerId');
   // public matDialogKontainer = '.mat-dialog-container'; // material modal
   // public matDialogKontainerClass = document.getElementsByClassName('mat-dialog-container'); // material modal
   // public cdkOverlayPane = document.getElementsByClassName('cdk-overlay-pane'); // material modal
   public fotoWidth: number; // any;
-  public fotoHeight = 70;
+  public fotoHeight: number; // = 70;
+  public karouselArrowsTop: number;
   // public marginsx = 100;
   public imgsToDisplay: number;
   public photosLength: number;
@@ -112,7 +119,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   public matFabExtended = '.matFabExtended';
 
-  public displayElement: boolean;
+  public displayMultiProjects: boolean;
 
   public hideBackgroundLeft: boolean;
   public hideBackgroundRight: boolean;
@@ -122,21 +129,38 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public flexDirection: string;
   public columnNum: number;
   public descriptionColumnCount: number;
-  public popUpTitleSize = '1.3em';
+  public modalTitleSize = '1.3em';
+  public modalTitleId = ('modalTitleId');
+  public modalTitleKontainerId = ('modalTitleKontainerId');
+  public titleBarKontainer = ('.title-bar-kontainer');
+  public titleBarId = ('titleBarId');
 
   constructor( public dialogRef: MatDialogRef<PopUpComponent>,
                @Inject(MAT_DIALOG_DATA) public xData: any,
                private _funksions: FunksionsService,
                private _carousel: CarouselService,
-               private _portfolioDataService: PortfolioDataService
+               private _portfolioDataService: PortfolioDataService,
+               public _elemRef: ElementRef
               ) {
   }
 
   ngOnInit() {
+    console.clear();
+    // console.log('objPopUp: ', this.objPopUp.projectData);
     this._carousel.commonCounter = 0;
     this.onSingleMutiProjects();
-    this.fOnLandscapePortrait();
+    // this.fOnLandscapePortrait();
     this.fResizeMe();
+
+    /*-----= Move the arrows half way to the size of the image container.
+    Actual code is ran on ngAfterViewInit =-----*/
+    this.karouselArrowsTop = 0;
+
+    // this.orientation = 'portrait';
+    // console.log('this.variation: ', this.variation);
+    // console.log('this.orientation: ', this.orientation);
+    // this.columnNum = 1;
+
      /*--= Triggering fResizeMedia on enter =--*/
     //  setTimeout(() => {
     //   this._carousel.commonCounter = 0;
@@ -146,6 +170,83 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
     //   // this.fResizeMedia();
     // }, 100);
 
+    /*--===| fShowHideTopNav |===--*/
+    // DOESN'T WORK WITH MODAL!
+    // this.fShowHideTopNav('topNavBarKontainerId', '-20', '-100');
+    // this.fShowHideTopNav('topNavBarKontainerId', '-20', '-100');
+    // this._funksions.fShowHideTopNav(this.titleBarId, '-20', '100'); //////
+    // this._funksions.fShowHideTopNav(this.titleBarKontainer, '-20', '-100');
+    // this._funksions.fShowHideTopNav(this.modalTitleId, '-50', '-100');
+    // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
+    // this._funksions.fTMXscrollShowHide(this.titleBarKontainer, 20);
+
+  }
+
+  ngAfterViewInit() {
+    // console.log('|-----= ngAfterViewInit() =-----|');
+
+    /*-----= TEST: Getting scroll to work inside Material Modal =-----*/
+    // const content = document.querySelector('#titleBarId');
+    // const scroll$ = fromEvent(content, 'scroll').pipe(map(() => content));
+
+    // scroll$.subscribe(element => {
+    //   // do whatever
+    //   console.log('|-----= ngAfterViewInit() Modal =-----|');
+    //   this._funksions.fShowHideTopNav(content, '-20', '100');
+    // });
+    /*-----= ************************************************ =-----*/
+
+    //  /*-----= Get the imageKontainer top position =-----*/
+    // this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
+    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+
+    // /*-----= Move the arrows half way to the size of the image container =-----*/
+    // this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
+    // // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+    // // console.log('this.fotoHeight: ', this.fotoHeight);
+    // // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
+    // // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    // // console.log('window.innerHeight: ', window.innerHeight);
+    // if (this.karouselArrowsTop > window.innerHeight) {
+    //   this.karouselArrowsTop = window.innerHeight / 2;
+    //   console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    // }
+    this.fGetKontainerTop();
+
+  }
+
+  public fGetKontainerTop() {
+    /*-----= Get the imageKontainer top position =-----*/
+    this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
+    console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+
+    /*-----= Move the arrows half way to the size of the image container =-----*/
+    this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
+    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+    // console.log('this.fotoHeight: ', this.fotoHeight);
+    // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
+    // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    // console.log('window.innerHeight: ', window.innerHeight);
+    if (this.karouselArrowsTop > window.innerHeight || this.karouselArrowsTop < 0) {
+      this.karouselArrowsTop = window.innerHeight / 2;
+      console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    }
+  }
+
+  ngOnChanges() {
+    // this.ngAfterViewInit();
+  }
+
+  /*-----= Get the imageKontainer top position =-----*/
+  // public fGetKontainerTopPosition() {
+  //   this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
+  //   console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+  // }
+
+  ngAfterViewChecked() {
+    /* this life cycle hook also resized pop up and its content */
+    // console.log(''|-----= ngAfterViewChecked() =-----|');
+    // this.ngAfterViewInit();
   }
 
   // public fDisplayBtn(e, d) {
@@ -158,13 +259,13 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   /*---==========================================================================---*//*
       onSingleMutiProjects() = determine whether it's a single project content
-      or multiple projcts content.
-      this.displayElement = triggers the *ngIf="displayElement in the html.
+                              or multiple projects content.
+      this.displayMultiProjects = triggers the *ngIf="displayMultiProjects in the html.
   *//*---==========================================================================---*/
   public onSingleMutiProjects() {
     if (this.variation === 'single-project') {
       /*----| Load single project |---*/
-      this.displayElement = false;
+      this.displayMultiProjects = false;
       this.photosLength = this.imageToLoad.length; // number of images to load on single project
     } else {
       /*---| Load multiple projects |---*/
@@ -174,12 +275,14 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
         this.varProjectTitle = this.aVariedProj[i].varProjectTitle;
         this.variedProjsImg[this.variedProjsImg.length] = this.xData.variedProjects2[i].image; // push all variedProjects.image data
         this.aVariedId[this.aVariedId.length] = '#' + this.xData.variedProjects2[i].varId; // push
-        this._funksions.fTMxToX(this.aVariedId[i], 10, 400, Power2);
+        // this._funksions.fTMxToX(this.aVariedId[i], 10, 400, Power2); //
+        // console.log('this.aVariedId[i]: ', this.aVariedId[i]);
+
         this.aVarLinkName[this.aVarLinkName.length] = this.xData.variedProjects2[i].varLinkName; // push
         this.aButtonDisplay[this.aButtonDisplay.length] = this.xData.variedProjects2[i].varBtnDisplay; // push
       }
       /*---|boolean trigger multi projects|---*/
-      this.displayElement = true;
+      this.displayMultiProjects = true;
       this.photosLength = this.variedProjects.length; // number of images to load on multi projects
       // this._funksions.fElementVisibility(this.matFabExtended, 'hidden');
       this._funksions.fDisplay(this.matFabExtended, 'none');
@@ -190,6 +293,8 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
   /* fOnLandscapePortrait() = determine whether it's on a landscape or portrait mode. */
   /*---============================================================================---*/
   public fOnLandscapePortrait() {
+    // console.log('this.variation2: ', this.variation);
+    // console.log('this.orientation2: ', this.orientation);
     if (this.orientation === 'landscape') {
         this.flexDirection = 'column';
         this.columnNum = 1;
@@ -197,7 +302,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
         this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 50);
     } else {
       // portrait
-        this.flexDirection = '';
+        this.flexDirection = 'row';
         this.columnNum = 2;
         this.descriptionColumnCount = 1;
         this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 25);
@@ -205,14 +310,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
     // console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
   }
 
-  ngAfterViewInit() {
-    // console.log('|-----= ngAfterViewInit() =-----|');
-  }
 
-  ngAfterViewChecked() {
-    /* this life cycle hook also resized pop up and its content */
-    // console.log(''|-----= ngAfterViewChecked() =-----|');
-  }
 
   /*---==========================================================================---*/
     /*--==| fCarouselInit(): Initialize Carousel variables and load
@@ -233,6 +331,15 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
     /*-----= Foto Width =-----*/
     this.fotoWidth = Math.round(this.carouselMaskWidth / this.imgsToDisplay);
+    // console.log('this.fotoWidth: ', this.fotoWidth);
+    /*-----= Foto Height =-----*/
+    this.fotoHeight = this.fotoWidth;
+    // console.log('this.fotoHeight: ', this.fotoHeight);
+
+    // const tst = this.imageKontainerId.getBoundingClientRect();
+    // console.log('tst.top: ', tst.top);
+
+
     /*-----= Carousel Strip Width =-----*/
     this.carouselFotoStripWidth = this.fotoWidth * this.photosLength;
     /*--- Resetting photo strip x position ---*/
@@ -296,14 +403,16 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   /**********---== RESPONSIVENESS ==---**********/
 
-  /*---- Viewport Resize ----*/
+  /*---- Viewport Resize Listener ----*/
   @HostListener('window:resize', ['$event'])
   // @HostListener(this._windowRef._window(), ['$event'])
   onResize(event) {
     this.fResizeMe();
+    // console.log('Screen resized!');
+    this.ngAfterViewInit();
   }
 
-  // Listen on keydown events on a document level
+  /*---- Keydown Listener ----*/
   @HostListener('document:keydown', ['$event'])
   private handleKeydown(event: KeyboardEvent) {
     if (event.keyCode === this.ESCAPE) {
@@ -311,21 +420,52 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
     }
   }
 
+  /*---- Window Scroll Listener ----*/
+  /* angular material blocks the scroll event. do it in ngAfterViewInit */
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    // console.log('Modal scrolled!');
+    // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
+  }
+  // public fTestScroll(){
+  //   const test = document.querySelector('.test-kontainer');
+  //   console.log('Modal clicked scrolled!');
+  //   this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 50);
+  //   // this._funksions.fTMXscrollShowHide(test, 50);
+  // }
+
   /*=--========================================--=
 		   fResizeMe: Viewport resize media queries
 	=----========================================--=*/
   public fResizeMe() {
 
+
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
+
+    /*-----= Get the imageKontainer top position =-----*/
+    // this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
+    console.log('this.imgKontainerTop: ', this.imgKontainerTop);
 
     /*--- Reset last commonCounter index ---*/
     if (this._carousel.endOfStrip) {
       this._carousel.commonCounter = -this.commonCounterLastIndex; // counter last index is the last count during the current screen size and imgsToDisplay count
     }
 
+    // /*-----= Move the arrows half way to the size of the image container =-----*/
+    // this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
+    // // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+    // // console.log('this.fotoHeight: ', this.fotoHeight);
+    // // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
+    // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    // console.log('window.innerHeight: ', window.innerHeight);
+    // if (this.karouselArrowsTop > window.innerHeight) {
+    //   this.karouselArrowsTop = window.innerHeight / 2;
+    //   console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+    // }
+
     /*---==========================================================================---*/
-    /*--==| Media queries: For the pop-up component |==-------------------------------=
+    /*--==| Media queries: For the modal component |==-------------------------------=
             this.imgsToDisplay = Number of images to display on the image container.
                                  For layout design purposes only. Set statically.
             this.orientation = This orientation is not for the device but rather
@@ -337,52 +477,62 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked {
                                its better to divide it into two columns.
     /=---=========================================================================---=*/
     if (this.screenWidth > 1300) {
+      console.log('> 1300');
+
     // if (window.matchMedia('(min-width: 1366px)').matches) {
       if (this.orientation === 'portrait') {
         this.imgsToDisplay = 1;
       } else {
         this.imgsToDisplay = 1;
       }
-      this.fCarouselInit();
       this.orientation = 'portrait';
-      this.popUpTitleSize = '1.3em';
+      this.fOnLandscapePortrait();
+      this.fCarouselInit();
+      this.modalTitleSize = '1.3em';
       this.descriptionColumnCount = 2;
 
     } else if (this.screenWidth < 1299 && this.screenWidth >= 921) {
+      console.log('< 1299 >= 921');
     // } else if (window.matchMedia('(min-width: 1024px) and (max-width: 1365px)').matches) {
       if (this.orientation === 'portrait') {
         this.imgsToDisplay = 1;
       } else {
         this.imgsToDisplay = 1;
       }
-      this.fCarouselInit();
+
       this.orientation = 'portrait';
-      this.popUpTitleSize = '1.3em';
+      this.fOnLandscapePortrait();
+      this.fCarouselInit();
+      this.modalTitleSize = '1.3em';
       this.descriptionColumnCount = 1;
 
     } else if (this.screenWidth < 920  && this.screenWidth >= 640) {
+      console.log('< 920 >= 640');
     // } else if (window.matchMedia('(min-width: 800px) and (max-width: 1023px)').matches) {
       if (this.orientation === 'portrait') {
         this.imgsToDisplay = 1;
       } else {
         this.imgsToDisplay = 1;
       }
-      this.fCarouselInit();
       this.orientation = 'landscape';
-      this.popUpTitleSize = '1em';
+      this.fOnLandscapePortrait();
+      this.fCarouselInit();
+      this.modalTitleSize = '1em';
       // this.imgsToDisplay = 1;
       this.descriptionColumnCount = 2;
 
     // } else if (window.matchMedia('(max-width: 799px)').matches) {
     } else {
-      // if (this.orientation === 'portrait') {
-      //   this.imgsToDisplay = 1;
-      // } else {
-      //   this.imgsToDisplay = 1;
-      // }
-      this.fCarouselInit();
+      console.log('else');
+      if (this.orientation === 'portrait') {
+        this.imgsToDisplay = 1;
+      } else {
+        this.imgsToDisplay = 1;
+      }
       this.orientation = 'landscape';
-      this.popUpTitleSize = '.8em';
+      this.fOnLandscapePortrait();
+      this.fCarouselInit();
+      this.modalTitleSize = '.8em';
       this.imgsToDisplay = 1;
       this.descriptionColumnCount = 1;
     }

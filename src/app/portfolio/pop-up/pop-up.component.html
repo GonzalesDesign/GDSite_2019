@@ -1,19 +1,28 @@
 <!-- <app-loader-svg></app-loader-svg> -->
 
-<div class="pop-up-title-kontainer">
-    <!-- #targetTopPage  -->
-    <div class="pop-up-title"
-    [style.fontSize]='popUpTitleSize'>
-        {{ titolo }}
-        <br>
-        <span class="subTitle">
-            {{subTitle}}
-        </span>
+<!-- <div class="test-kontainer"
+  [style.backgroundColor]="'cyan'">TEST KONTAINER
+</div> -->
+
+
+
+<div class="modalKontainer" id="modalKontainerId">
+
+  <!-- <mat-toolbar color="primaryX" class="title-bar-kontainer" id="titleBarId">
+    <span class="modal-title">Application Title</span>
+    <span class="subTitle">Sub Title Text</span>
+  </mat-toolbar> -->
+
+    <div class="modal-title-kontainer" id="modalTitleKontainerId">
+        <div class="modal-title" id="modalTitleId"
+        [style.fontSize]='modalTitleSize'>
+            {{ titolo }}
+            <br>
+            <span class="subTitle">
+                {{subTitle}}
+            </span>
+        </div>
     </div>
-
-</div>
-
-<div  id="modalKontainerId" class="modalKontainer">
 
     <!-- <div class="rlg-pop-titleX"
         [style.width.px]= 'modalKontainerInteriorWidth'>
@@ -26,10 +35,12 @@
             [style.flexDirection]= 'flexDirection'>
 
         <!-- Images container area-->
-        <ul class="carousel-kontainer">
+        <ul class="carousel-kontainer"
+            [style.width.px]= 'fotoWidth'>
             <!-- Carousel Arrows =================-->
             <div class="carouselArrows"
-                [style.width.px]= 'carouselMaskWidth'>
+                [style.width.px]= 'carouselMaskWidth'
+                [style.top.px]= 'karouselArrowsTop'>
                 <!-- Left Arrow Container-->
                 <div class="left-arrow-container">
                     <!-- Arrow Icon-->
@@ -60,54 +71,60 @@
                 </div>
             </div>
 
-            <li class="image-kontainer"
+            <li #imageKontainerX class="image-kontainer" id="imageKontainerId"
                 [style.backgroundColor]="'rgba(0, 0, 0, 0)'">
 
                 <!--**** Varied projects infos inside the carousel ***-->
-                <div *ngIf="displayElement; else elseBlock" class="multi-projects"
+                <div *ngIf="displayMultiProjects; else elseBlock" class="multi-projects"
                     [style.border]="'0px solid yellowGreen'"
                     [style.display]="'flex'">
+                    <!-- [style.display]="'flex'" -->
 
-                    <div *ngFor="let varied of aVariedProj; let i = index">
-                        <div class="multi-proj-title">{{ varied.varProjectTitle }}</div>
-                        <div class="multi-proj-sub-title">{{ varied.varProjectSubTitle }}</div>
-                        <div class="multi-proj-function">Responsibilities: {{ varied.varProjectFunction }}</div>
-                        <div class="multi-proj-description">{{ varied.varProjectDescription }}</div>
-                        <div class="multi-proj-link" id={{varied.varId}}
-                            [style.display]='aButtonDisplay[i]'
-                            [style.border]="'0px solid red'"
-                            [style.cursor]="'pointer'"
-                            (mouseover)="changeBackgroundColor=false"
-                            (mouseleave)="changeBackgroundColor=true"
-                            [ngStyle]="{'background-color': changeBackgroundColor===false  ? '#fe4400' : '#92d11f' }"
-                            (click)="fOpenXLinks(varied.varUrl)">
-                            <!-- <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div> -->
-                            <!-- <some-element [ngStyle]="{'font-style': styleExp}">...</some-element> -->
-                            <mat-icon class="varLinkName-icon">link</mat-icon>
-                            <span class="varLinkName-label">
-                                {{ varied.varLinkName }}
-                            </span>
-                        </div>
+                    <!-- <div class="multi-proj-wrapper"> -->
+                      <div *ngFor="let varied of aVariedProj; let i = index">
+                          <!-- [style.overflow]="'hidden'" -->
+                          <div class="multi-proj-title">{{ varied.varProjectTitle }}</div>
+                          <div class="multi-proj-sub-title">{{ varied.varProjectSubTitle }}</div>
+                          <div class="multi-proj-function">Responsibilities: {{ varied.varProjectFunction }}</div>
+                          <div class="multi-proj-description">{{ varied.varProjectDescription }}</div>
+                          <div class="multi-proj-link" id={{varied.varId}}
+                              [style.display]='aButtonDisplay[i]'
+                              [style.border]="'0px solid red'"
+                              [style.cursor]="'pointer'"
+                              (mouseover)="changeBackgroundColor=false"
+                              (mouseleave)="changeBackgroundColor=true"
+                              [ngStyle]="{'background-color': changeBackgroundColor===false  ? '#fe4400' : '#92d11f' }"
+                              (click)="fOpenXLinks(varied.varUrl)">
+                              <!-- <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div> -->
+                              <!-- <some-element [ngStyle]="{'font-style': styleExp}">...</some-element> -->
+                              <mat-icon class="varLinkName-icon">link</mat-icon>
+                              <span class="varLinkName-label">
+                                  {{ varied.varLinkName }}
+                              </span>
+                          </div>
 
-                        <div class="multi-proj-image"
-                            [style.backgroundImage]="'url(' + popImagePath + varied.image + ')'"
-                            [style.background-repeat]="'no-repeat'"
-                            [style.backgroundSize]='varied.varBGSize'
-                            [style.width.px]= 'fotoWidth'
-                            [style.backgroundColor]='varied.varBGColor'>
-                        </div>
-                    </div>
+                          <div #imgKontainrRef class="multi-proj-image"
+                              [style.backgroundImage]="'url(' + popImagePath + varied.image + ')'"
+                              [style.background-repeat]="'no-repeat'"
+                              [style.backgroundSize]='varied.varBGSize'
+                              [style.width.px]= 'fotoWidth'
+                              [style.height.px]='karouselArrowsTop'
+                              [style.backgroundColor]='varied.varBGColor'>
+                          </div>
+                      </div>
+                    <!-- </div> -->
+
                 </div>
 
                 <!--**** Single project images inside the carousel ***-->
                 <ng-template #elseBlock>
-                    <div  class="bg-imageX"
+                    <div  #imgKontainrRef class="bg-imageX"
                             *ngFor="let foto of imageToLoad; let i = index"
                             [style.backgroundImage]="'url(' + popImagePath + foto.value + ')'"
                             [style.background-repeat]="'no-repeat'"
                             [style.backgroundSize]='foto.bgSize'
                             [style.width.px]= 'fotoWidth'
-                            [style.height.vh]='fotoHeight'
+                            [style.height.px]='fotoHeight'
                             [style.backgroundColor]='foto.bgColor'
                             [style.backgroundPositionX.%]="50"
                             [style.backgroundPositionY.%]="50"

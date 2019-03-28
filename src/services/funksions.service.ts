@@ -13,7 +13,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
+import { TweenMax, TimelineMax, ScrollToPlugin, CSSPlugin, Power2, Elastic } from 'gsap/all';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,7 @@ import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
 
   public hideElement = false;
   public tL = new TimelineMax();
+  public plugins = [CSSPlugin, ScrollToPlugin];
 
   public sharedElement: string;
 
@@ -194,6 +195,37 @@ import { TweenMax, TimelineMax, TweenLite, Power2, Elastic } from 'gsap';
     TweenMax.to(Cont, animTym, {val: NewVal, roundProps: 'val', onUpdate: function() {
       document.querySelector(el).innerHTML = Cont.val + '%';
     }});
+  }
+
+  /*=--===============================================================================---=/
+    fShowHideTopNav: Hide top nav bar when scroll up. Show top nav bar on scroll down.
+                   Usage: Hide up and show down top nav or other elem.
+                          Call in ts, set id in html, anim in scss
+                   R:19.03.25
+	/=-================================================================================---=*/
+  public fShowHideTopNav(id, showPos, hidePos) {
+    let prevScrollpos = window.pageYOffset;
+    console.log('prevScrollpos 1: ', prevScrollpos, id, showPos, hidePos);
+    window.onscroll = () => { // function()
+    const currentScrollPos = window.pageYOffset;
+        console.log('prevScrollpos 2: ', prevScrollpos, id, showPos, hidePos);
+        if (prevScrollpos > currentScrollPos) {
+        // document.getElementById('r3NavBarKontainer').style.top = '0';
+        document.getElementById(id).style.top = showPos + 'px'; // '0';
+        } else {
+        // document.getElementById('r3NavBarKontainer').style.top = '-50px';
+        document.getElementById(id).style.top = hidePos + 'px'; // '-50px';
+        }
+        prevScrollpos = currentScrollPos;
+        console.log('prevScrollpos: ', prevScrollpos);
+
+    };
+  }
+
+  public fTMXscrollShowHide(elem, showPos) {
+    console.log('elem: ', elem);
+    TweenMax.to(elem, 1, {rotation: 360, ease: Power2.easeOut});
+    // TweenMax.to(elem, 2, {scrollTo: showPos + 'px'});
   }
 
 }

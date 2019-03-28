@@ -5,35 +5,108 @@
 
 /*---| Classes |---*/
 
-.pop-up-title-kontainer {
+mat-toolbar.title-bar-kontainer {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  width: 100%;
-  position: absolute;
-  top: 20px;
-  left: 0px;
-  z-index: 500;
-  border: 0px solid red;
-
-  .pop-up-title {
-    @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
-    text-align: center;
-    color: white;
-    line-height: .8em;
-    padding: 10px 40px 10px 40px;
-    height: auto;
-    background-color: rgba($rlgColorPrimaryMid, 1);
-    text-shadow: $text-shadow;
-    border-radius: 20px;
-    border: 1px solid white;
-    box-shadow: $text-shadow;
-  }
-
-  .subTitle {
-    @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
-  }
+  // position: fixed;
+  // transition: top 0.4s;
+  transition: all .5s ease-in-out;
+  // left: 0;
+  top: 0px;
+  padding-top: 20px;
+  //   width: 90vw;
+  // max-width: 300px;
+  // overflow: hidden;
+  background-color: orange; // $rlgColorPrimaryMid;
+  height: 100px;
+  // box-shadow: $box-shadow2;
+  border-radius: 14px 0;
+  z-index: 100;
+  border: 0px solid yellowgreen;
 }
+
+// mat-dialog-container app-pop-up
+#modalTitleKontainerId {
+  // position: fixed;
+  top: 70px;
+  width: 100%;
+  display: block;
+  transition: top .5s ease-in-out;
+  z-index: 500;
+  overflow: scroll;
+}
+
+// #modalTitleId {
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   display: block;
+//   // transition: top 0.3s;
+//   transition: all .5s ease-in-out;
+//   z-index: 500;
+// }
+
+.modal-title-kontainer {
+  // display: flex;
+  // // align-items: center;
+  // // justify-content: center;
+  // position: fixed;
+  // transition: all .5s ease-in-out;
+  // top: -20px;
+  // padding-top: 20px;
+  // // width: 100%;
+  // max-width: 300px;
+  // overflow: hidden;
+  // // left: 0px;
+  // z-index: 500;
+  // border: 0px solid red;
+
+
+
+  // .modal-title {
+  //   @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
+  //   // position: fixed;
+  //   text-align: center;
+  //   color: white;
+  //   line-height: .8em;
+  //   padding: 10px 40px 10px 40px;
+  //   height: auto;
+  //   background-color: rgba($rlgColorPrimaryMid, 1);
+  //   text-shadow: $text-shadow;
+  //   border-radius: 14px 0;
+  //   border: 1px solid white;
+  //   box-shadow: $text-shadow;
+  //   // z-index: 500;
+  // }
+
+  // .subTitle {
+  //   @include fontFamilyWeightSize ($rlg-primary-font, 400, .7em);
+  // }
+}
+.modal-title {
+  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.3em);
+  // position: fixed;
+  text-align: center;
+  color: white;
+  line-height: .8em;
+  padding: 10px 40px 10px 40px;
+  height: auto;
+  background-color: rgba($rlgColorPrimaryMid, 1);
+  text-shadow: $text-shadow;
+  border-radius: 14px 0 0 0;
+  // border: 1px solid white;
+  box-shadow: $text-shadow;
+  // z-index: 500;
+
+}
+.subTitle {
+  @include fontFamilyWeightSize ($rlg-primary-font, 400, .6em);
+  text-transform: uppercase;
+  color: white;
+}
+
+
 
 
 

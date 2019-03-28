@@ -7,7 +7,7 @@
         "title": "JTNS",
         "subTitle": "Jill Tucker Nursing Services",
         "coverImage": "coverJTNS.jpg",
-        "orientation": "portrait",
+        "orientation": "landscape",
         "variation": "single-project",
         "links": [
             {"linkName": "GitHub Repo"},
@@ -52,7 +52,7 @@
         "title": "Miscellaneous",
         "subTitle": "Other Various Projects",
         "coverImage": "coverMiscellaneous.jpg",
-        "orientation": "portrait",
+        "orientation": "landscape",
         "variation": "multi-projects",
         "variedProjects": [
             {
@@ -216,7 +216,7 @@
         "title": "Illustrations",
         "subTitle": "Digital 3D Illustrations",
         "coverImage": "coverIllustrations.jpg",
-        "orientation": "portrait",
+        "orientation": "landscape",
         "variation": "single-project",
         "links": [
             {"linkName": "Facebook"},

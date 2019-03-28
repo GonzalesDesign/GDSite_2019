@@ -10,7 +10,7 @@
 
 import { FunksionsService } from './funksions.service';
 import { Injectable } from '@angular/core';
-import { TweenMax, TimelineMax, Power2, Power4, Elastic } from "gsap/TweenMax";
+import { TweenMax, Power2, Power4, Elastic } from 'gsap/TweenMax';
 // import { FunksionsService} from './funksions.service';
 
 @Injectable({
@@ -19,7 +19,7 @@ import { TweenMax, TimelineMax, Power2, Power4, Elastic } from "gsap/TweenMax";
 export class MondrianAnimService {
 
   public tMx = TweenMax;
-  public tLMx = new TimelineMax();
+  // public tLMx = new TimelineMax();
 
   constructor() { }
 
@@ -49,6 +49,7 @@ export class MondrianAnimService {
 
 
   public fTranslateAnim(elem, tym, xp, yp, zp = 100, w?: any, h?: any, sizeFont?: any, alfa = 1) {
+    // const elemId = elem;
     this.tMx
     .to(elem, tym, {
       x: xp,

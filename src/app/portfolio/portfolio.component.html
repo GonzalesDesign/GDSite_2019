@@ -6,6 +6,7 @@
 * Platform: Angular 6
 * Component: Gonzales Design Portfolio Component View Template
 * Note: Portfolio intro
+*       Revised small screen display. R:19.03.25
 ***********************************************************/ -->
 
 <div *ngIf="false;"
@@ -13,14 +14,22 @@
 </div>
 
 <!-- Loader component -->
-<!-- <app-loader-svg></app-loader-svg> -->
+<app-loader-svg></app-loader-svg>
+
+<!-- test scroll hide and show top bar -->
+<!-- <mat-toolbar color="primaryX" class="title-bar-kontainer" id="titleBarId">
+  <span class="modal-title">Application Title</span>
+  <span class="subTitle">Sub Title Text</span>
+</mat-toolbar> -->
 
 <!-- INTRO MONDRIAN -->
-<div id="rlg-main-kontainer-id">
+<div id="rlg-main-kontainer-id"
+    [style.border]="'1px solid magenta'">
 <!-- <div  *ngIf="showMainKontainer" id="rlg-main-kontainer-id"> -->
 
         <!-- photo containers layout wrapper -->
-        <div id="rlg-kontainer-id">
+        <div id="rlg-kontainer-id"
+            [style.border]="'1px solid orange'">
 
             <!-- Title and sub-title -->
             <div id="title-kontainer-id">
