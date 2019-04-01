@@ -7,7 +7,7 @@
         "title": "JTNS",
         "subTitle": "Jill Tucker Nursing Services",
         "coverImage": "coverJTNS.jpg",
-        "orientation": "landscape",
+        "orientation": "portraitxxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "GitHub Repo"},
@@ -28,7 +28,7 @@
         "title": "OwnPhones",
         "subTitle": "Wireless Earbuds",
         "coverImage": "coverOwnPhones.jpg",
-        "orientation": "landscape",
+        "orientation": "landscapexxxxxxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "Animation Videos"},
@@ -52,7 +52,7 @@
         "title": "Miscellaneous",
         "subTitle": "Other Various Projects",
         "coverImage": "coverMiscellaneous.jpg",
-        "orientation": "landscape",
+        "orientation": "landscapexxxxxxxx",
         "variation": "multi-projects",
         "variedProjects": [
             {
@@ -216,7 +216,7 @@
         "title": "Illustrations",
         "subTitle": "Digital 3D Illustrations",
         "coverImage": "coverIllustrations.jpg",
-        "orientation": "landscape",
+        "orientation": "landscapexxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "Facebook"},
@@ -239,7 +239,7 @@
         "title": "Filipinas",
         "subTitle": "Kawali Restaurant Painting",
         "coverImage": "coverFilipinas.jpg",
-        "orientation": "landscape",
+        "orientation": "landscapexxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "Facebook Link"},
@@ -268,7 +268,7 @@
         "title": "Akon",
         "subTitle": "Konvict Clothing",
         "coverImage": "coverAkon.jpg",
-        "orientation": "landscape",
+        "orientation": "landscapexxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "Flash Animation"},

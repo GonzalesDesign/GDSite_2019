@@ -37,39 +37,7 @@
         <!-- Images container area-->
         <ul class="carousel-kontainer"
             [style.width.px]= 'fotoWidth'>
-            <!-- Carousel Arrows =================-->
-            <div class="carouselArrows"
-                [style.width.px]= 'carouselMaskWidth'
-                [style.top.px]= 'karouselArrowsTop'>
-                <!-- Left Arrow Container-->
-                <div class="left-arrow-container">
-                    <!-- Arrow Icon-->
-                    <mat-icon class="left-arrow"
-                        (click)="fSlideRight()"
-                        (mouseover)="hideBackgroundLeft=false"
-                        (mouseleave)="hideBackgroundLeft=true">
-                        keyboard_arrow_left
-                    </mat-icon>
-                    <!-- Arrow Background -->
-                    <span class="left-arrow-background"
-                        [ngStyle]="{'opacity': hideBackgroundLeft===false  ? '1' : '0' }">
-                    </span>
-                </div>
-                <!-- Right Arrow -->
-                <div class="right-arrow-container">
-                    <!-- Arrow Icon-->
-                    <mat-icon class="right-arrow"
-                        (click)="fSlideLeft()"
-                        (mouseover)="hideBackgroundRight=false"
-                        (mouseleave)="hideBackgroundRight=true">
-                        keyboard_arrow_right
-                    </mat-icon>
-                    <!-- Arrow Background -->
-                    <span class="right-arrow-background"
-                        [ngStyle]="{'opacity': hideBackgroundRight===false  ? '1' : '0' }">
-                    </span>
-                </div>
-            </div>
+
 
             <li #imageKontainerX class="image-kontainer" id="imageKontainerId"
                 [style.backgroundColor]="'rgba(0, 0, 0, 0)'">
@@ -108,9 +76,13 @@
                               [style.background-repeat]="'no-repeat'"
                               [style.backgroundSize]='varied.varBGSize'
                               [style.width.px]= 'fotoWidth'
-                              [style.height.px]='karouselArrowsTop'
-                              [style.backgroundColor]='varied.varBGColor'>
+                              [style.height.px]='fotoHeight'
+                              [style.backgroundColor]='varied.varBGColor'
+                              [style.backgroundPositionX.%]="50"
+                              [style.backgroundPositionY.%]="10"
+                              [style.border]="'0px solid cyan'">
                           </div>
+
                       </div>
                     <!-- </div> -->
 
@@ -125,6 +97,7 @@
                             [style.backgroundSize]='foto.bgSize'
                             [style.width.px]= 'fotoWidth'
                             [style.height.px]='fotoHeight'
+                            [style.marginTop.px]="'40'"
                             [style.backgroundColor]='foto.bgColor'
                             [style.backgroundPositionX.%]="50"
                             [style.backgroundPositionY.%]="50"
@@ -133,6 +106,56 @@
                 </ng-template>
 
             </li>
+
+            <!-- Carousel Arrows =================-->
+            <div class="carouselArrows"
+                [style.height.em]='arrowSize'
+                [style.width.px]= 'carouselMaskWidth'>
+                <!-- [style.top.px]= 'karouselArrowsTop' -->
+
+                <!-- Left Arrow Container-->
+                <div class="left-arrow-container"
+                    [style.width.em]='arrowSize'
+                    [style.height.em]='arrowSize'>
+                    <!-- Arrow Icon-->
+                    <mat-icon class="left-arrow"
+                        [style.fontSize.em]='arrowSize'
+                        (click)="fSlideRight()"
+                        (mouseover)="hideBackgroundLeft=false"
+                        (mouseleave)="hideBackgroundLeft=true">
+                        keyboard_arrow_left
+                    </mat-icon>
+                    <!-- Arrow Background -->
+                    <span class="left-arrow-background"
+                        [style.width.em]='arrowSize'
+                        [style.height.em]='arrowSize'
+                        [ngStyle]="{'opacity': hideBackgroundLeft===false  ? '1' : '0' }">
+                    </span>
+                </div>
+                <span class="arrows-spacer"></span>
+                <!-- Right Arrow -->
+                <div class="right-arrow-container"
+                    [style.width.em]='arrowSize'
+                    [style.height.em]='arrowSize'>
+                    <!-- Arrow Icon-->
+                    <mat-icon class="right-arrow"
+                        [style.fontSize.em]='arrowSize'
+                        (click)="fSlideLeft()"
+                        (mouseover)="hideBackgroundRight=false"
+                        (mouseleave)="hideBackgroundRight=true">
+                        keyboard_arrow_right
+                    </mat-icon>
+                    <!-- Arrow Background -->
+                    <span class="right-arrow-background"
+                        [style.width.em]='arrowSize'
+                        [style.height.em]='arrowSize'
+                        [ngStyle]="{'opacity': hideBackgroundRight===false  ? '1' : '0' }">
+                    </span>
+                </div>
+            </div>
+
+
+
         </ul>
 
         <!-- Text and buttons area -->
@@ -151,7 +174,7 @@
 
                 <p class="multiColumnDescription"
                     [style.columnCount]= 'descriptionColumnCount'
-                    [style.columnGap.px]= "'50'"
+                    [style.columnGap.px]= "'40'"
                     [style.paddingLeft.px]="'20'"
                     [style.paddingRight.px]="'20'"
                     [style.border]="'0px solid grey'">

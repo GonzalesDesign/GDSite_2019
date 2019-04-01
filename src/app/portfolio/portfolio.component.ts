@@ -189,7 +189,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   /*-----= ************************************************ =-----*/
 
   public iPhoneXVertical() {
-    // console.log('iPhoneXWide(innerwidth): ', window.innerWidth);
+    console.log('iPhoneXVertical(innerwidth): ', window.innerWidth);
 
     const fotoWidth = '100%';
     const fotoHeight = 120;
@@ -199,7 +199,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Main Container placements ---*/
     /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   100,   'auto',  '100vh',    'null',    1);
+    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      0,   100,   'auto',  '100vh',    'null',    1);
 
     /*--- Modal button visibility ---*/
     this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
@@ -209,20 +209,20 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     // this._mondrianAnim.fTranslateAnim(this.rlgButtonKontainer, 1,   0,     10,    100,    'auto',   'auto',    'null',    1);
 
     /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,  yp,     zp,     w,      h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,     34,  40,    100,   210,    100,    '12px',    1);
-    this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,   0,    0,   100,   350,   100,  '.9em',  1);
+    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,   yp,     zp,     w,      h,  fontSize, alfa); */
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,      0,   40,    100,   210,    100,    '12px',    1);
+    this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,      0,    0,    100,   350,    100,    '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
 
     /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,    xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    60,     100,    200,    200,     253,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    20,     354,    180,    283,     187,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     0,     540,    160,    244,     189,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   100,     733,    140,    212,     302,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     0,    1000,    120,    350,     252,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    30,    1257,    100,    285,     285,     1); // akon
+    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,    xp,     yp,     zp,      w,       h,  alfa); */   // xp,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,     0,     100,    200,    200,     253,     1); // jtns   60,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     0,     354,    180,    283,     187,     1); // ownphones   20,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     0,     540,    160,    244,     189,     1); // misc    0,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,     0,     733,    140,    212,     302,     1); // illustrations  100,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     0,    1000,    120,    350,     252,     1); // filipinas    0,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,     0,    1257,    100,    285,     285,     1); // akon   30,
 
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(    element,          tym,              w,                   h,      bgSize,      hPos,      vPos):---*/
@@ -240,13 +240,14 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const fotoWidth = '100%';
     const fotoHeight = 120;
+    const xpos = 256;
 
     /*--- Resize layout container: Used to position all content within ---*/
     this._funksions.fElementWidth(this.photoLayoutContainerId, this.iPhoneX.width);
 
     /*--- Main Container placements ---*/
     /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   100,   'auto',  '100vh',    'null',    1);
+    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      0,   100,   'auto',  '100vh',    'null',    1);
 
     /*--- Modal button visibility ---*/
     this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
@@ -256,20 +257,20 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     // this._mondrianAnim.fTranslateAnim(this.rlgButtonKontainer, 1,   0,     10,    100,    'auto',   'auto',    'null',    1);
 
     /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,   tym,     xp,  yp,     zp,     w,      h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId,   .25,    578,  80,    100,   210,    100,    '12px',    1);
-    this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,   0,    0,   100,   350,   100,  '.9em',  1);
+    /* this._mondrianAnim.fTranslateAnim              (elem,    tym,      xp,   yp,     zp,    w,       h,    fontSize, alfa); */
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId,    .25,     295,   80,    100,   210,    100,      '12px',    1);
+    this._mondrianAnim.fTranslateAnim(this.subTitleId,    this.tym3,       0,    0,    100,   350,    100,      '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
 
     /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,    xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    35,     10,    205,    200,     120,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    16,    119,    200,    283,     187,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,   214,     27,    210,    171,     123,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   405,     65,    250,    148,     183,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   520,    140,    100,    242,     152,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   281,    152,    100,    250,     170,     1); // akon
+    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    -261,     10,    205,    200,     120,     1); // jtns
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    -240,    119,    200,    283,     187,     1); // ownphones
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     -80,     27,    210,    171,     123,     1); // misc
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,     102,     65,    250,    148,     183,     1); // illustrations
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     264,    140,    100,    242,     152,     1); // filipinas
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,      25,    163,    100,    250,     170,     1); // akon
 
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(    element,          tym,              w,                   h,      bgSize,      hPos,      vPos):---*/
@@ -283,18 +284,19 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public iPadWide() {
-    // console.log('iPadWide(innerwidth): ', window.innerWidth);
+    console.log('iPadWide(innerwidth): ', window.innerWidth);
     const iPad1024 = this.iPad.width;
 
     const fotoWidth = '100%';
     const fotoHeight = 120;
+    const xpos = 250; // 438;
 
     /*--- Resize layout container: Used to position all content within ---*/
     this._funksions.fElementWidth(this.photoLayoutContainerId, iPad1024);
 
     /*--- Main Container placements ---/
-          this._mondrianAnim.fTranslateAnim2      (element,        tym,  xp,  yp,   zp,        w,        h,   fontSize,    alfa); =---*/
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId,  this.tym3,  80,  10,  100,   'auto',  '100vh',     'null',       1);
+          this._mondrianAnim.fTranslateAnim2      (element,        tym,   xp,  yp,   zp,        w,        h,   fontSize,    alfa); =---*/
+    this._mondrianAnim.fTranslateAnim(this.mainKontainerId,  this.tym3,    0,   0,  100,   'auto',  '100vh',     'null',       1);
 
     /*--- Modal button visibility ---*/
     this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
@@ -302,18 +304,19 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Title and sub-title animation to place ---*/
     /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,  yp,     zp,            w,              h,    fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    461,  28,    100,   350,    100,    '18px', 1);
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    228,  28,    100,   350,    100,    '18px', 1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
 
+
     /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,     xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    137,     10,    100,    300,     190,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     72,    222,    200,    300,     220,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,    -45,    387,    110,    370,     320,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    395,    118,    100,    292,     292,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    320,    434,    100,    572,     292,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    670,    220,    100,    200,     220,     1); // akon
+    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,       xp,     yp,     zp,      w,       h,  alfa); */   // xp,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,     -113,     22,    100,    300,     190,     1); // jtns  137,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     -178,    238,    200,    300,     220,     1); // ownphones   72,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     -287,    387,    110,    370,     320,     1); // misc  -45,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,      145,    118,    100,    292,     292,     1); // illustrations  395,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,      192,    434,    100,    572,     292,     1); // filipinas  320,
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,      360,    220,    100,    200,     220,     1); // akon  670,
 
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(    element,          tym,              w,                   h,      bgSize,      hPos,       vPos): =---*/
@@ -331,32 +334,33 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     const iPadPro1024 = this.iPadPro.height;
     const fotoWidth = '100%';
     const fotoHeight = 120;
+    const xpos = 206;
 
     /*--- Resize layout container: Used to position all content within ---*/
     this._funksions.fElementWidth(this.photoLayoutContainerId, iPadPro1024);
 
     /*--- Main Container placements ---/
           this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); =---*/
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   80,      10,   100,   'auto',  '100vh',    'null',    1);
+    this._mondrianAnim.fTranslateAnim(this.mainKontainerId,    this.tym3,   0,      0,   100,   'auto',  '100vh',    'null',    1);
 
     /*--- Modal button visibility ---*/
     this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
     this._mondrianAnim.fTMXfontSize(this.buttonLabel, 1, '1.2em');
 
     /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,  yp,     zp,      w,      h,   fontSize,   alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    456,  174,    100,   350,    100,     '22px',      1);
+    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,            xp,   yp,     zp,      w,      h,   fontSize,   alfa); */
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    176,  174,    100,   350,    100,     '22px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
 
     /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,     xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    119,     60,    120,    300,     390,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    451,    295,    200,    300,     310,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     25,    387,    110,    460,     370,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    -34,    738,    100,    432,     522,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    430,    545,    105,    442,     422,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    387,    930,    100,    510,     380,     1); // akon
+    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    -171,     60,    120,    300,     390,     1); // jtns
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     160,    295,    200,    300,     310,     1); // ownphones
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,    -181,    387,    110,    460,     370,     1); // misc
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    -252,    738,    100,    432,     522,     1); // illustrations
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     214,    545,    105,    442,     422,     1); // filipinas
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,     215,    930,    100,    510,     380,     1); // akon
 
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
@@ -370,34 +374,38 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public largeScrnSliderAnim() {
+    console.log('largeScrnSliderAnim(innerwidth): ', window.innerWidth);
     const fotoWidth = '100%';
     const fotoHeight = 120; // %
+    const xpos = 498;
+    const ypos = 150;
 
     /*--- Resize layout container: Used to position all content within ---*/
-    this._funksions.fElementWidth(this.photoLayoutContainerId, this.largeScreen);
+    this._funksions.fElementWidth(this.photoLayoutContainerId, this.iPadPro.width);
 
     /*--- Main Container placements ---*/
     /* this._mondrianAnim.fTranslateAnim             (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,     140,   100,   'auto',  '100vh',    'null',    1);
+    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      0,   100,   'auto',  '100vh',    'null',    1);
 
     /*--- Modal button visibility ---*/
     this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
     this._mondrianAnim.fTMXfontSize(this.buttonLabel, 1, '1.2em');
 
     /*--- Title and sub-title animation to place ---*/
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3, 290,  -10,   100,   350,   100,  '20px',  1);
-    this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,   0,    0,   100,   350,   100,  '.9em',  1);
+    /* this._mondrianAnim.fTranslateAnim             (elem,       tym,      xp,   yp,    zp,     w,     h,  fontSize, alfa); */
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,   -190,  140,   100,   350,   100,    '20px',    1);
+    this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,      0,    0,   100,   350,   100,    '.9em',    1);
     this._funksions.fTextAlign(this.title,    'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
 
     /*--- Photo containers placements ---*/
-    /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,     xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    339,    100,    100,    287,     243,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    294,    368,    200,    383,     236,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,    984,    337,    130,    287,     243,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,     10,    300,    150,    291,     335,     1); // illus
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    650,    -40,    100,    387,     300,     1); // finas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    650,    286,    120,    450,     363,     1); // akon
+    /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    -159,    250,    100,    287,     243,     1); // jtns
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,    -160,    518,    200,    383,     236,     1); // ownphones
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     486,    487,    130,    287,     243,     1); // misc
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    -488,    450,    150,    291,     335,     1); // illus
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     202,    110,    100,    387,     300,     1); // finas
+    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,     234,    436,    120,    450,     363,     1); // akon
 
     /*--- Photos placements ---*/
     /* this._mondrianAnim.backgroundImageTransform(     elem,          tym,               w,                   h,      bgSize,         hPos,       vPos):---*/
@@ -409,234 +417,236 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,       fotoWidth,    fotoHeight + '%',     'cover',        '30%',      '20%');
   }
 
-  public smallestScreen() {
+  /************************************/
+  // public smallestScreen() {
 
-    const scrn375 = this.iPhoneX.height;
-    const zed = 100;
-    const fontSize = '18px';
-    const cardWidth = 350;
+  //   const scrn375 = this.iPhoneX.height;
+  //   const zed = 100;
+  //   const fontSize = '18px';
+  //   const cardWidth = 350;
 
-    const cardPadding = 8;
-    const cardCenter = (scrn375 / 2) - (cardWidth / 2) - cardPadding;
-    const fotoWidth = '100%';
+  //   const cardPadding = 8;
+  //   const cardCenter = (scrn375 / 2) - (cardWidth / 2) - cardPadding;
+  //   const fotoWidth = '100%';
 
-    const titleWidth = 350;
-    const titleHeight = 60;
+  //   const titleWidth = 350;
+  //   const titleHeight = 60;
 
-    const cardBottomPadding = 30;
+  //   const cardBottomPadding = 30;
 
-    const cardHeight0 = 750;
-    const cardHeight1 = 630;
-    const cardHeight2 = 700;
-    const cardHeight3 = 930;
-    const cardHeight4 = 720;
-    const cardHeight5 = 530;
+  //   const cardHeight0 = 750;
+  //   const cardHeight1 = 630;
+  //   const cardHeight2 = 700;
+  //   const cardHeight3 = 930;
+  //   const cardHeight4 = 720;
+  //   const cardHeight5 = 530;
 
-    const card0YPos = 90;
-    const card1YPos = card0YPos + cardHeight0 + cardBottomPadding;
-    const card2YPos = card1YPos + cardHeight1 + cardBottomPadding;
-    const card3YPos = card2YPos + cardHeight2 + cardBottomPadding;
-    const card4YPos = card3YPos + cardHeight3 + cardBottomPadding;
-    const card5YPos = card4YPos + cardHeight4 + cardBottomPadding;
+  //   const card0YPos = 90;
+  //   const card1YPos = card0YPos + cardHeight0 + cardBottomPadding;
+  //   const card2YPos = card1YPos + cardHeight1 + cardBottomPadding;
+  //   const card3YPos = card2YPos + cardHeight2 + cardBottomPadding;
+  //   const card4YPos = card3YPos + cardHeight3 + cardBottomPadding;
+  //   const card5YPos = card4YPos + cardHeight4 + cardBottomPadding;
 
-    /*--- Resize layout container: Used to position all content within ---*/
-    this._funksions.fElementWidth(this.photoLayoutContainerId, scrn375);
+  //   /*--- Resize layout container: Used to position all content within ---*/
+  //   this._funksions.fElementWidth(this.photoLayoutContainerId, scrn375);
 
-    /*--- Main Container placements ---*/
-    /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,     10,   zed,   'auto',  '100vh',    'null',    1);
+  //   /*--- Main Container placements ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,     10,   zed,   'auto',  '100vh',    'null',    1);
 
-    /*--- Modal button visibility ---*/
-    this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'hidden');
-    this._mondrianAnim.fTMXfontSize(this.buttonLabel, 1, '.5em');
+  //   /*--- Modal button visibility ---*/
+  //   this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'hidden');
+  //   this._mondrianAnim.fTMXfontSize(this.buttonLabel, 1, '.5em');
 
-    /*--- Title and sub-title animation ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,         tym,           xp,      yp,     zp,            w,             h,    fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId,   this.tym3,   cardCenter,       0,    zed,    titleWidth,  titleHeight,    fontSize,    1);
-    this._funksions.fTextAlign(this.title, 'left');
-    this._funksions.fTextAlign(this.subTitle, 'left');
+  //   /*--- Title and sub-title animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim              (elem,         tym,           xp,      yp,     zp,            w,             h,    fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.titleContainerId,   this.tym3,   cardCenter,       0,    zed,    titleWidth,  titleHeight,    fontSize,    1);
+  //   this._funksions.fTextAlign(this.title, 'left');
+  //   this._funksions.fTextAlign(this.subTitle, 'left');
 
-    /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,           xp,              yp,     zp,            w,              h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,   cardCenter,       card0YPos,    zed,    cardWidth,     cardHeight0,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,   cardCenter,       card1YPos,    200,    cardWidth,     cardHeight1,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,   cardCenter,       card2YPos,    zed,    cardWidth,     cardHeight2,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   cardCenter,       card3YPos,    110,    cardWidth,     cardHeight3,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   cardCenter,       card4YPos,    zed,    cardWidth,     cardHeight4,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   cardCenter,       card5YPos,    120,    cardWidth,     cardHeight5,     1); // akon
+  //   /*--- Photo containers animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,           xp,              yp,     zp,            w,              h,  alfa); */
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,   cardCenter,       card0YPos,    zed,    cardWidth,     cardHeight0,     1); // jtns
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,   cardCenter,       card1YPos,    200,    cardWidth,     cardHeight1,     1); // ownphones
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,   cardCenter,       card2YPos,    zed,    cardWidth,     cardHeight2,     1); // misc
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   cardCenter,       card3YPos,    110,    cardWidth,     cardHeight3,     1); // illustrations
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   cardCenter,       card4YPos,    zed,    cardWidth,     cardHeight4,     1); // filipinas
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   cardCenter,       card5YPos,    120,    cardWidth,     cardHeight5,     1); // akon
 
-    /*--- Photos animation ---*/
-    /* this._mondrianAnim.backgroundImageTransform(     elem,         tym,              w,                   h,      bgSize,          hPos,      vPos):---*/
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[0],   this.tym2,      fotoWidth,             '300px',     'cover',         '20%',      '10%');  // jtns
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[1],   this.tym2,      fotoWidth,             '300px',     'cover',         '50%',      '20%');  // ownphones
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[2],   this.tym2,      fotoWidth,             '450px',     'cover',          '0%',       '0%');  // misc
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[3],   this.tym2,      fotoWidth,             '710px',     'cover',         '50%',       '5%');  // illustrations
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[4],   this.tym2,      fotoWidth,             '310px',     'cover',         '20%',      '10%');  // filipinas
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[5],   this.tym2,      fotoWidth,             '300px',     'cover',          '0%',       '0%');  // akon
+  //   /*--- Photos animation ---*/
+  //   /* this._mondrianAnim.backgroundImageTransform(     elem,         tym,              w,                   h,      bgSize,          hPos,      vPos):---*/
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[0],   this.tym2,      fotoWidth,             '300px',     'cover',         '20%',      '10%');  // jtns
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[1],   this.tym2,      fotoWidth,             '300px',     'cover',         '50%',      '20%');  // ownphones
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[2],   this.tym2,      fotoWidth,             '450px',     'cover',          '0%',       '0%');  // misc
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[3],   this.tym2,      fotoWidth,             '710px',     'cover',         '50%',       '5%');  // illustrations
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[4],   this.tym2,      fotoWidth,             '310px',     'cover',         '20%',      '10%');  // filipinas
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[5],   this.tym2,      fotoWidth,             '300px',     'cover',          '0%',       '0%');  // akon
 
-  }
+  // }
 
-  public smlScrnSliderAnim() {
-    const zed = 100;
-    const fontSize = '18px';
-    const cardWidth = 450;
-    // const cardHeight = '100%';
-    // const cardUnoYPos = 90;
-    // const cardYPos = 600; // cardHeight + 30;
-    const cardPadding = 8;
-    const cardCenter = (this.smallScreen / 2) - (cardWidth / 2) - cardPadding;
-    const fotoWidth = '100%';
-    // const fotoHeight = 30; // %
-    // const fotoInfoHeight = '40%';
-    const titleWidth = 450;
-    const titleHeight = 60;
+  // public smlScrnSliderAnim() {
+  //   const zed = 100;
+  //   const fontSize = '18px';
+  //   const cardWidth = 450;
+  //   // const cardHeight = '100%';
+  //   // const cardUnoYPos = 90;
+  //   // const cardYPos = 600; // cardHeight + 30;
+  //   const cardPadding = 8;
+  //   const cardCenter = (this.smallScreen / 2) - (cardWidth / 2) - cardPadding;
+  //   const fotoWidth = '100%';
+  //   // const fotoHeight = 30; // %
+  //   // const fotoInfoHeight = '40%';
+  //   const titleWidth = 450;
+  //   const titleHeight = 60;
 
-    const cardBottomPadding = 30;
+  //   const cardBottomPadding = 30;
 
-    const cardHeight0 = 650;
-    const cardHeight1 = 530;
-    const cardHeight2 = 600;
-    const cardHeight3 = 830;
-    const cardHeight4 = 620;
-    const cardHeight5 = 530;
+  //   const cardHeight0 = 650;
+  //   const cardHeight1 = 530;
+  //   const cardHeight2 = 600;
+  //   const cardHeight3 = 830;
+  //   const cardHeight4 = 620;
+  //   const cardHeight5 = 530;
 
-    const card0YPos = 90;
-    const card1YPos = card0YPos + cardHeight0 + cardBottomPadding;
-    const card2YPos = card1YPos + cardHeight1 + cardBottomPadding;
-    const card3YPos = card2YPos + cardHeight2 + cardBottomPadding;
-    const card4YPos = card3YPos + cardHeight3 + cardBottomPadding;
-    const card5YPos = card4YPos + cardHeight4 + cardBottomPadding;
+  //   const card0YPos = 90;
+  //   const card1YPos = card0YPos + cardHeight0 + cardBottomPadding;
+  //   const card2YPos = card1YPos + cardHeight1 + cardBottomPadding;
+  //   const card3YPos = card2YPos + cardHeight2 + cardBottomPadding;
+  //   const card4YPos = card3YPos + cardHeight3 + cardBottomPadding;
+  //   const card5YPos = card4YPos + cardHeight4 + cardBottomPadding;
 
-    // console.log('this.popUpImages[0]: ', this.popUpImages[0]);
-    // this.showMainKontainer = true;
-    /*--- Resize layout container: Used to position all content within ---*/
-    this._funksions.fElementWidth(this.photoLayoutContainerId, this.smallScreen);
+  //   // console.log('this.popUpImages[0]: ', this.popUpImages[0]);
+  //   // this.showMainKontainer = true;
+  //   /*--- Resize layout container: Used to position all content within ---*/
+  //   this._funksions.fElementWidth(this.photoLayoutContainerId, this.smallScreen);
 
-    /*--- Main Container placements ---*/
-    /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,     10,   zed,   'auto',  '100vh',    'null',    1);
+  //   /*--- Main Container placements ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,     10,   zed,   'auto',  '100vh',    'null',    1);
 
-    this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'hidden');
-    /*--- Title and sub-title animation ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,         tym,           xp,      yp,     zp,            w,             h,    fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId,   this.tym3,   cardCenter,       0,    zed,    titleWidth,  titleHeight,    fontSize,    1);
-    this._funksions.fTextAlign(this.title, 'left');
-    this._funksions.fTextAlign(this.subTitle, 'left');
+  //   this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'hidden');
+  //   /*--- Title and sub-title animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim              (elem,         tym,           xp,      yp,     zp,            w,             h,    fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.titleContainerId,   this.tym3,   cardCenter,       0,    zed,    titleWidth,  titleHeight,    fontSize,    1);
+  //   this._funksions.fTextAlign(this.title, 'left');
+  //   this._funksions.fTextAlign(this.subTitle, 'left');
 
-    /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,           xp,              yp,     zp,            w,              h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,   cardCenter,       card0YPos,    zed,    cardWidth,     cardHeight0,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,   cardCenter,       card1YPos,    200,    cardWidth,     cardHeight1,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,   cardCenter,       card2YPos,    zed,    cardWidth,     cardHeight2,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   cardCenter,       card3YPos,    110,    cardWidth,     cardHeight3,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   cardCenter,       card4YPos,    zed,    cardWidth,     cardHeight4,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   cardCenter,       card5YPos,    120,    cardWidth,     cardHeight5,     1);
+  //   /*--- Photo containers animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,           xp,              yp,     zp,            w,              h,  alfa); */
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,   cardCenter,       card0YPos,    zed,    cardWidth,     cardHeight0,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,   cardCenter,       card1YPos,    200,    cardWidth,     cardHeight1,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,   cardCenter,       card2YPos,    zed,    cardWidth,     cardHeight2,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,   cardCenter,       card3YPos,    110,    cardWidth,     cardHeight3,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,   cardCenter,       card4YPos,    zed,    cardWidth,     cardHeight4,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,   cardCenter,       card5YPos,    120,    cardWidth,     cardHeight5,     1);
 
-    /*--- Photos animation ---*/
-    /* this._mondrianAnim.backgroundImageTransform(     elem,         tym,              w,                   h,      bgSize,          hPos,      vPos):---*/
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[0],   this.tym2,      fotoWidth,             '300px',     'cover',         '20%',     '10%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[1],   this.tym2,      fotoWidth,             '300px',     'cover',         '50%',      '20%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[2],   this.tym2,      fotoWidth,             '450px',     'cover',          '0%',       '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[3],   this.tym2,      fotoWidth,             '710px',     'cover',         '90%',       '5%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[4],   this.tym2,      fotoWidth,             '310px',     'cover',         '20%',      '10%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[5],   this.tym2,      fotoWidth,             '300px',     'cover',          '0%',       '0%');
+  //   /*--- Photos animation ---*/
+  //   /* this._mondrianAnim.backgroundImageTransform(     elem,         tym,              w,                   h,      bgSize,          hPos,      vPos):---*/
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[0],   this.tym2,      fotoWidth,             '300px',     'cover',         '20%',     '10%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[1],   this.tym2,      fotoWidth,             '300px',     'cover',         '50%',      '20%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[2],   this.tym2,      fotoWidth,             '450px',     'cover',          '0%',       '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[3],   this.tym2,      fotoWidth,             '710px',     'cover',         '90%',       '5%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[4],   this.tym2,      fotoWidth,             '310px',     'cover',         '20%',      '10%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[5],   this.tym2,      fotoWidth,             '300px',     'cover',          '0%',       '0%');
 
-  }
+  // }
 
-  public medScrnSliderAnim() {
-    // this.showMainKontainer = true;
-    const zed = 100;
-    const fontSize = '18px';
-    const titleWidth = 350;
-    const titleHeight = 100;
+  // public medScrnSliderAnim() {
+  //   // this.showMainKontainer = true;
+  //   const zed = 100;
+  //   const fontSize = '18px';
+  //   const titleWidth = 350;
+  //   const titleHeight = 100;
 
-    const fotoWidth = '100%';
-    const fotoHeight = 120; // %
+  //   const fotoWidth = '100%';
+  //   const fotoHeight = 120; // %
 
-    /* leftSpace additional space for positioning cards */
-    const leftSpace = -80;
+  //   /* leftSpace additional space for positioning cards */
+  //   const leftSpace = -80;
 
-    /*--- Resize layout container: Used to position all content within ---*/
-    this._funksions.fElementWidth(this.photoLayoutContainerId, this.mediumScreen);
+  //   /*--- Resize layout container: Used to position all content within ---*/
+  //   this._funksions.fElementWidth(this.photoLayoutContainerId, this.mediumScreen);
 
-    /*--- Main Container placements ---*/
-    /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   zed,   'auto',  '100vh',    'null',    1);
+  //   /*--- Main Container placements ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   zed,   'auto',  '100vh',    'null',    1);
 
-    this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
-    /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                 xp,  yp,     zp,            w,              h,    fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    461 + leftSpace,  28,    zed,   titleWidth,    titleHeight,    fontSize, 1);
-    this._funksions.fTextAlign(this.title, 'left');
-    this._funksions.fTextAlign(this.subTitle, 'left');
-    // console.log(this.photoKontainer[0]);
-    // console.log(this.fotoId[0]);
-    /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,                 xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    137 + leftSpace,     10,    zed,    300,     190,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     83 + leftSpace,    222,    200,    383,     243,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     50 + leftSpace,    460,    zed,    387,     443,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    460 + leftSpace,    118,    zed,    292,     443,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    460 + leftSpace,    585,    zed,    572,     292,     1);
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    740 + leftSpace,    310,    zed,    250,     290,     1);
+  //   this._mondrianAnim.fTMXVisibility(this.rlgButtonKontainer, 1, 'visible');
+  //   /*--- Title and sub-title animation to place ---*/
+  //   /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                 xp,  yp,     zp,            w,              h,    fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    461 + leftSpace,  28,    zed,   titleWidth,    titleHeight,    fontSize, 1);
+  //   this._funksions.fTextAlign(this.title, 'left');
+  //   this._funksions.fTextAlign(this.subTitle, 'left');
+  //   // console.log(this.photoKontainer[0]);
+  //   // console.log(this.fotoId[0]);
+  //   /*--- Photo containers animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim                (elem,         tym,                 xp,     yp,     zp,      w,       h,  alfa); */
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    137 + leftSpace,     10,    zed,    300,     190,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     83 + leftSpace,    222,    200,    383,     243,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     50 + leftSpace,    460,    zed,    387,     443,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    460 + leftSpace,    118,    zed,    292,     443,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    460 + leftSpace,    585,    zed,    572,     292,     1);
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    740 + leftSpace,    310,    zed,    250,     290,     1);
 
-    /*--- Photos animation ---*/
-    /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[0],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '0%',      '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[1],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[2],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '30%',       '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[3],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[4],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',        '50%',      '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '20%',      '20%');
+  //   /*--- Photos animation ---*/
+  //   /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[0],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '0%',      '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[1],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[2],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '30%',       '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[3],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[4],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',        '50%',      '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '20%',      '20%');
 
-  }
+  // }
 
-  public iPhoneXscreen() {
-    // console.log('iPhoneXscreen(innerwidth): ', window.innerWidth);
+  // public iPhoneXscreen() {
+  //   // console.log('iPhoneXscreen(innerwidth): ', window.innerWidth);
 
-    const zed = 100;
-    const fontSize = '18px';
-    const titleWidth = 350;
-    const titleHeight = 100;
+  //   const zed = 100;
+  //   const fontSize = '18px';
+  //   const titleWidth = 350;
+  //   const titleHeight = 100;
 
-    const fotoWidth = '100%';
-    const fotoHeight = 120; // %
+  //   const fotoWidth = '100%';
+  //   const fotoHeight = 120; // %
 
-    /* leftSpace additional space for positioning cards */
-    const leftSpace = -80;
+  //   /* leftSpace additional space for positioning cards */
+  //   const leftSpace = -80;
 
-    /*--- Resize layout container: Used to position all content within ---*/
-    this._funksions.fElementWidth(this.photoLayoutContainerId, this.iPhoneX.width);
+  //   /*--- Resize layout container: Used to position all content within ---*/
+  //   this._funksions.fElementWidth(this.photoLayoutContainerId, this.iPhoneX.width);
 
-    /*--- Main Container placements ---*/
-    /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   zed,   'auto',  '100vh',    'null',    1);
+  //   /*--- Main Container placements ---*/
+  //   /* this._mondrianAnim.fTranslateAnim2            (elem,       tym,  xp,     yp,    zp,        w,        h,  fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.mainKontainerId, this.tym3,   0,      10,   zed,   'auto',  '100vh',    'null',    1);
 
-    /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                 xp,  yp,     zp,            w,              h,    fontSize, alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    461 + leftSpace,  28,    zed,   titleWidth,    titleHeight,    fontSize, 1);
-    this._funksions.fTextAlign(this.title, 'left');
-    this._funksions.fTextAlign(this.subTitle, 'left');
+  //   /*--- Title and sub-title animation to place ---*/
+  //   /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                 xp,  yp,     zp,            w,              h,    fontSize, alfa); */
+  //   this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    461 + leftSpace,  28,    zed,   titleWidth,    titleHeight,    fontSize, 1);
+  //   this._funksions.fTextAlign(this.title, 'left');
+  //   this._funksions.fTextAlign(this.subTitle, 'left');
 
-    /*--- Photo containers animation ---*/
-    /* this._mondrianAnim.fTranslateAnim                (elem,         tym,                 xp,     yp,     zp,      w,       h,  alfa); */
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    137 + leftSpace,     10,    zed,    300,     190,     1); // jtns
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     83 + leftSpace,    222,    200,    383,     243,     1); // ownphones
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     50 + leftSpace,    460,    zed,    387,     443,     1); // misc
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    460 + leftSpace,    118,    zed,    292,     443,     1); // illustrations
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    460 + leftSpace,    585,    zed,    572,     292,     1); // filipinas
-    this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    740 + leftSpace,    310,    zed,    250,     290,     1); // akon
+  //   /*--- Photo containers animation ---*/
+  //   /* this._mondrianAnim.fTranslateAnim                (elem,         tym,                 xp,     yp,     zp,      w,       h,  alfa); */
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,    137 + leftSpace,     10,    zed,    300,     190,     1); // jtns
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     83 + leftSpace,    222,    200,    383,     243,     1); // ownphones
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     50 + leftSpace,    460,    zed,    387,     443,     1); // misc
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,    460 + leftSpace,    118,    zed,    292,     443,     1); // illustrations
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,    460 + leftSpace,    585,    zed,    572,     292,     1); // filipinas
+  //   this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,    740 + leftSpace,    310,    zed,    250,     290,     1); // akon
 
-    /*--- Photos animation ---*/
-    /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[0],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '0%',      '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[1],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[2],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '30%',       '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[3],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[4],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',        '50%',      '0%');
-    this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '20%',      '20%');
+  //   /*--- Photos animation ---*/
+  //   /* this._mondrianAnim.backgroundImageTransform(     elem,    tym,              w,                   h,      bgSize,        hPos,       vPos):---*/
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[0],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '0%',      '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[1],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[2],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '30%',       '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[3],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '50%',      '20%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[4],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',        '50%',      '0%');
+  //   this._mondrianAnim.backgroundImageTransform(this.fotoId[5],    this.tym2,      fotoWidth,    fotoHeight + '%',     'cover',      '20%',      '20%');
 
-  }
+  // }
+
 
 
 

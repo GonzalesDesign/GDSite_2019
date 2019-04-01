@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LoaderSvgComponent } from './loader-svg/loader-svg.component';
 import { PopUpComponent } from './portfolio/pop-up/pop-up.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,9 @@ import { PopUpComponent } from './portfolio/pop-up/pop-up.component';
     PopUpComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // schemas: [
+  //   CUSTOM_ELEMENTS_SCHEMA
+  // ]
 })
 export class AppModule { }
