@@ -41,7 +41,7 @@
             { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "#003c4c" },
             { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "#313131" },
             { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#747474" },
-            { "value": "photo5.jpg", "bgSize": "contain", "bgColor": "white" }
+            { "value": "photo5.jpg", "bgSize": "cover", "bgColor": "white" }
         ],
         "description": "OwnPhones, custom wireless earbuds. A startup company based in Downtown, San Diego, CA. I was hired to develop and design the website and other promotional graphic elements and designed the company logo. We generated almost $1 million funding through the KickStarter partnership. Video animations are done using Cinema 4D software."
     },

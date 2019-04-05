@@ -23,6 +23,7 @@ import { TweenMax, TimelineMax, ScrollToPlugin, CSSPlugin, Power2, Elastic } fro
 
   public hideElement = false;
   public tL = new TimelineMax();
+  public tMx = TweenMax;
   public plugins = [CSSPlugin, ScrollToPlugin];
 
   public sharedElement: string;
@@ -152,6 +153,27 @@ import { TweenMax, TimelineMax, ScrollToPlugin, CSSPlugin, Power2, Elastic } fro
  public fTMxToAlfa(e, tym, val, easing) {
     TweenMax.to(e, tym, {opacity: val, ease: easing});
   }
+
+  public fTMXVisibility(elem, tym, showHide) {
+    this.tMx
+    .to(elem, tym, {
+      visibility: showHide,
+      ease: Power2.easeOut, delay: .5 });
+    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  }
+
+  public fTMXfontSize(elem, tym, sizeFont?: any) {
+    this.tMx
+    .to(elem, tym, {
+      fontFamily: 'Open Sans',
+      fontKerning: '1px',
+      letterSpacing: '1px',
+      fontSize: sizeFont,
+      // backgroundColor: 'red',
+      ease: Power2.easeOut, delay: .5 });
+    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  }
+
  public fTMxToRotate(e, tym, val) {
     TweenMax.to(e, tym, {rotation: val, ease: Power2.easeOut});
     console.log('e rotation: ', e);

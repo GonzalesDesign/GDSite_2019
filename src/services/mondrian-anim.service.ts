@@ -69,24 +69,24 @@ export class MondrianAnimService {
   }
 
   // Move this to funksions service
-  public fTMXfontSize(elem, tym, sizeFont?: any) {
-    this.tMx
-    .to(elem, tym, {
-      fontFamily: 'Open Sans',
-      fontKerning: '1px',
-      letterSpacing: '1px',
-      fontSize: sizeFont,
-      // backgroundColor: 'red',
-      ease: Power2.easeOut, delay: .5 });
-    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
-  }
-  public fTMXVisibility(elem, tym, showHide) {
-    this.tMx
-    .to(elem, tym, {
-      visibility: showHide,
-      ease: Power2.easeOut, delay: .5 });
-    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
-  }
+  // public fTMXfontSize(elem, tym, sizeFont?: any) {
+  //   this.tMx
+  //   .to(elem, tym, {
+  //     fontFamily: 'Open Sans',
+  //     fontKerning: '1px',
+  //     letterSpacing: '1px',
+  //     fontSize: sizeFont,
+  //     // backgroundColor: 'red',
+  //     ease: Power2.easeOut, delay: .5 });
+  //   // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  // }
+  // public fTMXVisibility(elem, tym, showHide) {
+  //   this.tMx
+  //   .to(elem, tym, {
+  //     visibility: showHide,
+  //     ease: Power2.easeOut, delay: .5 });
+  //   // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  // }
 
   public backgroundImageTransform(elem, tym, w, h, bgSize, hPos, vPos): any {
       this.tMx

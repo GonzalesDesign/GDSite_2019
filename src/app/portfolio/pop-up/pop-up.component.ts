@@ -100,10 +100,10 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   public carouselMaskWidth: number; // any;
   // public carouselKontainerId = '#carousel-kontainer-id'; // ul: photos strip
   // public carouselKontainer = '.carousel-kontainer';
-  public carouselFotoStripWidth: number; // any;
+  // public carouselFotoStripWidth: number; // any;
   // public totalImgsWidth: number;
-  public photoStripSetCount: number; // foto strip width / imgs to display = set
-  public commonCounterLastIndex: number;
+  // public photoStripSetCount: number; // foto strip width / imgs to display = set
+  // public commonCounterLastIndex: number;
 
   /*---= Images properties =---*/
   public imageKontainer = '.image-kontainer';
@@ -222,24 +222,24 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
 
   }
 
-  public fGetKontainerTop() {
-    console.log('fGetKontainerTop()');
-    /*-----= Get the imageKontainer top position =-----*/
-    this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
-    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+  // public fGetKontainerTop() {
+  //   console.log('fGetKontainerTop()');
+  //   /*-----= Get the imageKontainer top position =-----*/
+  //   this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
+  //   // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
 
-    /*-----= Move the arrows half way to the size of the image container =-----*/
-    this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2); // ?????
-    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-    // console.log('this.fotoHeight: ', this.fotoHeight);
-    // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
-    // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    // console.log('window.innerHeight: ', window.innerHeight);
-    if (this.karouselArrowsTop > window.innerHeight || this.karouselArrowsTop < 0) {
-      this.karouselArrowsTop = window.innerHeight / 2;
-      // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    }
-  }
+  //   /*-----= Move the arrows half way to the size of the image container =-----*/
+  //   this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2); // ?????
+  //   // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
+  //   // console.log('this.fotoHeight: ', this.fotoHeight);
+  //   // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
+  //   // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+  //   // console.log('window.innerHeight: ', window.innerHeight);
+  //   if (this.karouselArrowsTop > window.innerHeight || this.karouselArrowsTop < 0) {
+  //     this.karouselArrowsTop = window.innerHeight / 2;
+  //     // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
+  //   }
+  // }
 
   ngOnChanges() {
     // this.ngAfterViewInit();
@@ -297,49 +297,95 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     }
   }
 
+  /*--===============================================================--*//*
+  Calculate screen ratio: Control the layout for either one-column or
+    two-columns display based on vertical or horizontal orientations.
+    this.layout gets a string value that's use on fOnLandscapePortrait()
+  *//*--===============================================================--*/
+  public fScreenRatio() {
+    /*--= Window: innerWidth & innerHeight =--*/
+    const scrnWidth = this.screenWidth;
+    const scrnHeight = this.screenHeight;
+    // const scrnWidth = window.innerWidth;
+    // const scrnHeight = window.innerHeight;
+    // const scrnWidth = screen.width;
+    // const scrnHeight = screen.height;
+
+    console.log('this.modalKontainerWidth 4: ', this.modalKontainerWidth);
+
+    const ratio = scrnWidth / scrnHeight;
+    // console.log('ratio: ', ratio);
+    console.log('scrnWidth: ', scrnWidth, ' || scrnHeight: ', scrnHeight);
+    console.log('screen.width: ', screen.width, ' || screen.availWidth: ', screen.availWidth);
+    // console.log('scrnHeight: ', scrnHeight);
+
+    /*--= Vertical display =--*/
+    if ( ratio <= .79) {
+      this.layout = 'one-column';
+      // console.log('vertical display');
+
+    /*--= Squarish display display =--*/
+    } else if (ratio > .8 && ratio <= 1.25) {
+      this.layout = 'two-columns';
+      // console.log('squarish display');
+
+    /*--= Horizontal display =--*/
+    } else {
+      this.layout = 'two-columns';
+      // console.log('horizontal display');
+    }
+  }
+
   /*---============================================================================---*/
   /* fOnLandscapePortrait() = determine whether it's on a one-column or two-columns mode. */
   /*---============================================================================---*/
   public fOnLandscapePortrait() {
-    // console.log('this.variation2: ', this.variation);
-    // console.log('this.orientation2: ', this.layout);
+
+    this.fScreenRatio();
+
     if (this.layout === 'one-column') {
         this.flexDirection = 'column';
         this.columnNum = 1;
         // this.descriptionColumnCount = 2;
-        this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 50);
+        // this.carouselMaskWidth = 872; // Math.round(this.modalKontainerWidth / this.columnNum - 50);
+        // this.carouselMaskWidth = Math.round((922 / this.columnNum) - 50);
+        this.carouselMaskWidth = Math.round((this.modalKontainerWidth / this.columnNum) - 50);
+        console.log('this.modalKontainerWidth 3: ', this.modalKontainerWidth);
+        console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
+        // console.log('this.columnNum: ', this.columnNum);
     } else {
       // two-columns
         this.flexDirection = 'row';
         this.columnNum = 2;
         // this.descriptionColumnCount = 1;
         this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 25);
+        console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
     }
-    // console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
   }
 
-
-
-  /*---==========================================================================---*/
-    /*--==| fCarouselInit(): Initialize Carousel variables and load
-            this.fOnLandscapePortrait() = Landscape or Portrait mode.
-                                 For layout design purposes only. Set statically.
-            this._carousel.fSlideCarousel(...) = Carousel Service |==--*/
-    /*---==========================================================================---*/
+  /*---==========================================================================---*//*
+    fCarouselInit(): Initialize Carousel variables and load
+      this.fOnLandscapePortrait() = Landscape or Portrait mode. For layout design
+                                    purposes only. Set statically.
+      this._carousel.fSlideCarousel(...) = Carousel Service
+  *//*---==========================================================================---*/
   public fCarouselInit() {
-    /*-----= Modal Width =-----*/
-    this.modalKontainerWidth = Math.round(this.screenWidth * 0.9);
-    /*-----= Modal Height =-----*/
-    this.modalKontainerHeight = Math.round(this.screenHeight * 0.9);
+    // /*-----= Modal Width =-----*/
+    // this.modalKontainerWidth = Math.round(this.screenWidth * 0.9);
+    // /*-----= Modal Height =-----*/
+    // this.modalKontainerHeight = Math.round(this.screenHeight * 0.9);
     /*-----= Carousel Mask Width: Based on the modal width with 50px padding =-----*/
     // this.modalKontainerInteriorWidth = Math.round(this.modalKontainerWidth - 50);
+    console.log('this.modalKontainerWidth 2: ', this.modalKontainerWidth);
+
 
     /*-----=| one-column or two-columns mode |=-----*/
     this.fOnLandscapePortrait();
+    // this.fResizeMe();
 
     /*-----= Foto Width =-----*/
     this.fotoWidth = Math.round(this.carouselMaskWidth / this.imgsToDisplay);
-    // console.log('this.fotoWidth: ', this.fotoWidth);
+    console.log('this.fotoWidth ----------: ', this.fotoWidth);
     /*-----= Foto Height: squared =-----*/
     this.fotoHeight = this.fotoWidth;
     // console.log('this.fotoHeight: ', this.fotoHeight);
@@ -348,11 +394,15 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // console.log('tst.top: ', tst.top);
 
 
-    /*-----= Carousel Strip Width =-----*/
-    this.carouselFotoStripWidth = this.fotoWidth * this.photosLength;
-    /*--- Resetting photo strip x position ---*/
-    this.photoStripSetCount = Math.round(this.carouselFotoStripWidth / this.modalKontainerWidth);
-    this.commonCounterLastIndex = this.photoStripSetCount - 1;
+    // /*-----= Carousel Strip Width =-----*/
+    // this.carouselFotoStripWidth = this.fotoWidth * this.photosLength;
+    // console.log('this.carouselFotoStripWidth: ', this.carouselFotoStripWidth);
+
+    // /*--- Resetting photo strip x position ---*/
+    // this.photoStripSetCount = Math.round(this.carouselFotoStripWidth / this.modalKontainerWidth);
+    // console.log('this.photoStripSetCount: ', this.photoStripSetCount);
+
+    // this.commonCounterLastIndex = this.photoStripSetCount - 1;
 
     /* when resizing window, images shouldn't be cut off
        use commonCounter to dictate the last xposition to be used as a pin point */
@@ -363,7 +413,6 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
       'none',
       this.fotoWidth,
       this.imgsToDisplay,
-      // this.carouselFotoStripWidth,
       this.imageToLoad.length
     );
     // this._carousel.fSlideCarousel(
@@ -401,7 +450,6 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
       'left',
       this.fotoWidth,
       this.imgsToDisplay,
-      // this.carouselFotoStripWidth,
       this.photosLength);
   }
   public fSlideRight() {
@@ -412,37 +460,36 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
       'right',
       this.fotoWidth,
       this.imgsToDisplay,
-      // this.carouselFotoStripWidth,
       this.photosLength);
   }
   /*-- method call from view when pressing the right button --*/
-  fSlideLeftX() {
-    /*---|Call the _carousel service|---*/
-    this._carousel.fSlideCarousel(
-      this.leftArrowIcon,
-      this.rightArrowIcon,
-      this.imageKontainer,
-      'left',
-      this.fotoWidth,
-      this.imgsToDisplay,
-      this.carouselFotoStripWidth,
-      this.imageToLoad.length
-    );
-  }
+  // fSlideLeftX() {
+  //   /*---|Call the _carousel service|---*/
+  //   this._carousel.fSlideCarousel(
+  //     this.leftArrowIcon,
+  //     this.rightArrowIcon,
+  //     this.imageKontainer,
+  //     'left',
+  //     this.fotoWidth,
+  //     this.imgsToDisplay,
+  //     this.carouselFotoStripWidth,
+  //     this.imageToLoad.length
+  //   );
+  // }
 
   /*-- method call from view when pressing the left button --*/
-  fSlideRightX() {
-    this._carousel.fSlideCarousel(
-      this.leftArrowIcon,
-      this.rightArrowIcon,
-      this.imageKontainer,
-      'right',
-      this.fotoWidth,
-      this.imgsToDisplay,
-      this.carouselFotoStripWidth,
-      this.imageToLoad.length
-    );
-  }
+  // fSlideRightX() {
+  //   this._carousel.fSlideCarousel(
+  //     this.leftArrowIcon,
+  //     this.rightArrowIcon,
+  //     this.imageKontainer,
+  //     'right',
+  //     this.fotoWidth,
+  //     this.imgsToDisplay,
+  //     this.carouselFotoStripWidth,
+  //     this.imageToLoad.length
+  //   );
+  // }
 
   /**********---== RESPONSIVENESS ==---**********/
 
@@ -452,7 +499,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   onResize(event) {
     this.fResizeMe();
     // console.log('Screen resized!');
-    this.ngAfterViewInit();
+    // this.ngAfterViewInit();
   }
 
   /*---- Keydown Listener ----*/
@@ -489,28 +536,53 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
 		   fResizeMe: Viewport resize media queries
 	=----========================================--=*/
   public fResizeMe() {
-    this.screenWidth = window.innerWidth;
-    this.screenHeight = window.innerHeight;
+    // this.screenWidth = window.innerWidth;
+    // this.screenHeight = window.innerHeight;
     // console.log('this.screenWidth: ', this.screenWidth);
     // console.log('this.screenHeight: ', this.screenHeight);
 
-    /*--= Calculate screen ratio =--*/
-    let scrnWidth = window.innerWidth;
-    let scrnHeight = window.innerHeight;
-    let ratio = scrnWidth / scrnHeight;
-    console.log('ratio: ', ratio);
-    console.log('scrnWidth: ', scrnWidth);
-    console.log('scrnHeight: ', scrnHeight);
-    if ( ratio <= .79) {
-      this.layout = 'one-column';
-      console.log('vertical display');
-    } else if (ratio > .8 && ratio <= 1.25) {
-      this.layout = 'two-columns';
-      console.log('squarish display');
-    } else {
-      this.layout = 'two-columns';
-      console.log('horizontal display');
-    }
+    // /*--= Window: innerWidth & innerHeight =--*/
+    // const scrnWidth = window.innerWidth;
+    // const scrnHeight = window.innerHeight;
+
+    // /*--===============================================================--*//*
+    // Calculate screen ratio: Control the layout for either one-column or
+    //   two-columns display based on vertical or horizontal orientations.
+    //   this.layout gets a string value that's use on fOnLandscapePortrait()
+    // *//*--===============================================================--*/
+    // const ratio = scrnWidth / scrnHeight;
+    // // console.log('ratio: ', ratio);
+    // console.log('scrnWidth: ', scrnWidth, ' || scrnHeight: ', scrnHeight);
+    // // console.log('scrnHeight: ', scrnHeight);
+
+    // /*--= Vertical display =--*/
+    // if ( ratio <= .79) {
+    //   this.layout = 'one-column';
+    //   // console.log('vertical display');
+
+    // /*--= Squarish display display =--*/
+    // } else if (ratio > .8 && ratio <= 1.25) {
+    //   this.layout = 'two-columns';
+    //   // console.log('squarish display');
+
+    // /*--= Horizontal display =--*/
+    // } else {
+    //   this.layout = 'two-columns';
+    //   // console.log('horizontal display');
+    // }
+
+
+    this.screenWidth = window.innerWidth; // scrnWidth;
+    this.screenHeight = window.innerHeight; // scrnHeight;
+    // this.screenWidth = screen.width; // scrnWidth;
+    // this.screenHeight = screen.height; // scrnHeight;
+    console.log('this.screenWidth 1: ', this.screenWidth);
+
+    /*-----= Modal Width =-----*/
+    this.modalKontainerWidth = Math.round(this.screenWidth * 0.9);
+    console.log('this.modalKontainerWidth 1: ', this.modalKontainerWidth, parseInt('90vh', 0), '----------------');
+    /*-----= Modal Height =-----*/
+    this.modalKontainerHeight = Math.round(this.screenHeight * 0.9);
 
 
 
@@ -519,9 +591,9 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
 
     /*--- Reset last commonCounter index ---*/
-    if (this._carousel.endOfStrip) { // ???????
-      this._carousel.commonCounter = -this.commonCounterLastIndex; // counter last index is the last count during the current screen size and imgsToDisplay count
-    }
+    // if (this._carousel.endOfStrip) { // ???????
+    //   this._carousel.commonCounter = -this.commonCounterLastIndex; // counter last index is the last count during the current screen size and imgsToDisplay count
+    // }
 
     // /*-----= Move the arrows half way to the size of the image container =-----*/
     // this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
@@ -542,171 +614,59 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
             this.layout = This layout is not for the device but rather
                                on the column display.
                                two-columns: modal is divided into two columns.
-                               one-column: is a one column display.
+                               one-column: is a one column modal display.
             this.descriptionColumnCount = For layout only!
                                When the description text area get too wide
                                its better to divide it into two columns.
     /=---=========================================================================---=*/
+
     /*---======================| Match Media |======================================---/
       min-width: 1366px = largest screen
     /=---=========================================================================---=*/
     if (window.matchMedia('(min-width: 1366px)').matches) {
-      // this.layout = 'two-columns';
       this.imgsToDisplay = 1;
-      // this.fOnLandscapePortrait();
       this.fCarouselInit();
       this.modalTitleSize = '1.3em';
       this.descriptionColumnCount = 2;
+
     /*---======================| Match Media |======================================---/
       1000px to 1365px = iPad screens or others
     /=---=========================================================================---=*/
     } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1365px)').matches) {
-      /*--= iPad vertical =--*/
-      // if (window.matchMedia('(max-height: 768px)').matches) {
-        // this.layout = 'two-columns';
-        // this.imgsToDisplay = 1;
-        // this.fCarouselInit();
-        // this.modalTitleSize = '1.3em';
-        // this.descriptionColumnCount = 1;
-        /*--= iPadPro vertical =--*/
-      // } else
-      if (window.matchMedia('(min-height: 1366px)').matches) {
-        // this.layout = 'one-column';
         this.imgsToDisplay = 1;
         this.fCarouselInit();
         this.modalTitleSize = '1.3em';
         this.descriptionColumnCount = 1;
-        /*--= anything higher =--*/
-      } else {
-        // this.layout = 'two-columns';
-        this.imgsToDisplay = 1;
-        this.fCarouselInit();
-        this.modalTitleSize = '1.3em';
-        this.descriptionColumnCount = 1;
-      }
+
     /*---======================| Match Media |======================================---/
       800px to 999px = iPhoneX screens or others
     /=---=========================================================================---=*/
     } else if (window.matchMedia('(min-width: 800px) and (max-width: 999px)').matches) {
-      /*--= iPhoneX horizontal =--*/
-      // if (window.matchMedia('(max-height: 375px)').matches) {
-        // this.layout = 'two-columns';
         this.imgsToDisplay = 1;
         this.fCarouselInit();
         this.modalTitleSize = '1.3em';
         this.descriptionColumnCount = 1;
-        this.fotoHeight = 370;
-        // console.log('iPhoneX horizontal');
-      // } else {
-      //   this.layout = 'one-column';
-      //   this.imgsToDisplay = 1;
-      //   // this.fOnLandscapePortrait();
-      //   this.fCarouselInit();
-      //   this.modalTitleSize = '1em';
-      //   this.descriptionColumnCount = 1;
-      //   this.fotoHeight = this.fotoWidth;
-      //   console.log('iPhoneX vertical');
-      // }
+        this.fotoHeight = this.fotoWidth;
+
     /*---======================| Match Media |======================================---/
       up to 799px = iPhoneX screens or others
     /=---=========================================================================---=*/
     } else if (window.matchMedia('(max-width: 799px)').matches) {
-      /*--= iPhone horizontal =--*/
-      if (window.matchMedia('(max-height: 375px)').matches) {
-        // this.layout = 'two-columns';
-        this.imgsToDisplay = 1;
-        // this.fOnLandscapePortrait();
-        this.fCarouselInit();
-        this.modalTitleSize = '1.3em';
-        this.descriptionColumnCount = 1;
-        this.fotoHeight = 370;
-        console.log('iPhone horizontal');
-
-        /*--= iPhone vertical =--*/
-      } else {
-      // this.layout = 'one-column';
       this.imgsToDisplay = 1;
-      // this.fOnLandscapePortrait();
       this.fCarouselInit();
       this.modalTitleSize = '.8em';
       this.descriptionColumnCount = 1;
       this.fotoHeight = this.fotoWidth;
-      console.log('iPhone vertical');
-
-      }
     }
 
-    // if (this.screenWidth > 1300) {
-    //   console.log('> 1300');
-
-    // // if (window.matchMedia('(min-width: 1366px)').matches) {
-    //   if (this.layout === 'two-columns') {
-    //     this.imgsToDisplay = 1;
-    //   } else {
-    //     this.imgsToDisplay = 1;
-    //   }
-    //   this.layout = 'two-columns';
-    //   this.fOnLandscapePortrait();
-    //   this.fCarouselInit();
-    //   this.modalTitleSize = '1.3em';
-    //   this.descriptionColumnCount = 2;
-
-    // } else if (this.screenWidth < 1299 && this.screenWidth >= 921) {
-    //   // console.log('< 1299 >= 921');
-    // // } else if (window.matchMedia('(min-width: 1024px) and (max-width: 1365px)').matches) {
-    //   if (this.layout === 'two-columns') {
-    //     this.imgsToDisplay = 1;
-    //   } else {
-    //     this.imgsToDisplay = 1;
-    //   }
-
-    //   this.layout = 'two-columns';
-    //   this.fOnLandscapePortrait();
-    //   this.fCarouselInit();
-    //   this.modalTitleSize = '1.3em';
-    //   this.descriptionColumnCount = 1;
-
-    // } else if (this.screenWidth < 920  && this.screenWidth >= 640) {
-    //   // console.log('< 920 >= 640');
-    // // } else if (window.matchMedia('(min-width: 800px) and (max-width: 1023px)').matches) {
-    //   if (this.layout === 'two-columns') {
-    //     this.imgsToDisplay = 1;
-    //   } else {
-    //     this.imgsToDisplay = 1;
-    //   }
-    //   this.layout = 'one-column';
-    //   this.fOnLandscapePortrait();
-    //   this.fCarouselInit();
-    //   this.modalTitleSize = '1em';
-    //   // this.imgsToDisplay = 1;
-    //   this.descriptionColumnCount = 2;
-
-    // // } else if (window.matchMedia('(max-width: 799px)').matches) {
-    // } else {
-    //   console.log('else');
-    //   console.log('this.screenHeight: ', this.screenHeight);
-    //   if (this.layout === 'two-columns') {
-    //     this.imgsToDisplay = 1;
-    //     console.log('this.layout: ', this.layout);
-    //   } else {
-    //     this.imgsToDisplay = 1;
-    //     this.fotoHeight = 375;
-    //     console.log('H: 375');
-    //   }
-    //   this.layout = 'one-column';
-    //   this.fOnLandscapePortrait();
-    //   this.fCarouselInit();
-    //   this.modalTitleSize = '.8em';
-    //   this.imgsToDisplay = 1;
-    //   this.descriptionColumnCount = 1;
-    // }
-
-    // if (this.screenWidth <= 375 && this.screenHeight <= 812) {
-    //   console.log('H:375 x W:812');
-    //   this.fOnLandscapePortrait();
-    //   this.fCarouselInit();
-    //   this.fotoHeight = 375;
-    // }
-
+    /*--= Max height: 375px =--*/
+    if (window.matchMedia('(max-height: 375px)').matches) {
+      this.imgsToDisplay = 1;
+      this.fCarouselInit();
+      this.modalTitleSize = '1em';
+      this.descriptionColumnCount = 1;
+      this.fotoHeight = 350;
+      console.log('max-height: 375px');
+    }
   }
 }

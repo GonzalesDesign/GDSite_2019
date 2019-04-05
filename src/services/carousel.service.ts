@@ -71,6 +71,7 @@ export class CarouselService {
   *//*---==========================================================================---*/
   public fCarousel(leftBtnIcon, rightBtnIcon, elem, slideDirection, imgWidth, imgsToDisplay, imageCount) {
     const displayMaskWidth = (imgWidth * imgsToDisplay);
+    console.log('displayMaskWidth: ', displayMaskWidth);
     console.log('this.xPos: ', this.xPos);
 
     /*--= on enter leftBtnIcon will have opacity =--*/
@@ -142,7 +143,7 @@ export class CarouselService {
 
 
   /**-----------=====| Old: Sliding Carousel Function |=====-----------**/
-  public fSlideCarousel(leftBtnIcon, rightBtnIcon, elem, slideDirection, imgWidth, imgsToDisplay, imgKontainerWidth, imageCount) {
+  public fSlideCarouselXXX(leftBtnIcon, rightBtnIcon, elem, slideDirection, imgWidth, imgsToDisplay, imgKontainerWidth, imageCount) {
 
     const displayMaskWidth = (imgWidth * imgsToDisplay); // carousel mask width
     // const countImg = imageCount;
