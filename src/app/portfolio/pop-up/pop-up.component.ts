@@ -29,6 +29,7 @@ import { PortfolioDataService } from './../../../services/portfolio-data.service
 import { Elastic, Power2 } from 'gsap';
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-pop-up',
@@ -145,47 +146,96 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
                private _funksions: FunksionsService,
                private _carousel: CarouselService,
                private _portfolioDataService: PortfolioDataService,
-               public _elemRef: ElementRef
+               public _elemRef: ElementRef,
+               public breakpointObserver: BreakpointObserver
               ) {
   }
 
   ngOnInit() {
     console.clear();
-    // console.log('this.imageToLoad.length: ', this.imageToLoad.length);
-
-    // console.log('objPopUp: ', this.objPopUp.projectData);
-    this._carousel.commonCounter = 0;
+    this._carousel.counter = 0;
     this.onSingleMutiProjects();
     // this.fOnLandscapePortrait();
-    this.fResizeMe();
+    // this.fResizeMe();
 
     /*-----= Move the arrows half way to the size of the image container.
     Actual code is ran on ngAfterViewInit =-----*/
     this.karouselArrowsTop = 0; // ???
 
-    // this.layout = 'two-columns';
-    // console.log('this.variation: ', this.variation);
-    // console.log('this.layout: ', this.layout);
-    // this.columnNum = 1;
 
-     /*--= Triggering fResizeMedia on enter =--*/
-    //  setTimeout(() => {
-    //   this._carousel.commonCounter = 0;
-    //   this.onSingleMutiProjects();
-    //   this.fOnLandscapePortrait();
-    //   this.fResizeMe();
-    //   // this.fResizeMedia();
-    // }, 100);
+    // this.breakpointObserver
+    //   .observe(['(min-width: 1366px)'])
+    //   .subscribe((state: BreakpointState) => {
+    //     if (state.matches) {
+    //       this.mediaParams(1, 'two-columns', this.fotoWidth, '1.8em', 2);
+    //     } else {
+    //       console.log('Viewport is getting smaller!');
+    //     }
+    //   });
 
-    /*--===| fShowHideTopNav |===--*/
-    // DOESN'T WORK WITH MODAL!
-    // this.fShowHideTopNav('topNavBarKontainerId', '-20', '-100');
-    // this.fShowHideTopNav('topNavBarKontainerId', '-20', '-100');
-    // this._funksions.fShowHideTopNav(this.titleBarId, '-20', '100'); //////
-    // this._funksions.fShowHideTopNav(this.titleBarKontainer, '-20', '-100');
-    // this._funksions.fShowHideTopNav(this.modalTitleId, '-50', '-100');
-    // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
-    // this._funksions.fTMXscrollShowHide(this.titleBarKontainer, 20);
+      /*---=|••• Breakpoint Observer •••|=---*/
+      this.breakpointObserver.observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Handset,
+        Breakpoints.HandsetPortrait,
+        Breakpoints.HandsetLandscape,
+        Breakpoints.Tablet,
+        Breakpoints.TabletPortrait,
+        Breakpoints.TabletLandscape,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge
+      ]).subscribe(result => {
+        if (result.breakpoints[Breakpoints.XSmall]) {
+         console.log('XSmall');
+         this.mediaParams(1, 'one-column', 350, '.9em', 1);
+        //  console.log('Breakpoints.XSmall: ', Breakpoints.XSmall);
+        //  console.log('Breakpoints.Small: ', Breakpoints.Small);
+        //  console.log('Breakpoints.Handset: ', Breakpoints.Handset);
+        //  console.log('Breakpoints.HandsetPortrait: ', Breakpoints.HandsetPortrait);
+        //  console.log('Breakpoints.HandsetLandscape: ', Breakpoints.HandsetLandscape);
+        //  console.log('Breakpoints.Tablet: ', Breakpoints.Tablet);
+        //  console.log('Breakpoints.TabletPortrait: ', Breakpoints.TabletPortrait);
+        //  console.log('Breakpoints.TabletLandscape: ', Breakpoints.TabletLandscape);
+        //  console.log('Breakpoints.Medium: ', Breakpoints.Medium);
+        //  console.log('Breakpoints.Large: ', Breakpoints.Large);
+        //  console.log('Breakpoints.XLarge: ', Breakpoints.XLarge);
+        }
+        if (result.breakpoints[Breakpoints.Small]) {
+         console.log('Small');
+        //  this.mediaParams(1, 'two-columns', 350, '.9em', 1);
+        }
+        if (result.breakpoints[Breakpoints.HandsetPortrait]) {
+        console.log('HandsetPortrait');
+        this.mediaParams(1, 'one-column', this.fotoWidth, '1.3em', 1);
+        }
+        if (result.breakpoints[Breakpoints.HandsetLandscape]) {
+        console.log('HandsetLandscape');
+        this.mediaParams(1, 'two-columns', this.fotoWidth, '1.3em', 1);
+        }
+        if (result.breakpoints[Breakpoints.TabletPortrait]) {
+        console.log('TabletPortrait: iPad Portrait');
+        this.mediaParams(1, 'one-column', this.fotoWidth, '1.5em', 1);
+        }
+        if (result.breakpoints[Breakpoints.TabletLandscape]) {
+        console.log('TabletLandscape: iPad Landscape');
+        this.mediaParams(1, 'two-columns', this.fotoWidth, '1.8em', 1);
+        }
+        if (result.breakpoints[Breakpoints.Medium]) {
+          console.log('Medium: iPadPro Portrait');
+          this.mediaParams(1, 'two-columns', this.fotoWidth, '1.8em', 1);
+        }
+        if (result.breakpoints[Breakpoints.Large]) {
+          console.log('Large: iPadPro Landscape');
+          this.mediaParams(1, 'two-columns', this.fotoWidth, '2em', 2);
+        }
+        if (result.breakpoints[Breakpoints.XLarge]) {
+          console.log('XLarge');
+          this.mediaParams(1, 'two-columns', this.fotoWidth, '2em', 2);
+        }
+      });
+
 
   }
 
@@ -341,7 +391,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   /*---============================================================================---*/
   public fOnLandscapePortrait() {
 
-    this.fScreenRatio();
+    // this.fScreenRatio();
 
     if (this.layout === 'one-column') {
         this.flexDirection = 'column';
@@ -349,17 +399,18 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
         // this.descriptionColumnCount = 2;
         // this.carouselMaskWidth = 872; // Math.round(this.modalKontainerWidth / this.columnNum - 50);
         // this.carouselMaskWidth = Math.round((922 / this.columnNum) - 50);
-        this.carouselMaskWidth = Math.round((this.modalKontainerWidth / this.columnNum) - 50);
-        console.log('this.modalKontainerWidth 3: ', this.modalKontainerWidth);
-        console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
+        this.carouselMaskWidth = Math.round(((this.screenWidth * 0.9) / this.columnNum) - 50);
+        // this.carouselMaskWidth = Math.round((this.modalKontainerWidth / this.columnNum) - 50);
+        // console.log('this.modalKontainerWidth 3: ', this.modalKontainerWidth);
+        // console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
         // console.log('this.columnNum: ', this.columnNum);
-    } else {
-      // two-columns
+    } else if (this.layout === 'two-columns') {
         this.flexDirection = 'row';
         this.columnNum = 2;
         // this.descriptionColumnCount = 1;
-        this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 25);
-        console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
+        this.carouselMaskWidth = Math.round((this.screenWidth * 0.9) / this.columnNum - 25);
+        // this.carouselMaskWidth = Math.round(this.modalKontainerWidth / this.columnNum - 25);
+        // console.log('this.carouselMaskWidth: ', this.carouselMaskWidth);
     }
   }
 
@@ -376,7 +427,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // this.modalKontainerHeight = Math.round(this.screenHeight * 0.9);
     /*-----= Carousel Mask Width: Based on the modal width with 50px padding =-----*/
     // this.modalKontainerInteriorWidth = Math.round(this.modalKontainerWidth - 50);
-    console.log('this.modalKontainerWidth 2: ', this.modalKontainerWidth);
+    // console.log('this.modalKontainerWidth 2: ', this.modalKontainerWidth);
 
 
     /*-----=| one-column or two-columns mode |=-----*/
@@ -384,8 +435,9 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // this.fResizeMe();
 
     /*-----= Foto Width =-----*/
+    // this.fotoWidth = Math.round(((this.screenWidth * 0.9) - 40) / this.imgsToDisplay);
     this.fotoWidth = Math.round(this.carouselMaskWidth / this.imgsToDisplay);
-    console.log('this.fotoWidth ----------: ', this.fotoWidth);
+    console.log('this.fotoWidth ----------: ', this.fotoWidth, 'this.imgsToDisplay: ', this.imgsToDisplay);
     /*-----= Foto Height: squared =-----*/
     this.fotoHeight = this.fotoWidth;
     // console.log('this.fotoHeight: ', this.fotoHeight);
@@ -405,7 +457,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // this.commonCounterLastIndex = this.photoStripSetCount - 1;
 
     /* when resizing window, images shouldn't be cut off
-       use commonCounter to dictate the last xposition to be used as a pin point */
+       use counter to dictate the last xposition to be used as a pin point */
     this._carousel.fCarousel(
       this.leftArrowIcon,
       this.rightArrowIcon,
@@ -497,7 +549,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   @HostListener('window:resize', ['$event'])
   // @HostListener(this._windowRef._window(), ['$event'])
   onResize(event) {
-    this.fResizeMe();
+    // this.fResizeMe();
     // console.log('Screen resized!');
     // this.ngAfterViewInit();
   }
@@ -514,8 +566,6 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     } else if (event.keyCode === this.LEFT_ARROW) {
       this.fSlideRight();
     }
-
-
   }
 
   /*---- Window Scroll Listener ----*/
@@ -532,80 +582,32 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   //   // this._funksions.fTMXscrollShowHide(test, 50);
   // }
 
-  /*=--========================================--=
-		   fResizeMe: Viewport resize media queries
-	=----========================================--=*/
-  public fResizeMe() {
-    // this.screenWidth = window.innerWidth;
-    // this.screenHeight = window.innerHeight;
-    // console.log('this.screenWidth: ', this.screenWidth);
-    // console.log('this.screenHeight: ', this.screenHeight);
-
-    // /*--= Window: innerWidth & innerHeight =--*/
-    // const scrnWidth = window.innerWidth;
-    // const scrnHeight = window.innerHeight;
-
-    // /*--===============================================================--*//*
-    // Calculate screen ratio: Control the layout for either one-column or
-    //   two-columns display based on vertical or horizontal orientations.
-    //   this.layout gets a string value that's use on fOnLandscapePortrait()
-    // *//*--===============================================================--*/
-    // const ratio = scrnWidth / scrnHeight;
-    // // console.log('ratio: ', ratio);
-    // console.log('scrnWidth: ', scrnWidth, ' || scrnHeight: ', scrnHeight);
-    // // console.log('scrnHeight: ', scrnHeight);
-
-    // /*--= Vertical display =--*/
-    // if ( ratio <= .79) {
-    //   this.layout = 'one-column';
-    //   // console.log('vertical display');
-
-    // /*--= Squarish display display =--*/
-    // } else if (ratio > .8 && ratio <= 1.25) {
-    //   this.layout = 'two-columns';
-    //   // console.log('squarish display');
-
-    // /*--= Horizontal display =--*/
-    // } else {
-    //   this.layout = 'two-columns';
-    //   // console.log('horizontal display');
-    // }
-
-
+  /**
+   * mediaParams
+   */
+  private mediaParams(imgsToDisplay, layout, fotoHeight, modalTitleFontSize, descriptionColumnCount) {
     this.screenWidth = window.innerWidth; // scrnWidth;
     this.screenHeight = window.innerHeight; // scrnHeight;
     // this.screenWidth = screen.width; // scrnWidth;
     // this.screenHeight = screen.height; // scrnHeight;
     console.log('this.screenWidth 1: ', this.screenWidth);
+    this.imgsToDisplay = imgsToDisplay;
+    this.layout = layout;
+    this.fotoHeight = fotoHeight;
+    this.modalTitleSize = modalTitleFontSize;
+    this.descriptionColumnCount = descriptionColumnCount;
+    this.fCarouselInit();
+  }
 
-    /*-----= Modal Width =-----*/
-    this.modalKontainerWidth = Math.round(this.screenWidth * 0.9);
-    console.log('this.modalKontainerWidth 1: ', this.modalKontainerWidth, parseInt('90vh', 0), '----------------');
-    /*-----= Modal Height =-----*/
-    this.modalKontainerHeight = Math.round(this.screenHeight * 0.9);
-
-
-
-    /*-----= Get the imageKontainer top position =-----*/
-    // this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
-    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-
-    /*--- Reset last commonCounter index ---*/
-    // if (this._carousel.endOfStrip) { // ???????
-    //   this._carousel.commonCounter = -this.commonCounterLastIndex; // counter last index is the last count during the current screen size and imgsToDisplay count
-    // }
-
-    // /*-----= Move the arrows half way to the size of the image container =-----*/
-    // this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
-    // // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-    // // console.log('this.fotoHeight: ', this.fotoHeight);
-    // // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
-    // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    // console.log('window.innerHeight: ', window.innerHeight);
-    // if (this.karouselArrowsTop > window.innerHeight) {
-    //   this.karouselArrowsTop = window.innerHeight / 2;
-    //   console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    // }
+  /*=--========================================--=
+		fResizeMe: Viewport resize media queries
+	=----========================================--=*/
+  public fResizeMe() {
+    this.screenWidth = window.innerWidth; // scrnWidth;
+    this.screenHeight = window.innerHeight; // scrnHeight;
+    // this.screenWidth = screen.width; // scrnWidth;
+    // this.screenHeight = screen.height; // scrnHeight;
+    console.log('this.screenWidth 1: ', this.screenWidth);
 
     /*---==========================================================================---*/
     /*--==| Media queries: For the modal component |==-------------------------------=
@@ -620,53 +622,71 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
                                its better to divide it into two columns.
     /=---=========================================================================---=*/
 
-    /*---======================| Match Media |======================================---/
-      min-width: 1366px = largest screen
+
+    /*---======================| Match Media 1 |======================================---/
+      min-width: 1366px = largest screen : 1366px to larger width
     /=---=========================================================================---=*/
     if (window.matchMedia('(min-width: 1366px)').matches) {
-      this.imgsToDisplay = 1;
-      this.fCarouselInit();
-      this.modalTitleSize = '1.3em';
-      this.descriptionColumnCount = 2;
+      console.log('(min-width: 1366px: largest screen --------------=:)');
+      this.mediaParams(1, 'two-columns', this.fotoWidth, '1.8em', 2);
 
-    /*---======================| Match Media |======================================---/
-      1000px to 1365px = iPad screens or others
+    /*---======================| Match Media 2-3 |======================================---/
+      max-width: 1366px = iPad screens or others : 1000px to 1366px width
     /=---=========================================================================---=*/
-    } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1365px)').matches) {
-        this.imgsToDisplay = 1;
-        this.fCarouselInit();
-        this.modalTitleSize = '1.3em';
-        this.descriptionColumnCount = 1;
+    } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1366px) and (min-height: 1366px)').matches) {
+        console.log('(min-width: 1000px) and (max-width: 1366px) and (min-height: 1366px)');
+        this.mediaParams(1, 'one-column', this.fotoWidth, '1.5em', 2);
 
-    /*---======================| Match Media |======================================---/
-      800px to 999px = iPhoneX screens or others
-    /=---=========================================================================---=*/
-    } else if (window.matchMedia('(min-width: 800px) and (max-width: 999px)').matches) {
-        this.imgsToDisplay = 1;
-        this.fCarouselInit();
-        this.modalTitleSize = '1.3em';
-        this.descriptionColumnCount = 1;
-        this.fotoHeight = this.fotoWidth;
+    } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1366px) and (max-height: 1366px)').matches) {
+        console.log('(min-width: 1000px) and (max-width: 1366px) and (max-height: 1366px)');
+        this.mediaParams(1, 'two-columns', this.fotoWidth, '1.5em', 1);
 
-    /*---======================| Match Media |======================================---/
-      up to 799px = iPhoneX screens or others
+    /*---======================| Match Media 4-5 |======================================---/
+      max-width: 1000px = iPhoneX screens or others : 799px to 1000px width
     /=---=========================================================================---=*/
-    } else if (window.matchMedia('(max-width: 799px)').matches) {
-      this.imgsToDisplay = 1;
-      this.fCarouselInit();
-      this.modalTitleSize = '.8em';
-      this.descriptionColumnCount = 1;
-      this.fotoHeight = this.fotoWidth;
+    } else if (window.matchMedia('(min-width: 799px) and (max-width: 1000px) and (min-height: 1000px)').matches) {
+        console.log('(min-width: 799px) and (max-width: 1000px) and (min-height: 1000px)');
+        this.mediaParams(1, 'one-column', this.fotoWidth, '1.3em', 1);
+
+    } else if (window.matchMedia('(min-width: 799px) and (max-width: 1000px) and (max-height: 1000px)').matches) {
+        console.log('((min-width: 799px) and max-width: 1000px) and (max-height: 1000px)');
+        this.mediaParams(1, 'two-columns', this.fotoWidth, '1.3em', 1);
+
+    /*---======================| Match Media 6-7 |======================================---/
+      max-width: 799px = iPhoneX screens or others : 0px to 799px width
+    /=---=========================================================================---=*/
+  } else if (window.matchMedia('(min-width: 0px) and (max-width: 799px) and (min-height: 799px)').matches) {
+      console.log('(min-width: 0px) and (max-width: 799px) and (min-height: 799px)');
+      this.mediaParams(1, 'one-column', this.fotoWidth, '.9em', 1);
+
+  } else if (window.matchMedia('(min-width: 0px) and (max-width: 799px) and (max-height: 799px)').matches) {
+      console.log('(min-width: 0px) and (max-width: 799px) and (max-height: 799px)');
+      this.mediaParams(1, 'two-columns', 350, '.9em', 1);
+
+      // if (window.matchMedia('(min-height: 375px)').matches) {
+      //   console.log('min-height: 375px');
+      //   this.layout = 'one-column';
+      //   this.fotoHeight = this.fotoWidth;
+      // } else {
+      //   this.layout = 'two-columns';
+      //   this.fotoHeight = 350;
+      // }
+
+      // this.imgsToDisplay = 1;
+      // this.fCarouselInit();
+      // this.modalTitleSize = '.9em';
+      // this.descriptionColumnCount = 1;
+
     }
 
     /*--= Max height: 375px =--*/
-    if (window.matchMedia('(max-height: 375px)').matches) {
-      this.imgsToDisplay = 1;
-      this.fCarouselInit();
-      this.modalTitleSize = '1em';
-      this.descriptionColumnCount = 1;
-      this.fotoHeight = 350;
-      console.log('max-height: 375px');
-    }
+    // if (window.matchMedia('(max-height: 375px)').matches) {
+    //   this.imgsToDisplay = 1;
+    //   this.fCarouselInit();
+    //   this.modalTitleSize = '1em';
+    //   this.descriptionColumnCount = 1;
+    //   this.fotoHeight = 350;
+    //   console.log('max-height: 375px');
+    // }
   }
 }

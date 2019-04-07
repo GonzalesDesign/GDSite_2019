@@ -17,6 +17,7 @@ import { MondrianAnimService } from '../../services/mondrian-anim.service';
 import { MatDialog } from '@angular/material';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { map } from '../../../node_modules/rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-portfolio',
@@ -68,17 +69,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   // public smallScreen = 600;
 
   /*---=| Apple devices |=---*/
-  public iPhone6 =  {'width': 667,   'height': 375};
-  public iPhoneX =  {'width': 812,   'height': 375};
-  public iPad =     {'width': 1024,  'height': 768};
-  public iPadPro =  {'width': 1366,  'height': 1024};
-
-  // public scrnW: any;
-
-  // test
-  // public titleBarKontainer = ('.title-bar-kontainer');
-  // public titleBarId = ('titleBarId');
-
+  public iPhone6 =  { 'width': 667,   'height': 375 };
+  public iPhoneX =  { 'width': 812,   'height': 375 };
+  public iPad =     { 'width': 1024,  'height': 768 };
+  public iPadPro =  { 'width': 1366,  'height': 1024 };
 
   /*--===| rxjs: subscription |===--*/
   public subsPortfolio: Subscription;
@@ -91,18 +85,17 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private _portfolioDataService: PortfolioDataService,
               private _popUp: MatDialog,
               private _funksions: FunksionsService,
-              private _mondrianAnim: MondrianAnimService) { }
+              private _mondrianAnim: MondrianAnimService,
+              public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    console.log('portfolio.ngOnInit()');
-
     /*---=|••• OBSERVABLE •••|=---*/
     this.subsPortfolio = this._portfolioDataService.portfolioData()
     .subscribe(data => {
       this.aAllData = data; // populate aAllData array with all the data
       this._funksions.fDisplay(this.loadingKontainer, 'flex'); // show loader
       this._funksions.fLoadTimer(this.loading, this.timeout); // simulating text percentage loading
-
+      console.log('this.aAllData: ', this.aAllData);
       /*--= Populating arrays =--*/
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
@@ -110,7 +103,73 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
         this.fotoId[this.fotoId.length] = '#' + element.imageId; // push
       }
     },
+
       error => this.errorMsg = this.fError());
+
+      // /*---=|••• Breakpoint Observer •••|=---*/
+      // this.breakpointObserver.observe([
+      //   Breakpoints.XSmall,
+      //   Breakpoints.Small,
+      //   Breakpoints.Handset,
+      //   Breakpoints.HandsetPortrait,
+      //   Breakpoints.HandsetLandscape,
+      //   Breakpoints.Tablet,
+      //   Breakpoints.TabletPortrait,
+      //   Breakpoints.TabletLandscape,
+      //   Breakpoints.Medium,
+      //   Breakpoints.Large,
+      //   Breakpoints.XLarge
+      // ]).subscribe(result => {
+      //   console.log('window.innerWidth: ', window.innerWidth);
+
+      //   if (result.breakpoints[Breakpoints.XSmall]) {
+      //    console.log('XSmall');
+      //    this.iPhoneXVertical();
+      //   //  console.log('Breakpoints.XSmall: ', Breakpoints.XSmall);
+      //   //  console.log('Breakpoints.Small: ', Breakpoints.Small);
+      //   //  console.log('Breakpoints.Handset: ', Breakpoints.Handset);
+      //   //  console.log('Breakpoints.HandsetPortrait: ', Breakpoints.HandsetPortrait);
+      //   //  console.log('Breakpoints.HandsetLandscape: ', Breakpoints.HandsetLandscape);
+      //   //  console.log('Breakpoints.Tablet: ', Breakpoints.Tablet);
+      //   //  console.log('Breakpoints.TabletPortrait: ', Breakpoints.TabletPortrait);
+      //   //  console.log('Breakpoints.TabletLandscape: ', Breakpoints.TabletLandscape);
+      //   //  console.log('Breakpoints.Medium: ', Breakpoints.Medium);
+      //   //  console.log('Breakpoints.Large: ', Breakpoints.Large);
+      //   //  console.log('Breakpoints.XLarge: ', Breakpoints.XLarge);
+      //   }
+      //   if (result.breakpoints[Breakpoints.Small]) {
+      //     console.log('Small');
+      //   //  this.mediaParams(1, 'two-columns', 350, '.9em', 1);
+      //   }
+      //   if (result.breakpoints[Breakpoints.HandsetPortrait]) {
+      //     console.log('HandsetPortrait');
+      //     this.i812Vertical();
+      //   }
+      //   if (result.breakpoints[Breakpoints.HandsetLandscape]) {
+      //     console.log('HandsetLandscape');
+      //     this.iPhoneXWide();
+      //   }
+      //   if (result.breakpoints[Breakpoints.TabletPortrait]) {
+      //     console.log('TabletPortrait: iPad Portrait');
+      //     this.iPadWide();
+      //   }
+      //   if (result.breakpoints[Breakpoints.TabletLandscape]) {
+      //     console.log('TabletLandscape: iPad Landscape');
+      //     this.iPadWide();
+      //   }
+      //   if (result.breakpoints[Breakpoints.Medium]) {
+      //     console.log('Medium: iPadPro Portrait');
+      //     this.iPadProVertical();
+      //   }
+      //   if (result.breakpoints[Breakpoints.Large]) {
+      //     console.log('Large: iPadPro Landscape');
+      //     this.largeScrnSliderAnim();
+      //   }
+      //   if (result.breakpoints[Breakpoints.XLarge]) {
+      //     console.log('XLarge');
+      //     this.largeScrnSliderAnim();
+      //   }
+      // });
   }
 
   /*-==================================
@@ -142,8 +201,78 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     setTimeout(() => {
       this._funksions.fRemoveLoader(this.loadingKontainer, 'none', .5); // remove loader
       this._funksions.fDisplay(this.mainKontainerId, 'flex'); // display mainKontainerId
-      this.fResizeMedia();
+      // this.fResizeMedia();
+      this.fBreakpointObserver();
     }, this.timeout);
+  }
+
+  public fBreakpointObserver() {
+    /*---=|••• Breakpoint Observer •••|=---*/
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Handset,
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape,
+      Breakpoints.Tablet,
+      Breakpoints.TabletPortrait,
+      Breakpoints.TabletLandscape,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge
+    ]).subscribe(result => {
+      // console.log('window.innerWidth: ', window.innerWidth);
+
+      if (result.breakpoints[Breakpoints.XSmall]) {
+       console.log('XSmall');
+       this.iPhoneXVertical();
+      //  console.log('Breakpoints.XSmall: ', Breakpoints.XSmall);
+      //  console.log('Breakpoints.Small: ', Breakpoints.Small);
+      //  console.log('Breakpoints.Handset: ', Breakpoints.Handset);
+      //  console.log('Breakpoints.HandsetPortrait: ', Breakpoints.HandsetPortrait);
+      //  console.log('Breakpoints.HandsetLandscape: ', Breakpoints.HandsetLandscape);
+      //  console.log('Breakpoints.Tablet: ', Breakpoints.Tablet);
+      //  console.log('Breakpoints.TabletPortrait: ', Breakpoints.TabletPortrait);
+      //  console.log('Breakpoints.TabletLandscape: ', Breakpoints.TabletLandscape);
+      //  console.log('Breakpoints.Medium: ', Breakpoints.Medium);
+      //  console.log('Breakpoints.Large: ', Breakpoints.Large);
+      //  console.log('Breakpoints.XLarge: ', Breakpoints.XLarge);
+      }
+      if (result.breakpoints[Breakpoints.Small]) {
+        console.log('Small');
+      //  this.mediaParams(1, 'two-columns', 350, '.9em', 1);
+      }
+      if (result.breakpoints[Breakpoints.HandsetPortrait]) {
+        console.log('HandsetPortrait');
+        this.iPhoneXVertical();
+        // this.i812Vertical();
+      }
+      if (result.breakpoints[Breakpoints.HandsetLandscape]) {
+        console.log('HandsetLandscape');
+        this.iPhoneXWide();
+      }
+      if (result.breakpoints[Breakpoints.TabletPortrait]) {
+        console.log('TabletPortrait: iPad Portrait');
+        this.iPhoneXVertical();
+        // this.iPadWide();
+      }
+      if (result.breakpoints[Breakpoints.TabletLandscape]) {
+        console.log('TabletLandscape: iPad Landscape');
+        this.iPadWide();
+      }
+      if (result.breakpoints[Breakpoints.Medium]) {
+        console.log('Medium: iPadPro Portrait');
+        this.iPadProVertical();
+      }
+      if (result.breakpoints[Breakpoints.Large]) {
+        console.log('Large: iPadPro Landscape');
+        this.largeScrnSliderAnim();
+      }
+      if (result.breakpoints[Breakpoints.XLarge]) {
+        console.log('XLarge');
+        this.largeScrnSliderAnim();
+      }
+    });
   }
 
   /*-----= TEST: Getting scroll to work inside Material Modal =-----*/
@@ -196,6 +325,12 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,     0,     733,    140,    212,     302,     1); // illustrations  100,
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     0,    1000,    120,    350,     252,     1); // filipinas    0,
     this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,     0,    1257,    100,    285,     285,     1); // akon   30,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[0],   this.tym1,     0,     100,    200,    200,     253,     1); // jtns   60,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[1],   this.tym1,     0,     354,    180,    283,     187,     1); // ownphones   20,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[2],   this.tym1,     0,     540,    160,    244,     189,     1); // misc    0,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[3],   this.tym1,     0,     733,    140,    212,     302,     1); // illustrations  100,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[4],   this.tym1,     0,    1000,    120,    350,     252,     1); // filipinas    0,
+    // this._mondrianAnim.fTranslateAnim2(this.photoKontainer[5],   this.tym1,     0,    1257,    100,    285,     285,     1); // akon   30,
 
     /*--- Photos animation ---*/
     /* this._mondrianAnim.backgroundImageTransform(    element,          tym,              w,             h,      bgSize,      hPos,      vPos):---*/
@@ -486,7 +621,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     // this.fResizeMe();
-    this.fResizeMedia();
+    // this.fResizeMedia();
   }
 
   @HostListener('window:scroll', ['$event'])

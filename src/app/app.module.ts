@@ -4,6 +4,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 
 /*---= MAT & MDC Material Modules =---*/
 import { MatModule } from './mat.module';
@@ -29,6 +30,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
     HttpClientModule,
     AppRoutingModule,
     MatModule,
+    LayoutModule
     // MDCModule
   ],
   entryComponents: [
