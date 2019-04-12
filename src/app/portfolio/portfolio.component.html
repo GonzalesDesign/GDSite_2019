@@ -9,7 +9,7 @@
 *       Revised small screen display. R:19.03.25
 ***********************************************************/ -->
 
-<div *ngIf="false;"
+<div *ngIf="true;"
   class="centerLine">
 </div>
 
@@ -22,9 +22,15 @@
   <span class="subTitle">Sub Title Text</span>
 </mat-toolbar> -->
 
+
+
 <!-- INTRO MONDRIAN -->
 <div id="rlg-main-kontainer-id"
-    [style.border]="'0px solid magenta'">
+    [style.border]="'3px solid cyan'">
+
+    <div class="breakpoints">{{breakpoint}}</div>
+
+    <!-- [style.width]='screenWidth' -->
 <!-- <div  *ngIf="showMainKontainer" id="rlg-main-kontainer-id"> -->
 
         <!-- photo containers layout wrapper -->

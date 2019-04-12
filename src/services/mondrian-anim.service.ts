@@ -48,7 +48,7 @@ export class MondrianAnimService {
   }
 
 
-  public fTranslateAnim(elem, tym, xp, yp, zp = 100, w?: any, h?: any, sizeFont?: any, alfa = 1) {
+  public fTranslateAnim(elem, tym, xp, yp, zp = 100, w, h?: any, sizeFont?: any, alfa = 1) {
     // const elemId = elem;
     this.tMx
     .to(elem, tym, {
@@ -59,6 +59,26 @@ export class MondrianAnimService {
       height: h,
       fontSize: sizeFont,
       opacity: alfa,
+      ease: Power2.easeOut, delay: .5 });
+      // if (alfa === 0){
+      //   visibility: hidden;
+      // } else {
+      //   visibility: visible;
+      // }
+    // .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
+  }
+
+  public fTranslateAnim3(elem, tym, xp, yp, zp = 100, w, h?: any, sizeFont?: any, scale = 1) {
+    // const elemId = elem;
+    this.tMx
+    .to(elem, tym, {
+      x: xp,
+      y: yp,
+      zIndex: zp,
+      width: w,
+      height: h,
+      fontSize: sizeFont,
+      scale: scale,
       ease: Power2.easeOut, delay: .5 });
       // if (alfa === 0){
       //   visibility: hidden;
