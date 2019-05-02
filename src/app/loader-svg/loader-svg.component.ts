@@ -8,7 +8,7 @@
 * Copyright © 2019 GonzalesDesign
 * Platform: Angular 6
 * Component Name: LoaderSvgComponent
-* Note: Component to load for displaying loading animation.
+* Note: Component to display loading animation.
 **********************************************************/
 
 

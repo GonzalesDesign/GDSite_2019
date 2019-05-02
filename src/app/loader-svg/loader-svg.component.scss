@@ -7,6 +7,9 @@
 
 $borderForTesting: 0px solid rgb(243, 42, 243);
 $loaderColor: $rlgColorPrimaryMid;
+$loaderColorSec: $rlgColorSecondaryMid;
+$loaderColorTer: $rlgColorTertiaryMid;
+// $loaderColor: rgb(random(255), random(255), random(255));
 
 .loading-kontainer {
         display: flex;
@@ -26,8 +29,8 @@ $loaderColor: $rlgColorPrimaryMid;
 
                 .st0 { stroke: rgba($loaderColor, 1); }
                 .st1 { stroke: rgba($loaderColor, .75); }
-                .st2 { stroke: rgba($loaderColor, 1); }
-                .st3 { stroke: rgba($loaderColor, .75); }
+                .st2 { stroke: rgba($loaderColor, .75); }
+                .st3 { stroke: rgba($loaderColor, .5); }
                 .st4 { stroke: rgba($loaderColor, .4); }
                 .st5 { stroke: rgba($loaderColor, .75); }
           }
@@ -35,7 +38,7 @@ $loaderColor: $rlgColorPrimaryMid;
         .loading {
           align-self: center;
           position: absolute;
-          font-size: 1em;
+          font-size: 1.2em;
           text-align: center;
           color: $loaderColor;
           border: $borderForTesting;

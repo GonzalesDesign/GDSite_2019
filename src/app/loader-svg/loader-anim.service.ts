@@ -34,6 +34,8 @@ export class LoaderAnimService {
   public circ7 = '#circ7';
   public circ8 = '#circ8';
 
+  // public loadFirstTym: boolean;
+
   constructor(private _funksions: FunksionsService) { }
 
   /* fCreateCircle(parentEl) {

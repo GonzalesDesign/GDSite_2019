@@ -199,6 +199,10 @@ import { TweenMax, TimelineMax, ScrollToPlugin, CSSPlugin, Power2, Elastic } fro
     .from(e2, 2, { y: -100, alpha: 0, ease: Elastic.easeOut, delay: 1 });
   }
 
+  public fGetRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
   public fRemoveLoader(e, disp, tym) {
     const x = document.querySelector(e); // , s = x.style;
     if (disp === 'none') {

@@ -240,80 +240,15 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   }
 
   ngAfterViewInit() {
-    // console.log('|-----= ngAfterViewInit() =-----|');
-
-    /*-----= TEST: Getting scroll to work inside Material Modal =-----*/
-    // const content = document.querySelector('#titleBarId');
-    // const scroll$ = fromEvent(content, 'scroll').pipe(map(() => content));
-
-    // scroll$.subscribe(element => {
-    //   // do whatever
-    //   console.log('|-----= ngAfterViewInit() Modal =-----|');
-    //   this._funksions.fShowHideTopNav(content, '-20', '100');
-    // });
-    /*-----= ************************************************ =-----*/
-
-    //  /*-----= Get the imageKontainer top position =-----*/
-    // this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
-    // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-
-    // /*-----= Move the arrows half way to the size of the image container =-----*/
-    // this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2);
-    // // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-    // // console.log('this.fotoHeight: ', this.fotoHeight);
-    // // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
-    // // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    // // console.log('window.innerHeight: ', window.innerHeight);
-    // if (this.karouselArrowsTop > window.innerHeight) {
-    //   this.karouselArrowsTop = window.innerHeight / 2;
-    //   console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-    // }
-    // this.fGetKontainerTop();
-
   }
 
-  // public fGetKontainerTop() {
-  //   console.log('fGetKontainerTop()');
-  //   /*-----= Get the imageKontainer top position =-----*/
-  //   this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
-  //   // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-
-  //   /*-----= Move the arrows half way to the size of the image container =-----*/
-  //   this.karouselArrowsTop = this.imgKontainerTop + (this.fotoHeight / 2); // ?????
-  //   // console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-  //   // console.log('this.fotoHeight: ', this.fotoHeight);
-  //   // console.log('this.fotoHeight / 2: ', this.fotoHeight / 2);
-  //   // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-  //   // console.log('window.innerHeight: ', window.innerHeight);
-  //   if (this.karouselArrowsTop > window.innerHeight || this.karouselArrowsTop < 0) {
-  //     this.karouselArrowsTop = window.innerHeight / 2;
-  //     // console.log('this.karouselArrowsTop: ', this.karouselArrowsTop);
-  //   }
-  // }
 
   ngOnChanges() {
-    // this.ngAfterViewInit();
   }
-
-  /*-----= Get the imageKontainer top position =-----*/
-  // public fGetKontainerTopPosition() {
-  //   this.imgKontainerTop = this.imageKontainerRef.nativeElement.getBoundingClientRect().top;
-  //   console.log('this.imgKontainerTop: ', this.imgKontainerTop);
-  // }
 
   ngAfterViewChecked() {
-    /* this life cycle hook also resized pop up and its content */
-    // console.log(''|-----= ngAfterViewChecked() =-----|');
-    // this.ngAfterViewInit();
   }
 
-  // public fDisplayBtn(e, d) {
-  //   if (e === 'no-link') {
-  //     d = 'none';
-  //   } else {
-  //     d = 'flex';
-  //   }
-  // }
 
   /*---==========================================================================---*//*
       onSingleMutiProjects() = determine whether it's a single project content
@@ -438,6 +373,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // this.fotoWidth = Math.round(((this.screenWidth * 0.9) - 40) / this.imgsToDisplay);
     this.fotoWidth = Math.round(this.carouselMaskWidth / this.imgsToDisplay);
     // console.log('this.fotoWidth ----------: ', this.fotoWidth, 'this.imgsToDisplay: ', this.imgsToDisplay);
+
     /*-----= Foto Height: squared =-----*/
     this.fotoHeight = this.fotoWidth;
     // console.log('this.fotoHeight: ', this.fotoHeight);
@@ -467,16 +403,6 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
       this.imgsToDisplay,
       this.imageToLoad.length
     );
-    // this._carousel.fSlideCarousel(
-    //   this.leftArrowIcon,
-    //   this.rightArrowIcon,
-    //   this.imageKontainer, // elem
-    //   'none', // slideDirection
-    //   this.fotoWidth, // imgWidth
-    //   this.imgsToDisplay, // imgsToDisplay
-    //   this.carouselFotoStripWidth,
-    //   this.imageToLoad.length
-    // );
   }
 
   /*---| Button to open external links |---*/
@@ -514,34 +440,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
       this.imgsToDisplay,
       this.photosLength);
   }
-  /*-- method call from view when pressing the right button --*/
-  // fSlideLeftX() {
-  //   /*---|Call the _carousel service|---*/
-  //   this._carousel.fSlideCarousel(
-  //     this.leftArrowIcon,
-  //     this.rightArrowIcon,
-  //     this.imageKontainer,
-  //     'left',
-  //     this.fotoWidth,
-  //     this.imgsToDisplay,
-  //     this.carouselFotoStripWidth,
-  //     this.imageToLoad.length
-  //   );
-  // }
 
-  /*-- method call from view when pressing the left button --*/
-  // fSlideRightX() {
-  //   this._carousel.fSlideCarousel(
-  //     this.leftArrowIcon,
-  //     this.rightArrowIcon,
-  //     this.imageKontainer,
-  //     'right',
-  //     this.fotoWidth,
-  //     this.imgsToDisplay,
-  //     this.carouselFotoStripWidth,
-  //     this.imageToLoad.length
-  //   );
-  // }
 
   /**********---== RESPONSIVENESS ==---**********/
 
@@ -575,16 +474,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     // console.log('Modal scrolled!');
     // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
   }
-  // public fTestScroll(){
-  //   const test = document.querySelector('.test-kontainer');
-  //   console.log('Modal clicked scrolled!');
-  //   this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 50);
-  //   // this._funksions.fTMXscrollShowHide(test, 50);
-  // }
 
-  /**
-   * mediaParams
-   */
   private mediaParams(imgsToDisplay, layout, fotoHeight, modalTitleFontSize, descriptionColumnCount) {
     this.screenWidth = window.innerWidth; // scrnWidth;
     this.screenHeight = window.innerHeight; // scrnHeight;
@@ -598,95 +488,4 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
     this.descriptionColumnCount = descriptionColumnCount;
     this.fCarouselInit();
   }
-
-  /*=--========================================--=
-		fResizeMe: Viewport resize media queries
-	=----========================================--=*/
-  // public fResizeMe() {
-  //   this.screenWidth = window.innerWidth; // scrnWidth;
-  //   this.screenHeight = window.innerHeight; // scrnHeight;
-  //   // this.screenWidth = screen.width; // scrnWidth;
-  //   // this.screenHeight = screen.height; // scrnHeight;
-  //   console.log('this.screenWidth 1: ', this.screenWidth);
-
-  //   /*---==========================================================================---*/
-  //   /*--==| Media queries: For the modal component |==-------------------------------=
-  //           this.imgsToDisplay = Number of images to display on the image container.
-  //                                For layout design purposes only. Set statically.
-  //           this.layout = This layout is not for the device but rather
-  //                              on the column display.
-  //                              two-columns: modal is divided into two columns.
-  //                              one-column: is a one column modal display.
-  //           this.descriptionColumnCount = For layout only!
-  //                              When the description text area get too wide
-  //                              its better to divide it into two columns.
-  //   /=---=========================================================================---=*/
-
-
-  //   /*---======================| Match Media 1 |======================================---/
-  //     min-width: 1366px = largest screen : 1366px to larger width
-  //   /=---=========================================================================---=*/
-  //   if (window.matchMedia('(min-width: 1366px)').matches) {
-  //     console.log('(min-width: 1366px: largest screen --------------=:)');
-  //     this.mediaParams(1, 'two-columns', this.fotoWidth, '1.8em', 2);
-
-  //   /*---======================| Match Media 2-3 |======================================---/
-  //     max-width: 1366px = iPad screens or others : 1000px to 1366px width
-  //   /=---=========================================================================---=*/
-  //   } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1366px) and (min-height: 1366px)').matches) {
-  //       console.log('(min-width: 1000px) and (max-width: 1366px) and (min-height: 1366px)');
-  //       this.mediaParams(1, 'one-column', this.fotoWidth, '1.5em', 2);
-
-  //   } else if (window.matchMedia('(min-width: 1000px) and (max-width: 1366px) and (max-height: 1366px)').matches) {
-  //       console.log('(min-width: 1000px) and (max-width: 1366px) and (max-height: 1366px)');
-  //       this.mediaParams(1, 'two-columns', this.fotoWidth, '1.5em', 1);
-
-  //   /*---======================| Match Media 4-5 |======================================---/
-  //     max-width: 1000px = iPhoneX screens or others : 799px to 1000px width
-  //   /=---=========================================================================---=*/
-  //   } else if (window.matchMedia('(min-width: 799px) and (max-width: 1000px) and (min-height: 1000px)').matches) {
-  //       console.log('(min-width: 799px) and (max-width: 1000px) and (min-height: 1000px)');
-  //       this.mediaParams(1, 'one-column', this.fotoWidth, '1.3em', 1);
-
-  //   } else if (window.matchMedia('(min-width: 799px) and (max-width: 1000px) and (max-height: 1000px)').matches) {
-  //       console.log('((min-width: 799px) and max-width: 1000px) and (max-height: 1000px)');
-  //       this.mediaParams(1, 'two-columns', this.fotoWidth, '1.3em', 1);
-
-  //   /*---======================| Match Media 6-7 |======================================---/
-  //     max-width: 799px = iPhoneX screens or others : 0px to 799px width
-  //   /=---=========================================================================---=*/
-  // } else if (window.matchMedia('(min-width: 0px) and (max-width: 799px) and (min-height: 799px)').matches) {
-  //     console.log('(min-width: 0px) and (max-width: 799px) and (min-height: 799px)');
-  //     this.mediaParams(1, 'one-column', this.fotoWidth, '.9em', 1);
-
-  // } else if (window.matchMedia('(min-width: 0px) and (max-width: 799px) and (max-height: 799px)').matches) {
-  //     console.log('(min-width: 0px) and (max-width: 799px) and (max-height: 799px)');
-  //     this.mediaParams(1, 'two-columns', 350, '.9em', 1);
-
-  //     // if (window.matchMedia('(min-height: 375px)').matches) {
-  //     //   console.log('min-height: 375px');
-  //     //   this.layout = 'one-column';
-  //     //   this.fotoHeight = this.fotoWidth;
-  //     // } else {
-  //     //   this.layout = 'two-columns';
-  //     //   this.fotoHeight = 350;
-  //     // }
-
-  //     // this.imgsToDisplay = 1;
-  //     // this.fCarouselInit();
-  //     // this.modalTitleSize = '.9em';
-  //     // this.descriptionColumnCount = 1;
-
-  //   }
-
-  //   /*--= Max height: 375px =--*/
-  //   // if (window.matchMedia('(max-height: 375px)').matches) {
-  //   //   this.imgsToDisplay = 1;
-  //   //   this.fCarouselInit();
-  //   //   this.modalTitleSize = '1em';
-  //   //   this.descriptionColumnCount = 1;
-  //   //   this.fotoHeight = 350;
-  //   //   console.log('max-height: 375px');
-  //   // }
-  // }
 }

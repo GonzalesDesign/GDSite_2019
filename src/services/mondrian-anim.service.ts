@@ -20,12 +20,27 @@ export class MondrianAnimService {
 
   public tMx = TweenMax;
   // public tLMx = new TimelineMax();
+  // public randTime: number;
 
   constructor() { }
 
+  public fGetRandomArbitrary(min, max, decimalPlaces) {
+    // return Math.random() * ((max - min) + min);
+    // return Math.floor(Math.random() * (max - min) + min)/100;
+    const rand = Math.random() * (max - min) + min;
+    const power = Math.pow(10, decimalPlaces);
+    return Math.floor(rand * power) / power;
+  }
+  // const randTime = this._funksions.fGetRandomArbitrary(.1, .5);
+  //   const tym = randTime + .25;
+
   public fTranslateAnim2(elem, tym, xp, yp, zp = 100, w?: any, h?: any, alfa = 1) {
+    const randTime = this.fGetRandomArbitrary(.1, .9, 2);
+    const sec = randTime + tym;
+    // console.log('sec: ', sec);
+
     this.tMx
-    .to(elem, tym, {
+    .to(elem, sec, {
       x: xp,
       y: yp,
       zIndex: zp,
