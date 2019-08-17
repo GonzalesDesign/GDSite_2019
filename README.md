@@ -1,6 +1,6 @@
 # GdPortfolio
 
-R:19.08.15: pwa.rlloydgonzales.com
+https://pwa.rlloydgonzales.com
 
 R:19.04.16: Added random time for the GSAP animation
 
