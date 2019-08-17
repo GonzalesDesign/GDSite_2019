@@ -1,5 +1,7 @@
 # GdPortfolio
 
+R:19.08.15: pwa.rlloydgonzales.com
+
 R:19.04.16: Added random time for the GSAP animation
 
 R:19.04.06: Started using BreakpointObserver, Breakpoints instead of window.matchMedia.
