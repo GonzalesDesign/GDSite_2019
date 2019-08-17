@@ -16,7 +16,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-
 export interface PortfolioDataInterface {
   id: number;
   kontainerId: string;
@@ -29,6 +28,7 @@ export interface PortfolioDataInterface {
     value: string;
   description: string;
     info: string;
+  responsibilities: string;
   links: any;
     linkName: string;
     linkUrl: string;

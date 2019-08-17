@@ -4,22 +4,22 @@
         "id": 0,
         "kontainerId": "photo-kontainer-0",
         "imageId": "image0",
-        "title": "JTNS",
-        "subTitle": "Jill Tucker Nursing Services",
-        "coverImage": "coverJTNS.jpg",
+        "title": "Inspirations",
+        "subTitle": "Inspirational & Provocative Thoughts",
+        "coverImage": "Ideas_0.jpg",
         "orientation": "portraitxxxxxxxx",
         "variation": "single-project",
         "links": [
-            {"linkName": "GitHub Repo"},
-            {"linkUrl": "https://github.com/GonzalesDesign/JillTuckerNursingServices"}
+            {"linkName": "Inspirational PWA"},
+            {"linkUrl": "https://ideas.rlloydgonzales.com"}
         ],
-        "imagePath": "./../../assets/images/jtns/",
+        "imagePath": "./../../assets/images/pwa/",
         "images": [
-            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "white" },
-            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "white" },
-            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "white" }
+            { "value": "Ideas_0.jpg", "bgSize": "contain", "bgColor": "grey" },
+            { "value": "Ideas_1.jpg", "bgSize": "contain", "bgColor": "grey" },
+            { "value": "Ideas_2.jpg", "bgSize": "contain", "bgColor": "grey" }
         ],
-        "description": "JTNS website is a brochure type of site. Information for the services offered. The client designed the look and feel and asked me to build it. The client wanted to create multiple sites and required the ability to update the site for content. I built the site using HTML, CSS, and Javascript. The development code is written in ES2015, SCSS, Babel, Webpack and NodeJS. I wrote the template with ES2015 pulling content from JSON files which the client can update. I used Webpack and Babel to transpiled the ES6 codes to ES5."
+        "description": "Inspirational and provocative thoughts. Daily reminders to help you overcome adversity, persevere, achieve your goals, succeed. Start your day with a quote from our thoughtfully curated collection. \nWrote in Angular 7 and Ionic 4 frameworks to create this Progressive Web App. A CRUD (Create Read Update Delete) app in conjunction with Firebase technologies. Login using Firebase Auth UI, data are being save in Cloud Firestore, a cloud base database."
     },
     {
         "id": 1,
@@ -69,16 +69,29 @@
                 "varBGSize": "contain"
             },
             {
-                "varId": "varied_1",
-                "image": "photo1.jpg",
-                "varProjectTitle": "BCBSNJ Project",
-                "varProjectSubTitle": "Blue Cross Blue Shield of New Jersey",
-                "varProjectFunction": "Art Director, Coder, Flash Animator",
-                "varProjectDescription": "Hired as an Art Director responsible mainly for HBCBSNJ. Worked on their first major Website homepage re-designed and helped migrate the site to a dynamic site. Designed and built numbers of interactive presentations for the site, animated ad banners, digital annual reports and other modules.",
+                "varId": "varied_0a",
+                "image": "coverJTNS.jpg",
+                "varProjectTitle": "JTNS",
+                "varProjectSubTitle": "Jill Tucker Nursing Services",
+                "varProjectFunction": "HTML, CSS & JS Coding",
+                "varProjectDescription": "JTNS website is a brochure type of site. Information for the services offered. The client designed the look and feel and asked me to build it. The client wanted to create multiple sites and required the ability to update the site for content. I built the site using HTML, CSS, and Javascript. The development code is written in ES2015, SCSS, Babel, Webpack and NodeJS. I wrote the template with ES2015 pulling content from JSON files which the client can update. I used Webpack and Babel to transpiled the ES6 codes to ES5.",
                 "varBtnDisplay": "flex",
-                "varLinkName": "HorizonBlue",
-                "varUrl": "https://www.horizonblue.com",
-                "varBGColor": "#57647d",
+                "varLinkName": "GitHub Repo",
+                "varUrl": "https://github.com/GonzalesDesign/JillTuckerNursingServices",
+                "varBGColor": "#243D3B",
+                "varBGSize": "contain"
+            },
+            {
+                "varId": "varied_1",
+                "image": "photo0b.jpg",
+                "varProjectTitle": "Akon Project",
+                "varProjectSubTitle": "Konvict Clothing",
+                "varProjectFunction": "Design, Photo Retouching, Animation & Flash Coding",
+                "varProjectDescription": "Designed and built this interactive animated intro for Akon's Konvict eStore. Graphics are done in Photoshop imported them to Flash and animation is done using ActionScript3.",
+                "varBtnDisplay": "flex",
+                "varLinkName": "Konvict Clothing Intro",
+                "varUrl": "https://www.rlloydgonzales.com/autreSites/Akon/",
+                "varBGColor": "#243D3B",
                 "varBGSize": "contain"
             },
             {
@@ -236,52 +249,45 @@
         "id": 4,
         "kontainerId": "photo-kontainer-4",
         "imageId": "image4",
-        "title": "Filipinas",
-        "subTitle": "Kawali Restaurant Painting",
-        "coverImage": "coverFilipinas.jpg",
+        "title": "Horizon Blue",
+        "subTitle": "Blue Cross Blue Shield of New Jersey",
+        "responsibilities": "Art Director, Coder",
+        "coverImage": "coverHBCBS.jpg",
         "orientation": "landscapexxxxxxxx",
         "variation": "single-project",
         "links": [
             {"linkName": "Facebook Link"},
             {"linkUrl": "https://www.facebook.com/pg/RLloydGonzalesDesign/photos/?tab=album&album_id=1552715854982727"}
         ],
-        "imagePath": "./../../assets/images/filipinas/",
+        "imagePath": "./../../assets/images/hbcbs/",
         "images": [
-            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo1.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
-            { "value": "photo2.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
-            { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "#001f24" },
-            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#0d0d0d" },
-            { "value": "photo5.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo6.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo7.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo8.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo9.jpg", "bgSize": "contain", "bgColor": "#025d72" },
-            { "value": "photo10.jpg", "bgSize": "contain", "bgColor": "#025d72" }
+            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+            { "value": "photo1a.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" }
         ],
-        "description": "Mural painting for Kawali Express, a Filipino Restaurant in Voorhees, NJ. The panel is divided into two, left represents the land and the right represents water. These are the two main sources of food supplies and economy in the Philippines, farming and fishing. The middle has the famous Balut egg, Philippine map and a clay pot cooking a local dish and the title Filipinas. Behind all that is the Mayon Volcano. 48“ x 96“ Mural, Acrylic on board."
+        "description": "Hired as an Art Director responsible mainly for HBCBSNJ. Worked on their first major Website homepage re-designed and helped migrate the site to a dynamic site. Designed and built numbers of interactive presentations for the site, animated ad banners, digital annual reports and other modules."
     },
+
     {
         "id": 5,
         "kontainerId": "photo-kontainer-5",
         "imageId": "image5",
-        "title": "Akon",
-        "subTitle": "Konvict Clothing",
-        "coverImage": "coverAkon.jpg",
+        "title": "Vodka",
+        "subTitle": "Spirits Template App",
+        "coverImage": "VodkaCover.jpg",
         "orientation": "landscapexxxxxxxx",
         "variation": "single-project",
         "links": [
-            {"linkName": "Flash Animation"},
-            {"linkUrl": "http://www.rlloydgonzales.com/autreSites/Akon/"}
+            {"linkName": "Vodka Progressive Web App"},
+            {"linkUrl": "https://vodka.rlloydgonzales.com"}
         ],
-        "imagePath": "./../../assets/images/akon/",
+        "imagePath": "./../../assets/images/pwa/",
         "images": [
-            { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "black" },
-            { "value": "photo1.jpg", "bgSize": "contain", "bgColor": "black" },
-            { "value": "photo2.jpg", "bgSize": "contain", "bgColor": "black" },
-            { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "black" },
-            { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "black" }
+            { "value": "VodkaSite.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "Vodka_0.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "Vodka_1.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "Vodka_2.jpg", "bgSize": "contain", "bgColor": "black" },
+            { "value": "Vodka_3.jpg", "bgSize": "contain", "bgColor": "black" }
         ],
-        "description": "Designed and built this interactive animated intro for Akon's Konvict eStore. Graphics are done in Photoshop imported them to Flash and animation is done using ActionScript3."
+        "description": "Using Angular 7 and Ionic 4 frameworks to create this Progressive Web App. \nData: Using Observables data are being pulled from JSON files."
     }
 ]

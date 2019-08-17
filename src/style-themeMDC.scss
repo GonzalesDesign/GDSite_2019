@@ -77,14 +77,14 @@ body {
     background-color:  $rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
     // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
 }
-html, body { height: 100%; }
+// html, body { height: 100%; }
 
-body { margin: 0; font-family: $rlg-pt-font, sans-serif; }
+// body { margin: 0; font-family: $rlg-pt-font, sans-serif; }
 
-p {
-    @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .9em);
-    line-height: 1.6;
-}
+// p {
+//     @include fontFamilyWeightSize ($rlg-paragraph-font, 300, .9em);
+//     line-height: 1.6;
+// }
 
 
 

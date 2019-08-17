@@ -11,24 +11,23 @@
 /*----------------------------------------=
 =---=|    Import: General styling    |=---=
 =-----------------------------------------*/
-@import './../../styles.scss';
-
+@import "./../../styles.scss";
 
 /*--- Development classes ---*/
 .centerLine {
-    display: flex;
-    align-self: center;
-    left: 50vw;
-    margin: auto;
-    width: 0px;
-    height: 2000px;
-    position: absolute;
-    z-index: 2000;
-    border: 1px solid salmon;
+  display: flex;
+  align-self: center;
+  left: 50vw;
+  margin: auto;
+  width: 0px;
+  height: 2000px;
+  position: absolute;
+  z-index: 2000;
+  border: 1px solid salmon;
 }
 
 .breakpoints {
-  @include fontFamilyWeightSize ($rlg-primary-font, 400, 1em);
+  @include fontFamilyWeightSize($rlg-primary-font, 400, 1em);
   color: white;
   // align-self: center;
   width: 100vw;
@@ -71,283 +70,304 @@ $dev-border: 0px solid rgb(244, 85, 244);
 //       letter-spacing: 1px;
 //   }
 
-
 #rlg-main-kontainer-id {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    // width: 100%;
-    min-width: 350px;
-    height: 100vh;
-    // top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // background: grey; //rgba(var(--rlg-color-primary), 1); //red; //var(--rlg-color-primary);
+  // width: 100%;
+  min-width: 350px;
+  height: 100vh;
+  // top: 50px;
+  // display: flex;
+  flex-direction: column;
+  // align-content: center; // align vertically
+  // justify-content: center; // align horizontally
+  border: $dev-border;
+
+  #rlg-kontent-kontainer-id {
     // display: flex;
-    flex-direction: column;
-    // align-content: center; // align vertically
+    ///// flex-direction: row;
+    //// align-content: center; // align vertically
     // justify-content: center; // align horizontally
     border: $dev-border;
 
-    #rlg-kontent-kontainer-id {
-        // display: flex;
-        ///// flex-direction: row;
-        //// align-content: center; // align vertically
-        // justify-content: center; // align horizontally
+    #title-kontainer-id {
+      z-index: 101;
+      opacity: 0;
+      // font-family: "OpenSans";
+      font-family: "Oswald";
+      margin: 0;
+      width: 400px;
+      border: 0px solid yellowgreen; // $dev-border;
+
+      // position: fixed;
+      // top: 20px;
+      // width: 100%;
+      // display: block;
+      // transition: all .5s ease-in-out;
+
+      // .title, .sub-title {
+      //     // text-shadow: $text-dark-shadow;
+      //     // text-shadow: $text-light-shadow;
+      // }
+
+      .title {
+        // font-family: "Roboto";
+        // font-family: "OpenSans";
+        // font-family: "Oswald";
+        // font-size: 1.8em;
+
+        letter-spacing: 0.01em;
+        // text-align: right;
+        margin-top: 0px;
+        width: auto;
+        margin-bottom: -8px;
+        color: $rlgColorTertiary; // $rlgColorSecondaryMid rlgColorTertiaryMid rlgColorDarkMid rlgColorPrimary rlgColorPrimaryMid
+        // text-shadow: $text-light-shadow;
+        border: 0px solid yellowgreen; //  $dev-border;
+      }
+      .sub-title {
+        @include fontFamilyWeightSize($rlg-header-font, 500, 1.1em);
+        letter-spacing: 1.2;
+        // font-size: 1em;
+        width: auto;
+        margin-bottom: -4px;
+        // width: max-content;
+        // color: $rlgColorLight; // $rlgColorLight; $rlgColorTertiary; $rlgColorSecondary; $rlgColorDark;
+        color: rgba(var(--rlg-color-secondary-rgb), 0.75); // $rlgColorLight; $rlgColorTertiary; $rlgColorSecondary; $rlgColorDark;
+        text-shadow: $text-light-shadow;
+        border: 0px solid yellowgreen; //  $dev-border;
+      }
+      .sub-title2 {
+        @include fontFamilyWeightSize($rlg-primary-font, 500, 0.8em);
+        letter-spacing: 1.2;
+        padding-right: 1px;
+        width: auto;
+        color: rgba(var(--rlg-color-light-rgb), 0.5); //var(--rlg-color-secondary-tint); //$rlgColorLight; // $rlgColorLight; $rlgColorTertiary; $rlgColorSecondary; $rlgColorDark;
+        text-shadow: $text-light-shadow;
+        border: $dev-border;
+      }
+    }
+    .snafu {
+      text-align: center;
+      color: $rlgColorSecondaryMid;
+      border: 0px solid red;
+    }
+
+    .photo-kontainer {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      // left: 0;
+      top: 0;
+      // [style.x.vw]="50"
+      width: 400px;
+      height: 400px;
+      opacity: 0;
+      padding: 8px;
+      background-color: $rlgColorLight;
+      overflow: hidden;
+      // box-shadow: 0 4px 2px -2px rgba(0,0,0,.35);
+      box-shadow: 1px 2px 1px -1px rgba(0, 0, 0, 0.35);
+      margin-bottom: 25px;
+      border: $dev-border;
+
+      .foto {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        border: $dev-border;
+      }
+
+      .photo-info-kontainer {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        // height: 100%;
+        overflow: hidden;
+        border: $dev-border;
+        // background-color: $rlgColorTertiary;
+
+        .rlg-photo-title {
+          @include fontFamilyWeightSize($rlg-primary-font, 400, 1.4em);
+          // font-family: $rlg-pt-caption-font;
+          // font-weight: 400;
+          // font-size: 1.4em;
+          margin: 0;
+          color: $rlgColorPrimary;
+          border: $dev-border;
+          // text-shadow: $text-dark-shadow;
+        }
+        .rlg-photo-subtitle {
+          @include fontFamilyWeightSize($rlg-primary-font, 400, 0.85em);
+          // font-family: $rlg-pt-font;
+          // font-weight: 400;
+          // font-size: 1em;
+          // font-size: 16px;
+          // font-style: normal;
+          // font-weight: 200;
+          // line-height: 1.44444;
+          margin-top: -0.2em;
+          margin-bottom: 0.5em;
+          color: $rlgColorGreyMid;
+          border: $dev-border;
+        }
+        .rlg-photo-body {
+          @include fontFamilyWeightSize($rlg-paragraph-font, 400, 0.85em);
+          // font-family: $rlg-pt-font;
+          // font-weight: 400;
+          // font-size: 1em;
+          // font-size: 18px;
+          // font-style: normal;
+          // font-weight: 400;
+          line-height: 1.44444;
+          // font-size: 1em;
+          color: rgba($rlgColorDark, 0.5);
+          border: $dev-border;
+
+          // .bottomSpacer {
+          //   height: 4em;
+          //   width: auto;
+          //   margin: 2em 0;
+          //   border: 0px solid #000;
+          // }
+        }
+      }
+
+      .rlg-button-kontainer {
+        // background rectangle container
+        display: flex;
+        // align-content: center; //vertical alignment
+        align-items: center; //content vertical alignment
+        justify-content: center;
+        // position: relative;
+        // background-color: rgba(10, 10, 10, 0.947);
+        // border: 1px solid yellowgreen;
+        // height: 50px;
         border: $dev-border;
 
-        #title-kontainer-id {
-            z-index: 101;
-            opacity: 0;
-            // font-family: "OpenSans";
-            font-family: "Oswald";
-            margin: 0;
-            width: 400px;
-            border: $dev-border;
-
-            // position: fixed;
-            // top: 20px;
-            // width: 100%;
-            // display: block;
-            // transition: all .5s ease-in-out;
-
-            // .title, .sub-title {
-            //     // text-shadow: $text-dark-shadow;
-            //     // text-shadow: $text-light-shadow;
-            // }
-
-            .title {
-                // font-family: "Roboto";
-                // font-family: "OpenSans";
-                // font-family: "Oswald";
-                // font-size: 1.8em;
-
-                letter-spacing: .01em;
-                // text-align: right;
-                margin-top: 0px;
-                width: auto;
-                margin-bottom: -6px;
-                color: $rlgColorTertiary; // $rlgColorSecondaryMid rlgColorTertiaryMid rlgColorDarkMid rlgColorPrimary rlgColorPrimaryMid
-                // text-shadow: $text-light-shadow;
-                border: $dev-border;
-            }
-            .sub-title {
-                @include fontFamilyWeightSize ($rlg-primary-font, 500, .9em);
-                // font-size: 1em;
-                width: auto;
-                // width: max-content;
-                color: $rlgColorLight; // $rlgColorLight; $rlgColorTertiary; $rlgColorSecondary; $rlgColorDark;
-                text-shadow: $text-light-shadow;
-                border: $dev-border;
-            }
-
-        }
-        .snafu {
-          text-align: center;
-          color: $rlgColorSecondaryMid;
-          border: 0px solid red;
+        // .buttonLabel {
+        //   // display: flex;
+        //     @include fontFamilyWeightSize ($rlg-primary-font, 400, 2em);
+        //     font-kerning: 1px;
+        //     letter-spacing: 1px;
+        // }
+        .buttonIcon {
+          // display: flex;
+          // flex-direction: column;
+          // align-items: center;
+          // justify-content: center;
+          padding: 6px 0px 0px 0px;
+          font-size: 16px;
+          border: 0px solid orange;
         }
 
-        .photo-kontainer {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            // left: 0;
-            top: 0;
-            // [style.x.vw]="50"
-            width: 400px;
-            height: 400px;
-            opacity: 0;
-            padding: 8px;
-            background-color: $rlgColorLight;
-            overflow: hidden;
-            // box-shadow: 0 4px 2px -2px rgba(0,0,0,.35);
-            box-shadow: 1px 2px 1px -1px rgba(0, 0, 0, .35);
-            margin-bottom: 25px;
-            border: $dev-border;
+        // .mdc-button {
+        //     background-color: $rlgColorPrimaryMid;
+        //     box-shadow: 0 4px 2px -2px rgba(0,0,0,.25);
+        //     // border: 3px solid yellowgreen;
+        // }
+        .mat-button {
+          background-color: rgba(
+            var(--rlg-color-primary),
+            1
+          ); //$rlgColorPrimaryMid;
+          box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.25);
+          // border: 3px solid yellowgreen;
+          justify-content: center; //horizontal alignment
+          // font-size: 16px;
+          // padding: .25em;
+          color: aliceblue;
+          text-shadow: $text-dark-shadow;
+          top: -10px;
+          // width: 50%;
+          // height: 12%;
+          position: relative;
+          overflow: hidden;
+          // padding: 10px;
+          // text-align: center;
+          // border: $dev-border;
+          // border-radius: 0px 0px 10px 10px;
+          border: 1px solid rgba(247, 248, 249, 0.25);
+          text-transform: uppercase;
 
-            .foto {
-                overflow: hidden;
-                height: 100%;
-                width: 100%;
-                backface-visibility: hidden;
-                -webkit-backface-visibility: hidden;
-                -moz-backface-visibility:    hidden;
-                -ms-backface-visibility:     hidden;
-                border: $dev-border;
-            }
-
-            .photo-info-kontainer {
-                display: flex;
-                flex-direction: column;
-                padding: 1rem;
-                // height: 100%;
-                overflow: hidden;
-                border: $dev-border;
-                // background-color: $rlgColorTertiary;
-
-                .rlg-photo-title {
-                    @include fontFamilyWeightSize ($rlg-primary-font, 400, 1.4em);
-                    // font-family: $rlg-pt-caption-font;
-                    // font-weight: 400;
-                    // font-size: 1.4em;
-                    margin: 0;
-                    color: $rlgColorPrimary;
-                    border: $dev-border;
-                    // text-shadow: $text-dark-shadow;
-                }
-                .rlg-photo-subtitle {
-                    @include fontFamilyWeightSize ($rlg-primary-font, 400, .85em);
-                    // font-family: $rlg-pt-font;
-                    // font-weight: 400;
-                    // font-size: 1em;
-                    // font-size: 16px;
-                    // font-style: normal;
-                    // font-weight: 200;
-                    // line-height: 1.44444;
-                    margin-top: -.2em;
-                    margin-bottom: .5em;
-                    color: $rlgColorGreyMid;
-                    border: $dev-border;
-                }
-                .rlg-photo-body {
-                    @include fontFamilyWeightSize ($rlg-paragraph-font, 400, .85em);
-                    // font-family: $rlg-pt-font;
-                    // font-weight: 400;
-                    // font-size: 1em;
-                    // font-size: 18px;
-                    // font-style: normal;
-                    // font-weight: 400;
-                    line-height: 1.44444;
-                    // font-size: 1em;
-                    color: rgba($rlgColorDark, .5);
-                    border: $dev-border;
-
-                    // .bottomSpacer {
-                    //   height: 4em;
-                    //   width: auto;
-                    //   margin: 2em 0;
-                    //   border: 0px solid #000;
-                    // }
-                }
-            }
-
-            .rlg-button-kontainer {  // background rectangle container
-                display: flex;
-                // align-content: center; //vertical alignment
-                align-items: center; //content vertical alignment
-                justify-content: center;
-                // position: relative;
-                // background-color: rgba(10, 10, 10, 0.947);
-                // border: 1px solid yellowgreen;
-                // height: 50px;
-                border: $dev-border;
-
-                // .buttonLabel {
-                //   // display: flex;
-                //     @include fontFamilyWeightSize ($rlg-primary-font, 400, 2em);
-                //     font-kerning: 1px;
-                //     letter-spacing: 1px;
-                // }
-                .buttonIcon {
-                    font-size: 20px;
-                }
-
-                // .mdc-button {
-                //     background-color: $rlgColorPrimaryMid;
-                //     box-shadow: 0 4px 2px -2px rgba(0,0,0,.25);
-                //     // border: 3px solid yellowgreen;
-                // }
-                .mat-button {
-                    background-color: $rlgColorPrimaryMid;
-                    box-shadow: 0 4px 2px -2px rgba(0,0,0,.25);
-                    // border: 3px solid yellowgreen;
-                    justify-content: center; //horizontal alignment
-                    // font-size: 16px;
-                    // padding: .25em;
-                    color: aliceblue;
-                    text-shadow: $text-dark-shadow;
-                    top: -10px;
-                    // width: 50%;
-                    // height: 12%;
-                    position: relative;
-                    overflow: hidden;
-                    // padding: 10px;
-                    // text-align: center;
-                    // border: $dev-border;
-                    // border-radius: 0px 0px 10px 10px;
-                    border: 1px solid rgba(247, 248, 249, 0.25);
-                    text-transform: uppercase;
-
-                    // .mat-icon-button .mat-button-focus-overlay {
-                    //     background-color: rgba(191, 254, 5, 0.81);
-                    //     transition: background-color .5s
-                    //         cubic-bezier(0.165, 0.84, 0.44, 1);
-                    // }
-                }
-                .mat-icon-button .mat-button-focus-overlay {
-                    background-color: rgba(191, 254, 5, 0.81);
-                    transition: background-color .5s
-                        cubic-bezier(0.165, 0.84, 0.44, 1);
-                }
-
-                .mat-button:hover{
-                    background-color: $rlgColorSecondary !important;
-                // color:rgb(255, 255, 255);
-                }
-                // .mat-button-ripple .mat-ripple {
-                //     background-color: rgba(191, 254, 5, 0.81) !important;
-                // }
-
-                // .mat-button::before {
-                //     background-color: white;
-                // }
-                // .mat-button::after {
-                //     background-color: $rlgColorSecondary;
-                // }
-                // .mat-button:hover{
-                //     background-color: rgb(177, 51, 5) !important;
-                //     // color:rgb(255, 255, 255);
-                // }
-
-                // .mat-button.mat-button-ripple.mat-button-focus-overlay {
-                //     background-color: rgba(191, 254, 5, 0.81) !important;
-                // }
-
-                // body .mat-button-focus-overlay {
-                //     background-color: rgba(191, 254, 5, 0.81) !important;
-                // }
-
-                // .rlg-button {
-                //     // align-self: end;
-                //     // display: flex;
-                //     // align-content: center; //vertical alignment
-                //     // align-items: center;
-                //     justify-content: center; //horizontal alignment
-                //     // font-size: 16px;
-                //     // padding: .25em;
-                //     color: aliceblue;
-                //     text-shadow: $text-dark-shadow;
-                //     top: -10px;
-                //     // width: 50%;
-                //     // height: 12%;
-                //     position: relative;
-                //     overflow: hidden;
-                //     // padding: 10px;
-                //     // text-align: center;
-                //     // border: $dev-border;
-                //     // border-radius: 0px 0px 10px 10px;
-                //     border: 1px solid rgba(247, 248, 249, 0.25);
-                //     text-transform: uppercase;
-
-                //     // .mat-button-focus-overlay {
-                //     //     background-color: red;
-                //     //     opacity: .5;
-                //     // }
-                // }
-                // .rlg-button:hover{
-                //     background-color: rgb(250, 68, 1) !important;
-                //     // color:rgb(255, 255, 255);
-                //   }
-            }
+          // .mat-icon-button .mat-button-focus-overlay {
+          //     background-color: rgba(191, 254, 5, 0.81);
+          //     transition: background-color .5s
+          //         cubic-bezier(0.165, 0.84, 0.44, 1);
+          // }
         }
+        .mat-icon-button .mat-button-focus-overlay {
+          background-color: rgba(191, 254, 5, 0.81);
+          transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .mat-button:hover {
+          background-color: rgba(var(--rlg-color-secondary-rgb), 1);  //!important;
+          // background-color: $rlgColorSecondary !important;
+          // color:rgb(255, 255, 255);
+        }
+        // .mat-button-ripple .mat-ripple {
+        //     background-color: rgba(191, 254, 5, 0.81) !important;
+        // }
+
+        // .mat-button::before {
+        //     background-color: white;
+        // }
+        // .mat-button::after {
+        //     background-color: $rlgColorSecondary;
+        // }
+        // .mat-button:hover{
+        //     background-color: rgb(177, 51, 5) !important;
+        //     // color:rgb(255, 255, 255);
+        // }
+
+        // .mat-button.mat-button-ripple.mat-button-focus-overlay {
+        //     background-color: rgba(191, 254, 5, 0.81) !important;
+        // }
+
+        // body .mat-button-focus-overlay {
+        //     background-color: rgba(191, 254, 5, 0.81) !important;
+        // }
+
+        // .rlg-button {
+        //     // align-self: end;
+        //     // display: flex;
+        //     // align-content: center; //vertical alignment
+        //     // align-items: center;
+        //     justify-content: center; //horizontal alignment
+        //     // font-size: 16px;
+        //     // padding: .25em;
+        //     color: aliceblue;
+        //     text-shadow: $text-dark-shadow;
+        //     top: -10px;
+        //     // width: 50%;
+        //     // height: 12%;
+        //     position: relative;
+        //     overflow: hidden;
+        //     // padding: 10px;
+        //     // text-align: center;
+        //     // border: $dev-border;
+        //     // border-radius: 0px 0px 10px 10px;
+        //     border: 1px solid rgba(247, 248, 249, 0.25);
+        //     text-transform: uppercase;
+
+        //     // .mat-button-focus-overlay {
+        //     //     background-color: red;
+        //     //     opacity: .5;
+        //     // }
+        // }
+        // .rlg-button:hover{
+        //     background-color: rgb(250, 68, 1) !important;
+        //     // color:rgb(255, 255, 255);
+        //   }
+      }
     }
+  }
 }

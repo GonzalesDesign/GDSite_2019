@@ -27,12 +27,19 @@ $loaderColorTer: $rlgColorTertiaryMid;
                 height: 50%;
                 overflow: visible;
 
-                .st0 { stroke: rgba($loaderColor, 1); }
-                .st1 { stroke: rgba($loaderColor, .75); }
-                .st2 { stroke: rgba($loaderColor, .75); }
-                .st3 { stroke: rgba($loaderColor, .5); }
-                .st4 { stroke: rgba($loaderColor, .4); }
-                .st5 { stroke: rgba($loaderColor, .75); }
+                .st0 { stroke: rgba(var(--rlg-color-primary-tint), 1); }
+                .st1 { stroke: rgba(var(--rlg-color-primary-tint), .75); }
+                .st2 { stroke: rgba(var(--rlg-color-primary-tint), .75); }
+                .st3 { stroke: rgba(var(--rlg-color-primary-tint), .5); }
+                .st4 { stroke: rgba(var(--rlg-color-primary-tint), .4); }
+                .st5 { stroke: rgba(var(--rlg-color-primary-tint), .75); }
+
+                // .st0 { stroke: rgba($loaderColor, 1); }
+                // .st1 { stroke: rgba($loaderColor, .75); }
+                // .st2 { stroke: rgba($loaderColor, .75); }
+                // .st3 { stroke: rgba($loaderColor, .5); }
+                // .st4 { stroke: rgba($loaderColor, .4); }
+                // .st5 { stroke: rgba($loaderColor, .75); }
           }
 
         .loading {
@@ -40,7 +47,7 @@ $loaderColorTer: $rlgColorTertiaryMid;
           position: absolute;
           font-size: 1.2em;
           text-align: center;
-          color: $loaderColor;
+          color: rgba(var(--rlg-color-primary-tint), 1); //$loaderColor;
           border: $borderForTesting;
 
         }

@@ -40,6 +40,14 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   // @ViewChild('childViewTest') childViewTest;
   @ViewChild('imgKontainrRef') imageKontainerRef: ElementRef;
 
+
+
+
+  // root.addEventListener("mousemove", e => {
+  //   root.style.setProperty('--mouse-x', e.clientX + "px");
+  //   root.style.setProperty('--mouse-y', e.clientY + "px");
+  // });
+
   public imgKontainerTop: number;
   // @Input() childMessage: string;
 
@@ -69,6 +77,7 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   public subTitle = this.xData.subTitle;
   public layout: string; // = this.xData.orientation;
   public popDescription = this.xData.deskription;
+  public responsibilidad = this.xData.responsibilities;
   public variation = this.xData.variation;
   public aVariedProj = [];
   public variedProjects = this.xData.variedProjects2;
@@ -141,6 +150,9 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   public titleBarKontainer = ('.title-bar-kontainer');
   public titleBarId = ('titleBarId');
 
+  // test
+  // public divBgColor: any;
+
   constructor( public dialogRef: MatDialogRef<PopUpComponent>,
                @Inject(MAT_DIALOG_DATA) public xData: any,
                private _funksions: FunksionsService,
@@ -152,6 +164,10 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   }
 
   ngOnInit() {
+    // test
+    // const primaryColor = document.documentElement;
+    // this.divBgColor = primaryColor.style.setProperty('--rlg-color-primary', 'orange');
+
     console.clear();
     this._carousel.counter = 0;
     this.onSingleMutiProjects();
@@ -445,13 +461,13 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
   /**********---== RESPONSIVENESS ==---**********/
 
   /*---- Viewport Resize Listener ----*/
-  @HostListener('window:resize', ['$event'])
-  // @HostListener(this._windowRef._window(), ['$event'])
-  onResize(event) {
-    // this.fResizeMe();
-    // console.log('Screen resized!');
-    // this.ngAfterViewInit();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // // @HostListener(this._windowRef._window(), ['$event'])
+  // onResize(event) {
+  //   // this.fResizeMe();
+  //   // console.log('Screen resized!');
+  //   // this.ngAfterViewInit();
+  // }
 
   /*---- Keydown Listener ----*/
   @HostListener('document:keydown', ['$event'])
@@ -469,11 +485,11 @@ export class PopUpComponent implements OnInit, AfterViewInit, AfterViewChecked, 
 
   /*---- Window Scroll Listener ----*/
   /* angular material blocks the scroll event. do it in ngAfterViewInit */
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event) {
-    // console.log('Modal scrolled!');
-    // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // onScroll(event) {
+  //   // console.log('Modal scrolled!');
+  //   // this._funksions.fTMXscrollShowHide(this.modalTitleKontainerId, 20);
+  // }
 
   private mediaParams(imgsToDisplay, layout, fotoHeight, modalTitleFontSize, descriptionColumnCount) {
     this.screenWidth = window.innerWidth; // scrnWidth;

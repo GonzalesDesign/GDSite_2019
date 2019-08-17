@@ -42,7 +42,7 @@
             <li #imageKontainerX class="image-kontainer" id="imageKontainerId"
                 [style.backgroundColor]="'rgba(0, 0, 0, 0)'">
 
-                <!--**** Varied projects infos inside the carousel ***-->
+                <!--**** Varied projects infos inside the carousel ****-->
                 <div *ngIf="displayMultiProjects; else elseBlock" class="multi-projects"
                     [style.border]="'0px solid yellowGreen'"
                     [style.display]="'flex'">
@@ -61,8 +61,9 @@
                               [style.cursor]="'pointer'"
                               (mouseover)="changeBackgroundColor=false"
                               (mouseleave)="changeBackgroundColor=true"
-                              [ngStyle]="{'background-color': changeBackgroundColor===false  ? '#fe4400' : '#92d11f' }"
+                              [ngStyle]="{'background-color': changeBackgroundColor===false  ? 'var(--rlg-color-secondary)' : '#92d11f' }"
                               (click)="fOpenXLinks(varied.varUrl)">
+                              <!-- #9a08dd -->
                               <!-- <div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div> -->
                               <!-- <some-element [ngStyle]="{'font-style': styleExp}">...</some-element> -->
                               <mat-icon class="varLinkName-icon">link</mat-icon>
@@ -165,6 +166,9 @@
             <div class="inner"
                 [style.width.px]= 'carouselMaskWidth'
                 [style.border]="'0px solid red'">
+                <!-- <div class="multi-proj-function2">
+                    Responsibilities: {{ responsibilidad }}
+                </div> -->
                 <div class="about"
                     [style.paddingLeft.px]="'20'"
                     [style.paddingRight.px]="'20'"
@@ -172,7 +176,7 @@
                     Project Description:
                 </div>
 
-                <p class="multiColumnDescription"
+                <p class="multiColumnDescription multi_lines_text"
                     [style.columnCount]= 'descriptionColumnCount'
                     [style.columnGap.px]= "'40'"
                     [style.paddingLeft.px]="'20'"
@@ -181,11 +185,12 @@
                     {{ popDescription }}
                 </p>
 
+                <!-- Outside link button -->
                 <div [style.paddingLeft.px]="'20'">
                     <button mat-fab extended class="matFabExtended"
                         (mouseover)="changeBGColor=false"
                         (mouseleave)="changeBGColor=true"
-                        [ngStyle]="{'background-color': changeBGColor===false  ? '#fe4400' : '#92d11f' }"
+                        [ngStyle]="{'background-color': changeBGColor===false  ? 'var(--rlg-color-secondary)' : '#92d11f' }"
                         (click)="fOpenXLinks(linx1.linkUrl)">
                         <div class="buttonLabel"
                             [style.display]="'flex'"
@@ -210,11 +215,12 @@
 
                 <br>
 
+                <!-- x button -->
                 <div [style.paddingLeft.px]="'20'">
                     <button mat-fab mini class="matFabMini"
                         (mouseover)="changeCloseBGColor=false"
                         (mouseleave)="changeCloseBGColor=true"
-                        [ngStyle]="{'background-color': changeCloseBGColor===false  ? '#fe4400' : '#b0b4b6' }"
+                        [ngStyle]="{'background-color': changeCloseBGColor===false  ? 'var(--rlg-color-secondary)' : '#b0b4b6' }"
                         (click)="fClose()">
                         <mat-icon class="closeIcon"
                             [style.color]="'white'">

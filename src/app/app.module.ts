@@ -17,6 +17,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { LoaderSvgComponent } from './loader-svg/loader-svg.component';
 import { PopUpComponent } from './portfolio/pop-up/pop-up.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
     HttpClientModule,
     AppRoutingModule,
     MatModule,
-    LayoutModule
+    LayoutModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // MDCModule
   ],
   entryComponents: [

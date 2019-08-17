@@ -48,6 +48,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   public subTitleId = '#sub-title-id';
   public title = '.title';
   public subTitle = '.sub-title';
+  public subTitle2 = '.sub-title2';
 
   /*---= loader props =---*/
   public loading = '.loading';
@@ -55,7 +56,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   public cached: boolean;
 
   /*---= Timer =----*/
-  public timeout = 2000;
+  public timeout = 2000; //2s
   public tym1 = .5;
   public tym2 = .5;
   public tym3 = .5;
@@ -207,6 +208,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
       Breakpoints.XLarge
     ]).subscribe(result => {
       console.clear();
+      console.log('Breakpoints Clear Console');
       this.fScreenOrientation();
       // this.cached = true;
       // console.log('this.cached: ', this.cached, document.readyState);
@@ -345,8 +347,8 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     /*=--------------------------------------------------------------------=|=--------------------------------------------------------------------=/
       this.rlgKontentKontainerId: Container wrapper for all the cards.
     =----------------------------------------------------------------------------------------------------------------------------------------------=
-          this._mondrianAnim.fTranslateAnim2               (elem,         tym,       xp,      yp,    zp,        w,        h,  fontSize, alfa); =-*/
-          this._mondrianAnim.fTranslateAnim(this.rlgKontentKontainerId,   tym,   'auto',  'auto',   100,    hPXSW,    hPXSH,    'null',    1);
+    this._mondrianAnim.fTranslateAnim2               (elem,         tym,       xp,      yp,    zp,        w,        h,  fontSize, alfa); =-*/
+    this._mondrianAnim.fTranslateAnim(this.rlgKontentKontainerId,   tym,   'auto',  'auto',   100,    hPXSW,    hPXSH,    'null',    1);
     /*=--------------------------------------------------------------------=|=--------------------------------------------------------------------=*/
 
     /*--- Modal button visibility ---*/
@@ -354,10 +356,11 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._funksions.fTMXfontSize(this.buttonLabel, 1, '1.2em');
 
     /*--- Title and sub-title animation to place ---*/
-    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                     xp,   yp,     zp,            w,      h,   fontSize,   alfa); */
+    /* this._mondrianAnim.fTranslateAnim              (elem,       tym,                           xp,   yp,     zp,            w,      h,   fontSize,   alfa); */
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    vCtr - (hPXSW / 2) + mrgn,   22,    100,   hPXSW - (mrgn * 2),    100,     '15px',      1);
     this._funksions.fTextAlign(this.title, 'center');
     this._funksions.fTextAlign(this.subTitle, 'center');
+    this._funksions.fTextAlign(this.subTitle2, 'center');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,                    xp,      yp,     zp,      w,       h,  alfa); */
@@ -385,6 +388,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   public handsetPortrait() {
     // console.clear();
     // console.log('iPadPortrait(innerwidth): ', window.innerWidth);
+    console.log('handsetPortrait');
 
     const handsetPortrait = 599.99;
     const fotoWidth = '100%';
@@ -407,6 +411,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    298,   90,    100,   400,    100,     '15px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -466,6 +471,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId,   tym,    109,   60,    100,   400,    100,     '15px',      1);
     this._funksions.fTextAlign(this.title, 'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,   tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -525,6 +531,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     // this._mondrianAnim.fTranslateAnim(this.subTitleId,    this.tym3,       0,    0,    100,   350,    100,      '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,   tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -550,7 +557,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   /=---========================================================================================================================================---=*/
   public tabletPortrait() {
     // console.clear();h
-    // console.log('tabletPortrait');
+    console.log('tabletPortrait');
     // console.log('orientation: ', orientation);
 
     const tym = .5;
@@ -579,9 +586,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Title and sub-title animation to place ---*/
     /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,   yp,     zp,     w,      h,   fontSize,   alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    298,   50,    100,   400,    100,     '15px',      1);
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    298,   40,    100,   400,    100,     '15px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,   tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -639,6 +647,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    109,   60,    100,   400,    100,     '15px',      1);
     this._funksions.fTextAlign(this.title, 'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -694,9 +703,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Title and sub-title animation to place ---*/
     /* this._mondrianAnim.fTranslateAnim              (elem,    tym,     xp,   yp,     zp,     w,      h,   fontSize,   alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId,    tym,     54,   38,    100,   400,    100,     '18px',      1);
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId,    tym,     54,   22,    100,   400,    100,     '18px',      1);
     this._funksions.fTextAlign(this.title, 'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,    tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -750,9 +760,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Title and sub-title animation to place ---*/
     /* this._mondrianAnim.fTranslateAnim              (elem,       tym,     xp,   yp,     zp,     w,      h,   fontSize,   alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    232,   84,    100,   400,    100,     '18px',      1);
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    230,   74,    100,   400,    100,     '18px',      1);
     this._funksions.fTextAlign(this.title, 'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -816,9 +827,10 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
     /*--- Title and sub-title animation to place ---*/
     /* this._mondrianAnim.fTranslateAnim              (elem,    tym,     xp,   yp,     zp,     w,      h,   fontSize,   alfa); */
-    this._mondrianAnim.fTranslateAnim(this.titleContainerId,    tym,    548,   60,    100,   400,    100,     '20px',      1);
+    this._mondrianAnim.fTranslateAnim(this.titleContainerId,    tym,    548,   40,    100,   400,    100,     '20px',      1);
     this._funksions.fTextAlign(this.title, 'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,   tym,      xp,    yp,     zp,      w,       h,  alfa); */
@@ -844,10 +856,11 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public iPhoneXVertical() {
     // console.clear();
-    console.log('iPhoneXVertical(innerwidth): ', window.innerWidth);
-    console.log('iPhoneXVertical(screen.width): ', screen.width);
+    // console.log('iPhoneXVertical(innerwidth): ', window.innerWidth);
+    // console.log('iPhoneXVertical(screen.width): ', screen.width);
     const iPhoneXPortrait = this.iPhoneX.height;
-    console.log('iPhoneXPortrait: ', iPhoneXPortrait);
+    console.log('iPhoneXVertical: ');
+    // console.log('iPhoneXPortrait: ', iPhoneXPortrait);
     // this.screenWidth = iPhoneXPortrait;
 
     const fotoWidth = '100%';
@@ -874,6 +887,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,      0,    0,    100,   350,    100,    '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,    xp,     yp,     zp,      w,       h,  alfa); */   // xp,
@@ -905,7 +919,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('iPhoneXWide(innerwidth): ', window.innerWidth);
     console.log('iPhoneXVertical(screen.width): ', screen.width);
     const iPhoneXwidth = 797; // this.iPhoneX.width;
-    console.log('iPhoneXwidth: ', iPhoneXwidth);
+    console.log('iPhoneXwidth: ');
 
 
     const fotoWidth = '100%';
@@ -933,6 +947,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     // this._mondrianAnim.fTranslateAnim(this.subTitleId,    this.tym3,       0,    0,    100,   350,    100,      '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -955,7 +970,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public i812Vertical() {
     // console.clear();
-    console.log('i812Vertical(innerwidth): ', window.innerWidth);
+    console.log('i812Vertical: '); // , window.innerWidth);
 
     const i812Vertical = 812;
 
@@ -979,6 +994,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    176,  139,    100,   400,    100,     '20px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -1002,6 +1018,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public iPadPortrait() {
     // console.clear();
+    console.log('iPadPortrait');
     // console.log('iPadPortrait(innerwidth): ', window.innerWidth);
 
     const iPadPortrait = 768;
@@ -1025,6 +1042,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    176,  139,    100,   400,    100,     '20px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -1049,6 +1067,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   public iPadWide() {
     // console.clear();
     // console.log('iPadWide(innerwidth): ', window.innerWidth);
+    console.log('iPadWide');
     const iPad1024 = this.iPad.width;
 
     const fotoWidth = '100%';
@@ -1072,6 +1091,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     // this._mondrianAnim.fTranslateAnim(this.subTitleId,    this.tym3,       0,    0,    100,   400,    100,      '.9em',    1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,       xp,     yp,     zp,      w,       h,  alfa); */   // xp,
@@ -1095,7 +1115,8 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public iPadProVertical() {
     // console.clear();
-    console.log('iPadProVertical(innerwidth): ', window.innerWidth);
+    console.log('iPadProVertical');
+    // console.log('iPadProVertical(innerwidth): ', window.innerWidth);
 
     const iPadPro1024 = this.iPadPro.height;
     const fotoWidth = '100%';
@@ -1118,6 +1139,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.titleContainerId, this.tym3,    176,  174,    100,   400,    100,     '22px',      1);
     this._funksions.fTextAlign(this.title, 'left');
     this._funksions.fTextAlign(this.subTitle, 'left');
+    this._funksions.fTextAlign(this.subTitle2, 'left');
 
     /*--- Photo containers animation ---*/
     /* this._mondrianAnim.fTranslateAnim                (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -1141,7 +1163,8 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public largeScrnSliderAnim() {
     // console.clear();
-    console.log('largeScrnSliderAnim(innerwidth): ', window.innerWidth);
+    console.log('largeScrnSliderAnim');
+    // console.log('largeScrnSliderAnim(innerwidth): ', window.innerWidth);
     const fotoWidth = '100%';
     const fotoHeight = '120%'; // %
     const xpos = 498;
@@ -1164,6 +1187,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
     this._mondrianAnim.fTranslateAnim(this.subTitleId,       this.tym3,      0,    0,   100,   400,   100,    '.9em',    1);
     this._funksions.fTextAlign(this.title,    'right');
     this._funksions.fTextAlign(this.subTitle, 'right');
+    this._funksions.fTextAlign(this.subTitle2, 'right');
 
     /*--- Photo containers placements ---*/
     /* this._mondrianAnim.fTranslateAnim2               (elem,         tym,      xp,     yp,     zp,      w,       h,  alfa); */
@@ -1185,6 +1209,7 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   /*---- MatchMedia queries ----*/
+  /*
   public fResizeMedia() {
     // console.clear();
     // this.innerWidth = window.innerWidth;
@@ -1224,32 +1249,33 @@ export class PortfolioComponent implements OnInit, OnDestroy, AfterViewInit {
       this.largeScrnSliderAnim();
     }
   }
+  */
 
   /*---- Screen Resize ----*/
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    // this.fResizeMe();
-    // this.fResizeMedia();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event) {
+  //   // this.fResizeMe();
+  //   // this.fResizeMedia();
+  // }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event) {
-    // console.log('You scrolled!');
-    // this.fTestScroll();
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // onScroll(event) {
+  //   // console.log('You scrolled!');
+  //   // this.fTestScroll();
+  // }
 
   /*---- Opening Modal: trigger in HTML ----*/
   public fOpenModal(
-                    xId,
-                    pathImg,
-                    img,
-                    title,
-                    subTitle,
-                    description,
-                    orientation,
-                    variation,
-                    links,
-                    variedProjects): void {
+                    xId: number,
+                    pathImg: string,
+                    img: string,
+                    title: string,
+                    subTitle: string,
+                    description: string,
+                    orientation: string,
+                    variation: string,
+                    links: string,
+                    variedProjects: string): void {
     const dialogRef = this._popUp.open(PopUpComponent, {
       maxWidth: this.modalWidthVW,
       height: this.modalHeightVH,

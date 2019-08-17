@@ -1,5 +1,3 @@
-
-
 /***********************************************************
 * Project: R.Lloyd Gonzales Portfolio Website
 * URL: RLGonzales.com

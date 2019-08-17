@@ -2,6 +2,7 @@
 /*=---=|    Import: General styling    |=---=*/
 @import './../../../styles.scss';
 @import './carousel.scss';
+@import './../../../variables.scss';
 
 /*---| Classes |---*/
 
@@ -18,7 +19,7 @@ mat-toolbar.title-bar-kontainer {
   //   width: 90vw;
   // max-width: 300px;
   // overflow: hidden;
-  background-color: orange; // $rlgColorPrimaryMid;
+  background-color: orange; // var(--rlg-color-primary)Mid;
   height: 100px;
   // box-shadow: $box-shadow2;
   border-radius: 14px 0;
@@ -72,7 +73,7 @@ mat-toolbar.title-bar-kontainer {
   //   line-height: .8em;
   //   padding: 10px 40px 10px 40px;
   //   height: auto;
-  //   background-color: rgba($rlgColorPrimaryMid, 1);
+  //   background-color: rgba(var(--rlg-color-primary)Mid, 1);
   //   text-shadow: $text-shadow;
   //   border-radius: 14px 0;
   //   border: 1px solid white;
@@ -92,7 +93,7 @@ mat-toolbar.title-bar-kontainer {
   line-height: .8em;
   padding: 10px 40px 10px 40px;
   height: auto;
-  background-color: rgba($rlgColorPrimaryMid, 1);
+  background-color: rgba(var(--rlg-color-primary-rgb), .75);
   text-shadow: $text-shadow;
   border-radius: 14px 0 0 0;
   // border: 1px solid white;
@@ -114,7 +115,7 @@ mat-toolbar.title-bar-kontainer {
   margin: -10px 0px 20px 0px;
   height: 4px;
   // width: 90vh;
-  background-color: rgba($rlgColorPrimary, .4);
+  background-color: rgba(var(--rlg-color-primary-rgb), .4);
 }
 
 .modalKontainer {
@@ -171,6 +172,14 @@ mat-toolbar.title-bar-kontainer {
   color: rgba($rlgColorDark, .5);
   line-height: 1;
   margin-top: 1em;
+  // padding-left: 20px;
+}
+.multi-proj-function2 {
+  @include fontFamilyWeightSize ($rlg-paragraph-font, 400, 1.2em);
+  color: rgba($rlgColorDark, .5);
+  line-height: 1;
+  margin-top: 1em;
+  padding-left: 20px;
 }
 
 .multi-proj-description {
@@ -179,6 +188,10 @@ mat-toolbar.title-bar-kontainer {
   margin: 20px 40px 0px 0px;
   line-height: 1.4;
   font-style: italic;
+}
+/*--=| Carriage return in textarea |=--*/
+.multi_lines_text {
+  white-space: pre-line;
 }
 
 .multi-proj-link {
@@ -193,10 +206,15 @@ mat-toolbar.title-bar-kontainer {
   text-shadow: $text-shadow;
   border-radius: 20px;
   box-shadow: $text-shadow;
+
+}
+.divBgColor {
+  background-color: rgba(var(--rlg-color-primary-rgb), 1);
 }
 
 .varLinkName-label {
   margin-left: 6px;
+  padding-top: 2px;
   // color: rgba($rlgColorSecondary, 1);
 }
 
@@ -239,7 +257,7 @@ mat-toolbar.title-bar-kontainer {
 }
 
 .about {
-  @include fontFamilyWeightSize ($rlg-primary-font, 400, 1em);
+  @include fontFamilyWeightSize ($rlg-primary-font, 600, 1.2em);
   color: rgba($rlgColorDark, .5);
 }
 
@@ -284,4 +302,6 @@ mat-fab {
   height: 48px;
   border-radius: 24px;
   background-color: $rlgColorTertiary;
+  // color: #fe4400; 9a08dd
+  // color: #92d11f;
 }

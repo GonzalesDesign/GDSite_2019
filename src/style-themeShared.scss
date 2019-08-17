@@ -9,20 +9,38 @@
         Material Components designed for Angular only!
         Site theme css. Imported in style-themeMAT.scss
 *******************************************************/
+@import './variables.scss';
 
+:root {
+  --rlg-color-primary: 5, 105, 122; //rgb(5, 105, 122);
+  --rlg-color-primary-tint: 6, 160, 221; //rgb(6, 160, 221);
+  // --rlg-color-secondary: rgb(3, 149, 194); //#9a08dd;
+  // --rlg-color-secondary-tint: rgb(108, 212, 243); //#9a08dd;
+  // --rlg-color-primary: 102, 3, 141; //rgb(102, 3, 141);
+  // --rlg-color-primary-tint: 160, 6, 221; //rgb(160, 6, 221);
+  // --rlg-color-secondary: 154, 8, 221; //rgb(154, 8, 221); //#9a08dd;
+  // --percentage: 25;
+  // --opacity: calc(var(--percentage) * 0.01);
+  // $varColor: var(--rlg-color-secondary);
+}
 
 
 /*---=| Compound Color Schemes or Split Complementary |=---*/
 
 /*--= PRIMARY =--*/
-$rlgColorPrimary: #347B98;
-$rlgColorPrimaryMid: lighten($rlgColorPrimary, 10%); // rgb(84, 163, 194);
-$rlgColorPrimaryQtr: lighten($rlgColorPrimary, 20%); // rgb(121, 206, 240);
+// $rlgColorPrimary: #66038d;
+$rlgColorPrimary: rgba(var(--rlg-color-primary), 1); //#66038d;
+// $rlgColorPrimary: #8d0303;
+// $rlgColorPrimary: #347B98;
+// $rlgColorPrimaryMid: rgba(var(--rlg-color-primary), .5); //lighten($rlgColorPrimary, 10%); // rgb(84, 163, 194);
+$rlgColorPrimaryMid: rgba(var(--rlg-color-primary), .5); //lighten($rlgColorPrimary, 10%); // rgb(84, 163, 194);
+$rlgColorPrimaryQtr: rgba(var(--rlg-color-primary), .25); //lighten($rlgColorPrimary, 20%); // rgb(121, 206, 240);
 
 /*--= SECONDARY =--*/
-$rlgColorSecondary: rgb(254, 68, 0); //#fe5900
-$rlgColorSecondaryMid: lighten($rlgColorSecondary, 15%);
-$rlgColorSecondaryDrk: darken($rlgColorSecondary, 5%);
+$rlgColorSecondary: rgba(var(--rlg-color-secondary-rgb), 1); // #9a08dd;
+// $rlgColorSecondary: rgb(254, 68, 0); //#fe5900
+$rlgColorSecondaryMid: rgba(var(--rlg-color-primary), .5); //lighten($rlgColorSecondary, 15%);
+$rlgColorSecondaryDrk: rgba(var(--rlg-color-primary), 1.25); //darken($rlgColorSecondary, 5%);
 
 /*--= TERTIARY =--*/
 $rlgColorTertiary: #92d11f; // #92d11f  #B2D732
@@ -61,13 +79,13 @@ $text-white-shadow: 1px 1px rgba(white, .15);
 $text-shadow: 1px 1px 2px rgba($rlgColorDark,.25);
 
 /*---=| Font families |=---*/
-$rlg-primary-font: "Open Sans"; // Montserrat Open Sans
-$rlg-paragraph-font: "Merriweather";
-$rlg-header-font: "Oswald";
-$rlg-round-font: "Lato";
-$rlg-open-font: "Open Sans";
+$rlg-primary-font: "Open Sans", sans-serif; // Montserrat Open Sans
+$rlg-paragraph-font: "Merriweather", serif;
+$rlg-header-font: "Oswald", sans-serif;
+$rlg-round-font: "Lato", sans-serif;
+$rlg-open-font: "Open Sans", sans-serif;
 $rlg-pt-font: "PT Sans";
-$rlg-robot-font: "Roboto";
+$rlg-robot-font: "Roboto", sans-serif;
 $rlg-pt-caption-font: "PT Sans Caption";
 $rlg-icons-font: "Material Icons";
 
@@ -86,17 +104,21 @@ $redBorderForTesting: 0px solid rgb(245, 1, 1);
 $greyBorderForTesting: 0px solid rgb(91, 86, 91);
 
 /*---=| HTML Layout |=---*/
-body {
-    // overflow:hidden;
-    // margin: 0;
-    background-color:  $rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
-    // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
-    margin: 0;
-    font-family: $rlg-paragraph-font, sans-serif;
-}
+// body {
+//     // overflow:hidden;
+//     // margin: 0;
+//     background-color:  var(--rlg-color-primary); //$rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
+//     // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
+//     margin: 0;
+//     font-family: $rlg-paragraph-font, sans-serif;
+// }
 
 html, body {
     height: 100%;
+    background-color:  rgba(var(--rlg-color-primary), 1); //var(--rlg-color-primary); //$rlgColorPrimary; // $rlgColorDark; // $rlgColorLight;
+    // background-image: url("../src/assets/images/steampunk/cars/photo3.jpg");
+    margin: 0;
+    font-family: $rlg-paragraph-font, sans-serif;
 }
 
 p {

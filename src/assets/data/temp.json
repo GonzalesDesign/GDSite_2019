@@ -1,0 +1,29 @@
+{
+  "id": 4,
+  "kontainerId": "photo-kontainer-4",
+  "imageId": "image4",
+  "title": "Filipinas",
+  "subTitle": "Kawali Restaurant Painting",
+  "coverImage": "coverFilipinas.jpg",
+  "orientation": "landscapexxxxxxxx",
+  "variation": "single-project",
+  "links": [
+      {"linkName": "Facebook Link"},
+      {"linkUrl": "https://www.facebook.com/pg/RLloydGonzalesDesign/photos/?tab=album&album_id=1552715854982727"}
+  ],
+  "imagePath": "./../../assets/images/filipinas/",
+  "images": [
+      { "value": "photo0.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo1.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
+      { "value": "photo2.jpg", "bgSize": "cover", "bgColor": "#6c6c6c" },
+      { "value": "photo3.jpg", "bgSize": "contain", "bgColor": "#001f24" },
+      { "value": "photo4.jpg", "bgSize": "contain", "bgColor": "#0d0d0d" },
+      { "value": "photo5.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo6.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo7.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo8.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo9.jpg", "bgSize": "contain", "bgColor": "#025d72" },
+      { "value": "photo10.jpg", "bgSize": "contain", "bgColor": "#025d72" }
+  ],
+  "description": "Mural painting for Kawali Express, a Filipino Restaurant in Voorhees, NJ. The panel is divided into two, left represents the land and the right represents water. These are the two main sources of food supplies and economy in the Philippines, farming and fishing. The middle has the famous Balut egg, Philippine map and a clay pot cooking a local dish and the title Filipinas. Behind all that is the Mayon Volcano. 48“ x 96“ Mural, Acrylic on board."
+},

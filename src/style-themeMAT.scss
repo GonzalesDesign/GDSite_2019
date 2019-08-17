@@ -27,7 +27,8 @@
 
 /*---= pop up modal background overlay, background color =---*/
 .cdk-overlay-dark-backdrop {
-    background: rgba($rlgColorPrimary, .75);
+    // background: rgba($rlgColorPrimary, .75);
+    background: rgba(var(--rlg-color-primary), .75);
 }
 
 
