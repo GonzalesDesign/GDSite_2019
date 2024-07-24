@@ -1,4 +1,5 @@
 # GdPortfolio
+R:07.24.2024: Github clone
 
 https://pwa.rlloydgonzales.com
 
